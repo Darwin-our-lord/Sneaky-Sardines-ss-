@@ -14,20 +14,23 @@ public class AcornShield : GraftablePart
     {
         if (held)
         {
-            if (playerRb.linearVelocity.magnitude > 0.1f)
+            if (playerRb.linearVelocity.magnitude < 0.1f)
             {
                 float facingDirection = playerMovement.facingRight ? 1f : -1f; //determine the direction the player is facing (1 for right, -1 for left)
-                transform.position = transform.parent.position += transform.right * facingDirection * 0.7f;
+
+                transform.position = new Vector3(transform.parent.position.x+ facingDirection * 0.8f, transform.parent.position.y, transform.parent.position.z);
+                transform.rotation = Quaternion.Euler(0, 0, facingDirection * 90f);
             }
             else
             {
-                transform.position = transform.parent.position += transform.up * 0.7f;
+                transform.position = new Vector3(transform.parent.position.x, transform.parent.position.y + 0.7f, transform.parent.position.z);
             }
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override void OnTriggerEnter2D(Collider2D collision)
     {
+        base.OnTriggerEnter2D(collision);
         if (held && collision.GetComponent<AcornEnemy>())
         {
             collision.GetComponent<AcornEnemy>().TurnAround();

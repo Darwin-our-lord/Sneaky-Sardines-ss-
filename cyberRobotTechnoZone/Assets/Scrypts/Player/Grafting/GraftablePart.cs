@@ -4,11 +4,9 @@ public class GraftablePart : MonoBehaviour
 {
     protected bool held = false; //to stop checking for pickup when already held
 
-    void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Collision detected with: " + collision.transform.gameObject.name);
-        if (held) return;
-        if (collision.transform.gameObject.CompareTag("Player"))
+        if (!held && collision.transform.gameObject.CompareTag("Player"))
         {
             held = true;
             transform.position = collision.transform.position;
