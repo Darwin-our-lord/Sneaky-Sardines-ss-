@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class AlmondEnemy : Enemy
+public class AcornEnemy : Enemy
 {
     int dir = 1;
 
-    [SerializeField] float speed = 0.01f;
+    [SerializeField] float speed = 0.01f; 
     [SerializeField] float edgeBuffer = 0.5f; //how close to the edge of the platform before turning around
     [SerializeField] LayerMask groundLayer; //what counts as ground for the enemy to walk on
     public void FixedUpdate()
@@ -23,6 +23,10 @@ public class AlmondEnemy : Enemy
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.collider.CompareTag("Enemy")) 
+        { 
+            dir*=-1; //turn around
+        }
         if(collision.collider.CompareTag("Player"))
         {
             //player take dmg
