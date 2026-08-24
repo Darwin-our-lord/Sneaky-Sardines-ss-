@@ -1,12 +1,23 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
-public static class Enemy 
+public class Enemy : MonoBehaviour
 {
-    static int health = 0;
+    [SerializeField] int health = 0;
 
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
 
-
-
-
+    void Die()
+    {
+        Debug.Log("died");
+    }
 
 }
