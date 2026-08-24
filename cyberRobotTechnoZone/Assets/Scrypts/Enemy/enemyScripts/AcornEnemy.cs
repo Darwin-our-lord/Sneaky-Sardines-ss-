@@ -15,7 +15,7 @@ public class AcornEnemy : Enemy
 
         if(raycast.collider == null)
         {
-            dir *= -1; //turn around
+            TurnAround();
         }
 
         transform.position += transform.right * dir * speed; //move
@@ -25,11 +25,15 @@ public class AcornEnemy : Enemy
     {
         if (collision.collider.CompareTag("Enemy")) 
         { 
-            dir*=-1; //turn around
+            TurnAround();
         }
         if(collision.collider.CompareTag("Player"))
         {
             //player take dmg
         }
+    }
+    public void TurnAround()
+    {
+        dir *= -1; //turn around
     }
 }

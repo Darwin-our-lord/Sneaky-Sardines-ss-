@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class GraftablePart : MonoBehaviour
 {
-    bool held = false;
+    protected bool held = false; //to stop checking for pickup when already held
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Collision detected with: " + collision.transform.gameObject.name);
         if (held) return;
         if (collision.transform.gameObject.CompareTag("Player"))
         {
@@ -16,7 +17,6 @@ public class GraftablePart : MonoBehaviour
         }
     }
 
-    // Hook for derived parts to run initialization when attached.
     protected virtual void OnAttach()
     {
         // override in subclasses

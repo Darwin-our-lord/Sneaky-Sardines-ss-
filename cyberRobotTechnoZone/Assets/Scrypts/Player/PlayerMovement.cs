@@ -4,6 +4,8 @@ using UnityEngine.XR;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public bool facingRight = true; //used to determine which way the player is facing
+
     private Rigidbody2D rb;
     [SerializeField] float speed;
     [SerializeField] float jumpHeight;
