@@ -554,6 +554,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 583823903056415152, guid: c4945402d41f70e48b0bffbeb229cd76, type: 3}
+      propertyPath: jumpHeight
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1360551432165360453, guid: c4945402d41f70e48b0bffbeb229cd76, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -596,7 +600,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2259016277326486608, guid: c4945402d41f70e48b0bffbeb229cd76, type: 3}
       propertyPath: m_LinearDamping
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2451818486817249507, guid: c4945402d41f70e48b0bffbeb229cd76, type: 3}
       propertyPath: m_Name
