@@ -29,7 +29,7 @@ public class AcornEnemy : Enemy
         }
         if(collision.collider.CompareTag("Player"))
         {
-            //player take dmg
+            collision.collider.GetComponent<PlayerManager>().TakeDamage(1);
         }
     }
     public void TurnAround()
