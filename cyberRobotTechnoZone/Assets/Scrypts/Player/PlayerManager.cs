@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    public List<Sprite> headsprite;
     int health = 3;
     [SerializeField] private int maxHealth = 3;
 
@@ -16,10 +18,10 @@ public class PlayerManager : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        if (health <= 0)
-        {
-            Die();
-        }
+        if (health <= 0) { Die(); }
+        GetComponent<SpriteRenderer>().sprite = headsprite[health];
+
+
     }
 
     public void Die()
