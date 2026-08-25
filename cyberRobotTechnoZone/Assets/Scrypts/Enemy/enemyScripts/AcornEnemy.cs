@@ -23,7 +23,7 @@ public class AcornEnemy : Enemy
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("Floor") && collision.GetContact(0).normal.y > 0.5f)
+        if (collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("Floor") && collision.GetContact(0).normal.y < 0.5f)
         { 
             TurnAround();
         }
