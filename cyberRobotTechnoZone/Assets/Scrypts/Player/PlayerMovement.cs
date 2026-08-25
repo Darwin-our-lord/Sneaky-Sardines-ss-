@@ -7,13 +7,19 @@ public class PlayerMovement : MonoBehaviour
     public bool facingRight = true; //used to determine which way the player is facing
 
     private Rigidbody2D rb; // the rigidbody
+
     [SerializeField] float speed; // the speed of wich the player moves
     [SerializeField] float jumpHeight; // the height of wich the player jumps
-    [SerializeField] bool grounded; // used to determine if the player is ón the ground, and therfore can jump
+
+    private bool grounded; // used to determine if the player is ón the ground, and therfore can jump
+
     [SerializeField] float jumpCooldown = 1f; // the time between jumps - this fixes issues with double jumping on a single frame
     private float currentCooldownTime; // the timer itself
 
-   
+    [SerializeField] float cyoteTime; // the time after the player leaves the ground, but still is able to jump
+    [SerializeField] private float currentCyoteTime; // the timer itself
+
+    [SerializeField] private bool canJump;
 
     void Start()
     {
@@ -23,28 +29,46 @@ public class PlayerMovement : MonoBehaviour
     
     void FixedUpdate()
     {
-        // making the timer go down, and stops when it's under 0 so it doesnt run forever
+        // making the cooldown timer go down, and stops when it's under 0 so it doesnt run forever
         if(currentCooldownTime >= 0) 
         {
             currentCooldownTime -= 0.1f;
 
         }
 
-        // checks if W or Space is pressend while the player is on the ground and the cooldown has passed - if so, the player jumps
-        if ((Keyboard.current.wKey.isPressed || Keyboard.current.spaceKey.isPressed) && grounded == true && currentCooldownTime <= 0)
+        if (grounded == false)
+        {
+            // making the cyote timer go down, and when it reaches zero, the player can no longer jump in the air
+            if (currentCyoteTime >= 0)
+            {
+                currentCyoteTime -= 0.1f;
+
+            }
+            else
+            {
+                canJump = false;
+            }
+        }
+        
+
+        // checks if W or Space is pressend while the player is on the ground and the cooldown has passed - if so, the player jumps 
+        if ((Keyboard.current.wKey.isPressed || Keyboard.current.spaceKey.isPressed) && canJump == true && currentCooldownTime <= 0)
         {
             rb.linearVelocityY += jumpHeight;
             currentCooldownTime = jumpCooldown;
             
+            grounded = false;
+            canJump = false;
+            
         }
 
-        // checks if D is pressed and if so, the player walks right
+        // checks if D is pressed and if so, the player walks right and is set to be facing right
         if (Keyboard.current.dKey.isPressed)
         {
             rb.linearVelocityX = speed;
             facingRight = true;
         }
-        // checks if D is pressed and if so, the player walks left
+        // checks if D is pressed and if so, the player walks left and is set to be facing left
 
         if (Keyboard.current.aKey.isPressed)
         {
@@ -60,9 +84,10 @@ public class PlayerMovement : MonoBehaviour
     // grounded is set to true
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if(collision.gameObject.layer == 3 && collision.GetContact(0).normal == Vector2.up)
+        if(collision.gameObject.layer == 3 && collision.GetContact(0).normal == Vector2.up && rb.linearVelocityY <= 0)
         {
             grounded = true;
+            canJump = true;
          
         }
     }
@@ -73,6 +98,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.layer == 3 )
         {
             grounded = false;
+            currentCyoteTime = cyoteTime;
         }
     }
 
