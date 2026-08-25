@@ -52,13 +52,13 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         contactPoint = collision.GetContact(0);
         if(collision.gameObject.layer == 3 && contactPoint.normal == Vector2.up)
         {
             grounded = true;
-            rb.linearVelocityY = 0f;
+            //rb.linearVelocityY = 0f;
          
         }
     }
