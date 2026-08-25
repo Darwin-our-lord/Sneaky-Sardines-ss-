@@ -34,7 +34,8 @@ public class AcornShield : GraftablePart
         base.OnTriggerEnter2D(collision);
         if (held && collision.gameObject.CompareTag("Enemy"))
         {
-            collision.GetComponent<Enemy>().TakeDamage(1);
+            Vector3 knockbackDirection = playerMovement.facingRight ? Vector3.right : Vector3.left;
+            collision.GetComponent<Enemy>().TakeKnockBack(10f, knockbackDirection);
         }
     }
 
