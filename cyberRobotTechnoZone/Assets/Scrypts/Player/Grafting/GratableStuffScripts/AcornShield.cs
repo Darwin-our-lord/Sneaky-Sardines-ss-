@@ -24,6 +24,7 @@ public class AcornShield : GraftablePart
             else
             {
                 transform.position = new Vector3(transform.parent.position.x, transform.parent.position.y + 0.7f, transform.parent.position.z);
+                transform.rotation = Quaternion.Euler(0, 0, 0);
             }
         }
     }
@@ -31,9 +32,9 @@ public class AcornShield : GraftablePart
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision);
-        if (held && collision.GetComponent<AcornEnemy>())
+        if (held && collision.gameObject.CompareTag("Enemy"))
         {
-            collision.GetComponent<AcornEnemy>().TurnAround();
+            collision.GetComponent<Enemy>().TakeDamage(1);
         }
     }
 
