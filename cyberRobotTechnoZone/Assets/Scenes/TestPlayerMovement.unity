@@ -669,10 +669,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 583823903056415152, guid: c4945402d41f70e48b0bffbeb229cd76, type: 3}
-      propertyPath: cyoteTime
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 583823903056415152, guid: c4945402d41f70e48b0bffbeb229cd76, type: 3}
       propertyPath: jumpHeight
       value: 7
       objectReference: {fileID: 0}
