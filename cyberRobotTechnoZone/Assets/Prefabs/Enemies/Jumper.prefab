@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7549104713672965833}
   m_Layer: 0
   m_Name: Jumper
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -182,3 +182,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::jumperEnemy
   health: 5
   speed: 0.1
+  jumpRange: 6
+  jumpMinRange: 4
+  jumpDuration: 0.6
+  arcHeight: 2
+  jumpCooldown: 1.5
