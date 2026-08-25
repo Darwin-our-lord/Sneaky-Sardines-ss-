@@ -83,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (!Keyboard.current.aKey.isPressed && !Keyboard.current.dKey.isPressed && Mathf.FloatToHalf(rb.linearVelocityX) != 0 && grounded == true)
         {
-                rb.linearVelocityX *= 0.8f
+            rb.linearVelocityX *= 0.8f;
         }
 
     }
