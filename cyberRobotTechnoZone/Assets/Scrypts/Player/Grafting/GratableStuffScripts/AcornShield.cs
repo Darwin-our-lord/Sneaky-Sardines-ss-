@@ -1,3 +1,4 @@
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class AcornShield : GraftablePart
@@ -24,7 +25,7 @@ public class AcornShield : GraftablePart
                 float facingDirection = playerMovement.facingRight ? 1f : -1f; //determine the direction the player is facing (1 for right, -1 for left)
 
                 transform.position = new Vector3(transform.parent.position.x + facingDirection * 0.8f, transform.parent.position.y, transform.parent.position.z);
-                transform.rotation = Quaternion.Euler(0, 0, facingDirection * 90f);
+                transform.rotation = Quaternion.Euler(0, 0, facingDirection * -90f);
             }
         }
     }
@@ -34,8 +35,25 @@ public class AcornShield : GraftablePart
         base.OnTriggerEnter2D(collision);
         if (held && collision.gameObject.CompareTag("Enemy"))
         {
-            Vector3 knockbackDirection = gameObject.transform.eulerAngles;
-            collision.GetComponent<Enemy>().TakeKnockBack(20f, knockbackDirection);
+            Vector3 knockbackDirection;
+            if (playerRb.linearVelocity.magnitude < 0.1f)
+            {
+                knockbackDirection = gameObject.transform.eulerAngles;
+            }
+            else
+            {
+                knockbackDirection = playerMovement.facingRight ? Vector3.right : Vector3.left;
+            }
+
+            
+            if (collision.GetComponent<Enemy>() == null)
+            {
+                Destroy(collision.gameObject);
+            }
+            else
+            {
+                collision.GetComponent<Enemy>().TakeKnockBack(20f, knockbackDirection);
+            }
         }
     }
 
