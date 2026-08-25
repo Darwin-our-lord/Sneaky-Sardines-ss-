@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float cyoteTime; // the time after the player leaves the ground, but still is able to jump
     [SerializeField] private float currentCyoteTime; // the timer itself
 
-    [SerializeField] private bool canJump;
+    public bool canJump { get; private set; }
 
     void Start()
     {
