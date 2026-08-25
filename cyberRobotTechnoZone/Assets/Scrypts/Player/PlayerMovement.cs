@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float speed; // the speed of wich the player moves
     [SerializeField] float jumpHeight; // the height of wich the player jumps
     [SerializeField] bool grounded; // used to determine if the player is ón the ground, and therfore can jump
-    SerializeField] float jumpCooldown = 1f; // the time between jumps - this fixes issues with double jumping on a single frame
+    [SerializeField] float jumpCooldown = 1f; // the time between jumps - this fixes issues with double jumping on a single frame
     private float currentCooldownTime; // the timer itself
 
    
