@@ -29,29 +29,28 @@ public class spinspin : GraftablePart
         void FixedUpdate()
         {
         PlayerMovement player = GetComponentInParent<PlayerMovement>();
-            if (player.canJump)
-            {
+        if (player.canJump)
+        {
             sub = transform.position.y;
             GetComponent<SpriteRenderer>().color = Color.white;
             transform.GetComponentInParent<Rigidbody2D>().gravityScale = 1f;
+        }
+        if (player.canJump == false)
+        {
+            if (sub > transform.position.y)
+            {
+                sub = transform.position.y;
+                GetComponent<SpriteRenderer>().color = Color.yellow;
+                transform.GetComponentInParent<Rigidbody2D>().gravityScale = 0.2f;
             }
-            time += Time.deltaTime;
-                if (time > wait)
-                {
-                    time = 0;
-                    if (sub > transform.position.y)
-                    {
-                        sub = transform.position.y;
-                        GetComponent<SpriteRenderer>().color = Color.yellow;
-                        transform.GetComponentInParent<Rigidbody2D>().gravityScale = 0.1f;
-                    }
-                    else if (sub <= transform.position.y)
-                    {
-                        sub = transform.position.y;
-                        GetComponent<SpriteRenderer>().color = Color.white;
-                        transform.GetComponentInParent<Rigidbody2D>().gravityScale = 1f;
-                    }
+            else if (sub <= transform.position.y)
+            {
+                sub = transform.position.y;
+                GetComponent<SpriteRenderer>().color = Color.white;
+                transform.GetComponentInParent<Rigidbody2D>().gravityScale = 1f;
+            }
+        }
+
                 }
              
         }
-    }
