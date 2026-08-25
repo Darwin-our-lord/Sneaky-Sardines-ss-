@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private float currentCooldownTime; // the timer itself
 
     [SerializeField] float cyoteTime; // the time after the player leaves the ground, but still is able to jump
-    [SerializeField] private float currentCyoteTime; // the timer itself
+    private float currentCyoteTime; // the timer itself
 
     public bool canJump { get; private set; }
 
@@ -81,12 +81,9 @@ public class PlayerMovement : MonoBehaviour
             facingRight = false;
         }
 
-        if (!Keyboard.current.aKey.isPressed && !Keyboard.current.dKey.isPressed)
+        if (!Keyboard.current.aKey.isPressed && !Keyboard.current.dKey.isPressed && Mathf.FloatToHalf(rb.linearVelocityX) != 0 && grounded == true)
         {
-             
-                Debug.Log(rb.linearVelocityY);
-                rb.linearVelocityX *= 0.9f;
-            
+                rb.linearVelocityX *= 0.8f
         }
 
     }
