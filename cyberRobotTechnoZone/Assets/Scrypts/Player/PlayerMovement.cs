@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private float currentCooldownTime; // the timer itself
 
     [SerializeField] float cyoteTime; // the time after the player leaves the ground, but still is able to jump
-    [SerializeField] private float currentCyoteTime; // the timer itself
+    private float currentCyoteTime; // the timer itself
 
     public bool canJump { get; private set; }
 
@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
         if ((Keyboard.current.wKey.isPressed || Keyboard.current.spaceKey.isPressed) && canJump == true && currentCooldownTime <= 0)
         {
             Vector2 velocity = Vector2.zero;
-            rb.linearVelocity = Vector2.SmoothDamp(rb.linearVelocity, new Vector2(rb.linearVelocityX,jumpHeight*100), ref velocity, 0.3f);
+            rb.linearVelocity = new Vector2(rb.linearVelocityX, jumpHeight);
 
             currentCooldownTime = jumpCooldown;
             
@@ -71,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity = Vector2.SmoothDamp(rb.linearVelocity, new Vector2(speed, rb.linearVelocityY),ref velocity, 0.1f);
             facingRight = true;
         }
+     
         // checks if D is pressed and if so, the player walks left and is set to be facing left
 
         if (Keyboard.current.aKey.isPressed)
@@ -79,8 +80,11 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity = Vector2.SmoothDamp(rb.linearVelocity, new Vector2(-speed, rb.linearVelocityY),ref velocity, 0.1f);
             facingRight = false;
         }
-        
-        
+
+        if (!Keyboard.current.aKey.isPressed && !Keyboard.current.dKey.isPressed && Mathf.FloatToHalf(rb.linearVelocityX) != 0 && grounded == true)
+        {
+            rb.linearVelocityX *= 0.8f;
+        }
 
     }
     

@@ -6,7 +6,8 @@ public class PlayerManager : MonoBehaviour
     public List<Sprite> headsprite;
     int health = 3;
     [SerializeField] private int maxHealth = 3;
-
+    float invincibilityDuration = 0.5f; // Duration of invincibility in seconds
+    float lastDmgTime = 0.0f;
     public void Heal(int amount)
     {
         health += amount;
@@ -17,6 +18,12 @@ public class PlayerManager : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
+        invincibilityDuration -= Time.time - lastDmgTime;
+        if (invincibilityDuration > 0f) 
+        {
+            return; // Ignore damage while invincible
+        }
+        lastDmgTime = Time.time;
         health -= damage;
         if (health <= 0) { Die(); }
         GetComponent<SpriteRenderer>().sprite = headsprite[health];
