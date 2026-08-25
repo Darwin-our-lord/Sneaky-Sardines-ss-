@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
         if ((Keyboard.current.wKey.isPressed || Keyboard.current.spaceKey.isPressed) && canJump == true && currentCooldownTime <= 0)
         {
             Vector2 velocity = Vector2.zero;
-            rb.linearVelocity = Vector2.SmoothDamp(rb.linearVelocity, new Vector2(rb.linearVelocityX,jumpHeight), ref velocity, 0.1f);
+            rb.linearVelocity = Vector2.SmoothDamp(rb.linearVelocity, new Vector2(rb.linearVelocityX,jumpHeight*100), ref velocity, 0.3f);
 
             currentCooldownTime = jumpCooldown;
             

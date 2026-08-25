@@ -182,7 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   facingRight: 1
   speed: 6
-  jumpHeight: 7
+  jumpHeight: 12
   jumpCooldown: 1
   cyoteTime: 7
   currentCyoteTime: 0
