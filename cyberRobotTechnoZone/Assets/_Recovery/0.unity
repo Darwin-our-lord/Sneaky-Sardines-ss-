@@ -669,10 +669,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 583823903056415152, guid: c4945402d41f70e48b0bffbeb229cd76, type: 3}
-      propertyPath: cyoteTime
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 583823903056415152, guid: c4945402d41f70e48b0bffbeb229cd76, type: 3}
       propertyPath: jumpHeight
       value: 7
       objectReference: {fileID: 0}
@@ -716,6 +712,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2259016277326486608, guid: c4945402d41f70e48b0bffbeb229cd76, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: ff31df30af11ca84784a7c81c04bbb63, type: 2}
     - target: {fileID: 2259016277326486608, guid: c4945402d41f70e48b0bffbeb229cd76, type: 3}
       propertyPath: m_LinearDamping
       value: 2

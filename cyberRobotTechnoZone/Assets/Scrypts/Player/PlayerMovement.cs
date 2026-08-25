@@ -54,7 +54,9 @@ public class PlayerMovement : MonoBehaviour
         // checks if W or Space is pressend while the player is on the ground and the cooldown has passed - if so, the player jumps 
         if ((Keyboard.current.wKey.isPressed || Keyboard.current.spaceKey.isPressed) && canJump == true && currentCooldownTime <= 0)
         {
-            rb.linearVelocityY += jumpHeight;
+            Vector2 velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.SmoothDamp(rb.linearVelocity, new Vector2(rb.linearVelocityX,jumpHeight), ref velocity, 0.1f);
+
             currentCooldownTime = jumpCooldown;
             
             grounded = false;
@@ -65,14 +67,16 @@ public class PlayerMovement : MonoBehaviour
         // checks if D is pressed and if so, the player walks right and is set to be facing right
         if (Keyboard.current.dKey.isPressed)
         {
-            rb.linearVelocityX = speed;
+            Vector2 velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.SmoothDamp(rb.linearVelocity, new Vector2(speed, rb.linearVelocityY),ref velocity, 0.1f);
             facingRight = true;
         }
         // checks if D is pressed and if so, the player walks left and is set to be facing left
 
         if (Keyboard.current.aKey.isPressed)
         {
-            rb.linearVelocityX = -speed;
+            Vector2 velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.SmoothDamp(rb.linearVelocity, new Vector2(-speed, rb.linearVelocityY),ref velocity, 0.1f);
             facingRight = false;
         }
         
