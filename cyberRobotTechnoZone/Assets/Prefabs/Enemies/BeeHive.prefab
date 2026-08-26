@@ -107,7 +107,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeeHiveEnemy
   health: 1
+  shootCooldown: 2
   beePrefab: {fileID: 4366928182399090211, guid: ab465be9e41009f40bffe2eec6de4a51, type: 3}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 9
 --- !u!61 &2550970274486288547
 BoxCollider2D:
   m_ObjectHideFlags: 0
