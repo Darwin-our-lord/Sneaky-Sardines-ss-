@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] float speed; // the speed of wich the player moves
     [SerializeField] float jumpHeight; // the height of wich the player jumps
-
+    [SerializeField] float maxJumpAngle = 45f; // the maximum angle of the slope wich the player can jump on
     private bool grounded; // used to determine if the player is ón the ground, and therfore can jump
 
     [SerializeField] float jumpCooldown = 1f; // the time between jumps - this fixes issues with double jumping on a single frame
@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] float cyoteTime; // the time after the player leaves the ground, but still is able to jump
     private float currentCyoteTime; // the timer itself
-
     public bool canJump { get; private set; }
 
     void Start()
@@ -99,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
     // grounded is set to true
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if(collision.gameObject.layer == 3 && collision.GetContact(0).normal == Vector2.up && rb.linearVelocityY <= 0)
+        if (collision.gameObject.layer == 3 && (Vector2.Angle(collision.GetContact(0).normal, Vector2.up) <= maxJumpAngle || Vector2.Angle(collision.GetContact(0).normal, Vector2.up) >= (365-maxJumpAngle))  && rb.linearVelocityY <= 0)
         {
             grounded = true;
             canJump = true;
