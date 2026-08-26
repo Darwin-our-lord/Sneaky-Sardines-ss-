@@ -1,0 +1,820 @@
+fileFormatVersion: 2
+guid: 79358e83a2874c64d9d1b010ea03127b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3627651227609026399
+    second: foilage_0
+  - first:
+      213: -6715440047023503041
+    second: foilage_1
+  - first:
+      213: -6051065584725609365
+    second: foilage_2
+  - first:
+      213: 8666214239848384472
+    second: foilage_3
+  - first:
+      213: -6024966017665491796
+    second: foilage_4
+  - first:
+      213: -8970955700680973683
+    second: foilage_5
+  - first:
+      213: -8836808774489096971
+    second: foilage_6
+  - first:
+      213: -3928716465918248356
+    second: foilage_7
+  - first:
+      213: -1764778481458881482
+    second: foilage_8
+  - first:
+      213: 437910377037081814
+    second: foilage_9
+  - first:
+      213: -647844504051159963
+    second: foilage_10
+  - first:
+      213: -577962764752416364
+    second: foilage_11
+  - first:
+      213: 2768665092518283241
+    second: foilage_12
+  - first:
+      213: -6001892388468562718
+    second: foilage_13
+  - first:
+      213: 2598768239868787906
+    second: foilage_14
+  - first:
+      213: -3338455878087973749
+    second: foilage_15
+  - first:
+      213: -8845295170756354300
+    second: foilage_16
+  - first:
+      213: -1808058847316077123
+    second: foilage_17
+  - first:
+      213: 4759107867015082606
+    second: foilage_18
+  - first:
+      213: -903114391892286367
+    second: foilage_19
+  - first:
+      213: -8480815502314670316
+    second: foilage_20
+  - first:
+      213: 809267573203923585
+    second: foilage_21
+  - first:
+      213: -6644526770940594245
+    second: foilage_22
+  - first:
+      213: -33082777949708963
+    second: foilage_23
+  - first:
+      213: -4562544209247580469
+    second: foilage_24
+  - first:
+      213: -769252619275951726
+    second: foilage_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: foilage_0
+      rect:
+        serializedVersion: 2
+        x: 1611
+        y: 3061
+        width: 1805
+        height: 261
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5f45a64291085230800000000000000
+      internalID: 3627651227609026399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foilage_1
+      rect:
+        serializedVersion: 2
+        x: 3579
+        y: 2615
+        width: 988
+        height: 703
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f394bbe6bd6fdc2a0800000000000000
+      internalID: -6715440047023503041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foilage_2
+      rect:
+        serializedVersion: 2
+        x: 1644
+        y: 2408
+        width: 1736
+        height: 534
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b64b6dd19eb460ca0800000000000000
+      internalID: -6051065584725609365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foilage_3
+      rect:
+        serializedVersion: 2
+        x: 4198
+        y: 2078
+        width: 808
+        height: 496
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d748918fe3944870800000000000000
+      internalID: 8666214239848384472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foilage_4
+      rect:
+        serializedVersion: 2
+        x: 4732
+        y: 789
+        width: 1416
+        height: 678
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cac9f3d1455036ca0800000000000000
+      internalID: -6024966017665491796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foilage_5
+      rect:
+        serializedVersion: 2
+        x: 4279
+        y: 1582
+        width: 277
+        height: 206
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8225250253c08380800000000000000
+      internalID: -8970955700680973683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foilage_6
+      rect:
+        serializedVersion: 2
+        x: 4664
+        y: 62
+        width: 1497
+        height: 674
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fcb5803d395d5580800000000000000
+      internalID: -8836808774489096971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foilage_7
+      rect:
+        serializedVersion: 2
+        x: 3948
+        y: 566
+        width: 531
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5af6b180356a79c0800000000000000
+      internalID: -3928716465918248356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foilage_8
+      rect:
+        serializedVersion: 2
+        x: 3843
+        y: 65
+        width: 796
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63cd361425f3287e0800000000000000
+      internalID: -1764778481458881482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foilage_9
+      rect:
+        serializedVersion: 2
+        x: 3260
+        y: 106
+        width: 427
+        height: 391
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dca0c2fa25c31600800000000000000
+      internalID: 437910377037081814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foilage_10
+      rect:
+        serializedVersion: 2
+        x: 2397
+        y: 866
+        width: 487
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56c67522bd46207f0800000000000000
+      internalID: -647844504051159963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foilage_11
+      rect:
+        serializedVersion: 2
+        x: 1713
+        y: 846
+        width: 443
+        height: 553
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49197897de9aaf7f0800000000000000
+      internalID: -577962764752416364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foilage_12
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 1463
+        width: 2411
+        height: 743
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e7839d8b364c6620800000000000000
+      internalID: 2768665092518283241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foilage_13
+      rect:
+        serializedVersion: 2
+        x: 3166
+        y: 1889
+        width: 862
+        height: 468
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e4e53d0caef4bca0800000000000000
+      internalID: -6001892388468562718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foilage_14
+      rect:
+        serializedVersion: 2
+        x: 3095
+        y: 976
+        width: 1164
+        height: 850
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cc32fef1fda01420800000000000000
+      internalID: 2598768239868787906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foilage_15
+      rect:
+        serializedVersion: 2
+        x: 2275
+        y: 456
+        width: 347
+        height: 264
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b846048111c6ba1d0800000000000000
+      internalID: -3338455878087973749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foilage_16
+      rect:
+        serializedVersion: 2
+        x: 2283
+        y: 76
+        width: 443
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40fd69518e23f3580800000000000000
+      internalID: -8845295170756354300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foilage_17
+      rect:
+        serializedVersion: 2
+        x: 1873
+        y: 200
+        width: 264
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db519b0de0c78e6e0800000000000000
+      internalID: -1808058847316077123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foilage_18
+      rect:
+        serializedVersion: 2
+        x: 1923
+        y: 505
+        width: 198
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e627335e36fbb0240800000000000000
+      internalID: 4759107867015082606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foilage_19
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 147
+        width: 702
+        height: 435
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 164a7b7de3e7773f0800000000000000
+      internalID: -903114391892286367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foilage_20
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 153
+        width: 699
+        height: 347
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41778e2eb371e4a80800000000000000
+      internalID: -8480815502314670316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foilage_21
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 728
+        width: 1147
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 182ff05f1981b3b00800000000000000
+      internalID: 809267573203923585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foilage_22
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 2354
+        width: 1120
+        height: 1052
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb733852b16e9c3a0800000000000000
+      internalID: -6644526770940594245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foilage_26
+      rect:
+        serializedVersion: 2
+        x: 4857
+        y: 2588
+        width: 1168
+        height: 855
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3b931b26f0d6d04d94564b9b054184c
+      internalID: 666653159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foilage_27
+      rect:
+        serializedVersion: 2
+        x: 5372
+        y: 1960
+        width: 728
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddb41d67b0be43c47b9e08b8da7ad270
+      internalID: -1450931276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foilage_28
+      rect:
+        serializedVersion: 2
+        x: 5353
+        y: 1486
+        width: 728
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be35762e89243cb4990e1174bb24435a
+      internalID: 582696145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foilage_29
+      rect:
+        serializedVersion: 2
+        x: 4822
+        y: 1572
+        width: 243
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2b2b5a9726b71c409b54e82126bb224
+      internalID: 1651843125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ee505e51b8d1729438ca6022f32533c0
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      foilage_0: 3627651227609026399
+      foilage_1: -6715440047023503041
+      foilage_10: -647844504051159963
+      foilage_11: -577962764752416364
+      foilage_12: 2768665092518283241
+      foilage_13: -6001892388468562718
+      foilage_14: 2598768239868787906
+      foilage_15: -3338455878087973749
+      foilage_16: -8845295170756354300
+      foilage_17: -1808058847316077123
+      foilage_18: 4759107867015082606
+      foilage_19: -903114391892286367
+      foilage_2: -6051065584725609365
+      foilage_20: -8480815502314670316
+      foilage_21: 809267573203923585
+      foilage_22: -6644526770940594245
+      foilage_23: -33082777949708963
+      foilage_24: -4562544209247580469
+      foilage_25: -769252619275951726
+      foilage_26: 666653159
+      foilage_27: -1450931276
+      foilage_28: 582696145
+      foilage_29: 1651843125
+      foilage_3: 8666214239848384472
+      foilage_30: 1907988549
+      foilage_4: -6024966017665491796
+      foilage_5: -8970955700680973683
+      foilage_6: -8836808774489096971
+      foilage_7: -3928716465918248356
+      foilage_8: -1764778481458881482
+      foilage_9: 437910377037081814
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
