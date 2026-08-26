@@ -81,9 +81,16 @@ public class PlayerMovement : MonoBehaviour
             facingRight = false;
         }
 
-        if (!Keyboard.current.aKey.isPressed && !Keyboard.current.dKey.isPressed && Mathf.FloatToHalf(rb.linearVelocityX) != 0 && grounded == true)
+        if (!Keyboard.current.aKey.isPressed && !Keyboard.current.dKey.isPressed && Mathf.FloatToHalf(rb.linearVelocityX) != 0)
         {
-            rb.linearVelocityX *= 0.8f;
+            if(grounded == true)
+            {
+                rb.linearVelocityX *= 0.8f;
+            }
+            else
+            {
+                rb.linearVelocityX *= 0.999f;
+            }
         }
 
     }
