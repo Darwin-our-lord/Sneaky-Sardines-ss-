@@ -15,7 +15,7 @@ public class AcornShield : GraftablePart
     {
         if (held)
         {
-            if (playerRb.linearVelocity.magnitude < 0.1f)
+            if (playerRb.linearVelocity.x < 0.1f && playerRb.linearVelocity.x > -0.1f)
             {
                 transform.position = new Vector3(transform.parent.position.x, transform.parent.position.y + 2.5f, transform.parent.position.z);
                 transform.rotation = Quaternion.Euler(0, 0, 0);
