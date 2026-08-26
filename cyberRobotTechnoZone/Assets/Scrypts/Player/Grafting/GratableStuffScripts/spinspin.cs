@@ -5,7 +5,7 @@ public class spinspin : GraftablePart
     float wait = 0.5f;
     float time = 0;
     float sub = -100;
-    bool a = true;
+    bool a = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -13,7 +13,7 @@ public class spinspin : GraftablePart
     }
     protected override void OnAttach()
     {
-
+        a = true;
         if (a == true)
         {
             transform.position += new Vector3(0.5f, 0.5f, 0);
@@ -28,29 +28,30 @@ public class spinspin : GraftablePart
         // Update is called once per frame
         void FixedUpdate()
         {
-        PlayerMovement player = GetComponentInParent<PlayerMovement>();
-        if (player.canJump)
+        if (a == true)
         {
-            sub = transform.position.y;
-            GetComponent<SpriteRenderer>().color = Color.white;
-            transform.GetComponentInParent<Rigidbody2D>().gravityScale = 1f;
-        }
-        if (player.canJump == false)
-        {
-            if (sub > transform.position.y)
+            PlayerMovement player = GetComponentInParent<PlayerMovement>();
+            if (player.canJump)
             {
                 sub = transform.position.y;
-                GetComponent<SpriteRenderer>().color = Color.yellow;
-                transform.GetComponentInParent<Rigidbody2D>().gravityScale = 0.2f;
-            }
-            else if (sub <= transform.position.y)
-            {
-                sub = transform.position.y;
-                GetComponent<SpriteRenderer>().color = Color.white;
                 transform.GetComponentInParent<Rigidbody2D>().gravityScale = 1f;
+            }
+            if (player.canJump == false)
+            {
+                if (sub > transform.position.y)
+                {
+                    sub = transform.position.y;
+                    transform.GetComponentInParent<Rigidbody2D>().gravityScale = 0.2f;
+                }
+                else if (sub <= transform.position.y)
+                {
+                    sub = transform.position.y;
+                    transform.GetComponentInParent<Rigidbody2D>().gravityScale = 1f;
+                }
             }
         }
 
-                }
+        
+    }
              
         }
