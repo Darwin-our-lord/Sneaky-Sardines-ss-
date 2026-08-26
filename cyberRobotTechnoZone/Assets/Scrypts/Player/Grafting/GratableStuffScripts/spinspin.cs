@@ -1,11 +1,13 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class spinspin : GraftablePart
 {
-    float wait = 0.5f;
-    float time = 0;
     float sub = -100;
     bool a = false;
+    Rigidbody2D rb;
+    PlayerMovement player;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,6 +16,8 @@ public class spinspin : GraftablePart
     protected override void OnAttach()
     {
         a = true;
+        rb = GetComponentInParent<Rigidbody2D>();
+        player = GetComponentInParent<PlayerMovement>();
         if (a == true)
         {
             transform.position += new Vector3(0.5f, 0.5f, 0);
@@ -25,12 +29,14 @@ public class spinspin : GraftablePart
         }
     }
 
-        // Update is called once per frame
-        void FixedUpdate()
-        {
+     // Update is called once per frame
+    void FixedUpdate()
+    {
         if (a == true)
         {
             PlayerMovement player = GetComponentInParent<PlayerMovement>();
+            Vector2 moveInput = player.input.actions["Move"].ReadValue<Vector2>();
+
             if (player.canJump)
             {
                 sub = transform.position.y;
@@ -38,15 +44,15 @@ public class spinspin : GraftablePart
             }
             if (player.canJump == false)
             {
-                if (sub > transform.position.y)
-                {
-                    sub = transform.position.y;
-                    transform.GetComponentInParent<Rigidbody2D>().gravityScale = 0.2f;
-                }
-                else if (sub <= transform.position.y)
+                if (moveInput.y < 0)
                 {
                     sub = transform.position.y;
                     transform.GetComponentInParent<Rigidbody2D>().gravityScale = 1f;
+                }
+                else 
+                {
+                    sub = transform.position.y;
+                    transform.GetComponentInParent<Rigidbody2D>().gravityScale = 0.2f;
                 }
             }
         }
@@ -54,4 +60,4 @@ public class spinspin : GraftablePart
         
     }
              
-        }
+}

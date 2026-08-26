@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float speed; // the speed of wich the player moves
     [SerializeField] float jumpHeight; // the height of wich the player jumps
     [SerializeField] float maxJumpAngle = 45f; // the maximum angle of the slope wich the player can jump on
-    private bool grounded; // used to determine if the player is ón the ground, and therfore can jump
+    private bool grounded; // used to determine if the player is ï¿½n the ground, and therfore can jump
 
     [SerializeField] float jumpCooldown = 1f; // the time between jumps - this fixes issues with double jumping on a single frame
     private float currentCooldownTime; // the timer itself
@@ -94,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
     
-    // when the player ís colliding with something with the layer "Ground" and the normal of the contactpoint is pointing upwards (if the player is on top of the collider) -
+    // when the player ï¿½s colliding with something with the layer "Ground" and the normal of the contactpoint is pointing upwards (if the player is on top of the collider) -
     // grounded is set to true
     private void OnCollisionStay2D(Collision2D collision)
     {
