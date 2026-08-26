@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3348405576381503748}
   - component: {fileID: 8433726189908598907}
   - component: {fileID: 2550970274486288547}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BeeHive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
