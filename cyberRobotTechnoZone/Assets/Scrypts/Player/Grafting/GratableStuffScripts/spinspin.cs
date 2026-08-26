@@ -7,6 +7,7 @@ public class spinspin : GraftablePart
     bool a = false;
     Rigidbody2D rb;
     PlayerMovement player;
+    private bool dontSpin;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,9 +35,15 @@ public class spinspin : GraftablePart
     {
         if (a == true)
         {
-            PlayerMovement player = GetComponentInParent<PlayerMovement>();
-            Vector2 moveInput = player.input.actions["Move"].ReadValue<Vector2>();
-
+            if (Keyboard.current.sKey.isPressed)
+            {
+                dontSpin = true;
+            }
+            else
+            {
+                dontSpin = false;
+            }
+          
             if (player.canJump)
             {
                 sub = transform.position.y;
@@ -44,15 +51,15 @@ public class spinspin : GraftablePart
             }
             if (player.canJump == false)
             {
-                if (moveInput.y < 0)
-                {
-                    sub = transform.position.y;
-                    transform.GetComponentInParent<Rigidbody2D>().gravityScale = 1f;
-                }
-                else 
+                if (sub > transform.position.y && dontSpin == false)
                 {
                     sub = transform.position.y;
                     transform.GetComponentInParent<Rigidbody2D>().gravityScale = 0.2f;
+                }
+                else if (sub <= transform.position.y || dontSpin == true)
+                {
+                    sub = transform.position.y;
+                    transform.GetComponentInParent<Rigidbody2D>().gravityScale = 1f;
                 }
             }
         }
