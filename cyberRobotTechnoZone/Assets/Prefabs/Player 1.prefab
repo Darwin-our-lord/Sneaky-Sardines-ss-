@@ -247,7 +247,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc1f8d629de86914a8737b6726a748ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerManager
-  headsprite: []
+  headsprite:
+  - {fileID: -753234655499395814, guid: ff35cf7e5a43da44ba15d8f39af868ab, type: 3}
+  - {fileID: 934189473262556368, guid: ff35cf7e5a43da44ba15d8f39af868ab, type: 3}
+  - {fileID: -8150973756955344552, guid: ff35cf7e5a43da44ba15d8f39af868ab, type: 3}
+  playerHeadObj: {fileID: 468677929419044500}
   maxHealth: 3
 --- !u!70 &4254172320481829288
 CapsuleCollider2D:
