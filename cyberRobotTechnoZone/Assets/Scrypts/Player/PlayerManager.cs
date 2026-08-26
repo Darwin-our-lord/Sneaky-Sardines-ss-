@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    public List<Sprite> headsprite;
+    [SerializeField] List<Sprite> headsprite;
+    [SerializeField] GameObject playerHeadObj;
     int health = 3;
     [SerializeField] private int maxHealth = 3;
     float invincibilityDuration = 0.5f; // Duration of invincibility in seconds
@@ -26,9 +27,10 @@ public class PlayerManager : MonoBehaviour
         lastDmgTime = Time.time;
         health -= damage;
         if (health <= 0) { Die(); }
-        GetComponent<SpriteRenderer>().sprite = headsprite[health];
-
-
+        if (playerHeadObj != null && headsprite[health] != null)
+        {
+            playerHeadObj.GetComponent<SpriteRenderer>().sprite = headsprite[health];
+        }
     }
 
     public void Die()

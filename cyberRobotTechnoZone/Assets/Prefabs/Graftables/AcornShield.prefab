@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 645881176498070567}
   - component: {fileID: 7917312121319778840}
   - component: {fileID: 1622003739983285929}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AcornShield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
