@@ -26,8 +26,7 @@ public class PlayerManager : MonoBehaviour
         lastDmgTime = Time.time;
         health -= damage;
         if (health <= 0) { Die(); }
-        GetComponent<SpriteRenderer>().sprite = headsprite[health];
-
+        GetComponentInChildren<SpriteRenderer>().sprite = headsprite[health];
 
     }
 
