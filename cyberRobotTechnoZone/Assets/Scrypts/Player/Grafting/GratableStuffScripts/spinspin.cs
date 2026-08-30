@@ -3,68 +3,59 @@ using UnityEngine.InputSystem;
 
 public class spinspin : GraftablePart
 {
-    float sub = -100;
-    bool a = false;
-    Rigidbody2D rb;
-    PlayerMovement player;
-    private bool dontSpin;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
+    private float lastYPosition = -100f;
+    private bool isGlideSuppressed = false;
 
-    }
+    private Rigidbody2D parentRb;
+    private PlayerMovement player;
+
     protected override void OnAttach()
     {
-        a = true;
-        rb = GetComponentInParent<Rigidbody2D>();
+        parentRb = GetComponentInParent<Rigidbody2D>();
         player = GetComponentInParent<PlayerMovement>();
-        if (a == true)
-        {
-            transform.position += new Vector3(0.5f, 0.5f, 0);
-            if (transform.position.y > sub)
-            {
-                sub = transform.position.y;
-            }
 
+        transform.localPosition += new Vector3(0.5f, 0.5f, 0f);
+
+        if (transform.position.y > lastYPosition)
+        {
+            lastYPosition = transform.position.y;
         }
     }
 
-     // Update is called once per frame
-    void FixedUpdate()
+    protected override void OnDetach()
     {
-        if (a == true)
+        if (parentRb != null)
         {
-            if (Keyboard.current.sKey.isPressed)
+            parentRb.gravityScale = 1f;
+        }
+
+        parentRb = null;
+        player = null;
+    }
+
+    private void FixedUpdate()
+    {
+        if (!held || player == null || parentRb == null) return;
+
+        isGlideSuppressed = Keyboard.current != null && Keyboard.current.sKey.isPressed;
+
+        if (player.canJump)
+        {
+            lastYPosition = transform.position.y;
+            parentRb.gravityScale = 1f;
+        }
+        else
+        {
+            if (transform.position.y < lastYPosition && !isGlideSuppressed)
             {
-                dontSpin = true;
+                parentRb.gravityScale = 0.2f;
             }
             else
             {
-                dontSpin = false;
+                parentRb.gravityScale = 1f;
             }
-          
-            if (player.canJump)
-            {
-                sub = transform.position.y;
-                transform.GetComponentInParent<Rigidbody2D>().gravityScale = 1f;
-            }
-            if (player.canJump == false)
-            {
-                if (sub > transform.position.y && dontSpin == false)
-                {
-                    sub = transform.position.y;
-                    transform.GetComponentInParent<Rigidbody2D>().gravityScale = 0.2f;
-                }
-                else if (sub <= transform.position.y || dontSpin == true)
-                {
-                    sub = transform.position.y;
-                    transform.GetComponentInParent<Rigidbody2D>().gravityScale = 1f;
-                }
-            }
-        }
 
-        
+            lastYPosition = transform.position.y;
+        }
     }
-             
 }
