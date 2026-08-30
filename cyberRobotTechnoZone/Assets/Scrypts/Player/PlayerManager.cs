@@ -5,7 +5,7 @@ public class PlayerManager : MonoBehaviour
 {
     [SerializeField] List<Sprite> headsprite;
     [SerializeField] GameObject playerHeadObj;
-    int health = 3;
+    [SerializeField] int health = 3;
     [SerializeField] private int maxHealth = 3;
     float invincibilityDuration = 0.5f; // Duration of invincibility in seconds
     float lastDmgTime = 0.0f;
