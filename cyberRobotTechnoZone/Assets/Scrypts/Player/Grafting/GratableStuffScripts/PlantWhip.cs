@@ -8,6 +8,7 @@ public class PlantWhip : GraftablePart
     protected override void OnAttach()
     {
         animator = GetComponent<Animator>();
+        Debug.Log("PlantWhip attached");
     }
     private void Update()
     {
@@ -18,8 +19,10 @@ public class PlantWhip : GraftablePart
             AudioSource.PlayClipAtPoint(attackSound, transform.position, 1f);
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override void OnTriggerEnter2D(Collider2D collision)
     {
+        base.OnTriggerEnter2D(collision);
+
         if (held && collision.gameObject.CompareTag("Enemy"))
         {
             collision.GetComponent<Enemy>().TakeDamage(1);// Perform damage to the enemy
