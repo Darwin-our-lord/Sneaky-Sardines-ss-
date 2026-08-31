@@ -196,7 +196,7 @@ public class PlayerMovement : MonoBehaviour
             // AudioSource.PlayClipAtPoint(hitGroundSound, transform.position, 10f);
             if (airTimeTimer >= minAirTimeForLandSound && Mathf.Abs(fallSpeedAtLastCheck) >= minFallSpeedForLandSound)
             {
-                AudioSource.PlayClipAtPoint(hitGroundSound, transform.position, 10f);
+                AudioSource.PlayClipAtPoint(hitGroundSound, transform.position, 130f);
             }
             airTimeTimer = 0f;
             fallSpeedAtLastCheck = 0f;
@@ -218,7 +218,7 @@ public class PlayerMovement : MonoBehaviour
 
     void PlayFootstepsound()
     {
-        AudioSource.PlayClipAtPoint(footstepsGrassSound, transform.position, 5f);
+        AudioSource.PlayClipAtPoint(footstepsGrassSound, transform.position, 40f);
 
     }
 

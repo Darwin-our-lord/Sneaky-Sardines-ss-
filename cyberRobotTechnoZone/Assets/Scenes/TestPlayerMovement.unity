@@ -466,10 +466,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2250725159735767416, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
-      propertyPath: HurtSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 94637a445de8f6945b95dcf7df1cad4e, type: 3}
     - target: {fileID: 8979418964111250410, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.8758798
