@@ -115,11 +115,7 @@ MonoBehaviour:
   playerHeadObj: {fileID: 0}
   health: 3
   maxHealth: 3
-<<<<<<< Updated upstream
   HurtSound: {fileID: 8300000, guid: 94637a445de8f6945b95dcf7df1cad4e, type: 3}
-=======
-  HurtSound: {fileID: 0}
->>>>>>> Stashed changes
 --- !u!70 &4254172320481829288
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -281,11 +277,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5855332293368294564}
   - component: {fileID: 6016350607670362731}
-  - component: {fileID: 4370353569053675213}
-  - component: {fileID: 2331072774752087679}
   m_Layer: 0
   m_Name: Das Whip
-  m_TagString: Leaf
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -298,13 +292,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4384152713302691527}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.3431067, w: 0.9392965}
   m_LocalPosition: {x: 1.18, y: 1.57, z: 0}
-  m_LocalScale: {x: 1, y: 0.8, z: 1}
+  m_LocalScale: {x: 0.59, y: 0.81, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 876931533303557184}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 40.133}
 --- !u!212 &6016350607670362731
 SpriteRenderer:
   serializedVersion: 3
@@ -352,71 +346,19 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 7
+  m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: d8ba0e096b37cf840a6096613104b837, type: 3}
+  m_Sprite: {fileID: 6624195939859871594, guid: d8ba0e096b37cf840a6096613104b837, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.3025, y: 4.8925}
+  m_Size: {x: 14.61, y: 11.59}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
---- !u!58 &4370353569053675213
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4384152713302691527}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 1.7358143, y: -0.036886513}
-  m_Radius: 5.7360826
---- !u!114 &2331072774752087679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4384152713302691527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd86cd64c203ce148a34d9cb460cdeca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LeafAttack
-  held: 0
-  animator: {fileID: 1773653329305554706}
-  attackSound: {fileID: 8300000, guid: b20511d84aa12b440b70449b0d9348cc, type: 3}
-  attackHitSound: {fileID: 8300000, guid: c81bd29f91f21e645816f923c987b2e7, type: 3}
 --- !u!1 &7577532006569488154
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,10 +595,6 @@ PrefabInstance:
     - target: {fileID: -1337413680682481184, guid: ff35cf7e5a43da44ba15d8f39af868ab, type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 130193924300557503, guid: ff35cf7e5a43da44ba15d8f39af868ab, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 1581308101083915500, guid: ff35cf7e5a43da44ba15d8f39af868ab, type: 3}
       propertyPath: m_BoneTransforms.Array.size
