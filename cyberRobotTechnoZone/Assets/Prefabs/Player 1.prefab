@@ -143,6 +143,9 @@ MonoBehaviour:
   maxJumpAngle: 45
   jumpCooldown: 1
   cyoteTime: 0
+  footstepsGrassSound: {fileID: 8300000, guid: c8ee2f5a20b65864fb1cdf2b34e98f7e, type: 3}
+  footstepInterval: 0.5
+  hitGroundSound: {fileID: 8300000, guid: b6109e573e00d354b810ae03bbd54e98, type: 3}
 --- !u!114 &2250725159735767416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,6 +163,7 @@ MonoBehaviour:
   - {fileID: 934189473262556368, guid: ff35cf7e5a43da44ba15d8f39af868ab, type: 3}
   - {fileID: -8150973756955344552, guid: ff35cf7e5a43da44ba15d8f39af868ab, type: 3}
   playerHeadObj: {fileID: 0}
+  health: 3
   maxHealth: 3
 --- !u!70 &4254172320481829288
 CapsuleCollider2D:
