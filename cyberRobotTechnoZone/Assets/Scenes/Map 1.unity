@@ -1908,6 +1908,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2250725159735767416, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
+      propertyPath: playerHeadObj
+      value: 
+      objectReference: {fileID: 2006871189}
+    - target: {fileID: 2250725159735767416, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
+      propertyPath: 'headsprite.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1643609821552909693, guid: ff35cf7e5a43da44ba15d8f39af868ab, type: 3}
+    - target: {fileID: 2250725159735767416, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
+      propertyPath: 'headsprite.Array.data[1]'
+      value: 
+      objectReference: {fileID: -6507414087772730978, guid: ff35cf7e5a43da44ba15d8f39af868ab, type: 3}
+    - target: {fileID: 2250725159735767416, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
+      propertyPath: 'headsprite.Array.data[2]'
+      value: 
+      objectReference: {fileID: 5743405220790375416, guid: ff35cf7e5a43da44ba15d8f39af868ab, type: 3}
     - target: {fileID: 3064154245701605104, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
       propertyPath: speed
       value: 10
@@ -32224,6 +32240,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2002575718}
   m_CullTransparentMesh: 1
+--- !u!1 &2006871189 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7393221551120943184, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
+  m_PrefabInstance: {fileID: 57130501}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2007884504
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public LayerMask targetLayer;
     public float outer2 = 15f;
     public float iner2 = 7f;
-    public float detectionTime = 3f; // seconds required to trigger
+    public float detectionTime = 1f; // seconds required to trigger
     private float timer = 0f;
     private bool targetDetected = false;
     bool trorfal = false;
