@@ -8,6 +8,7 @@ public class PlantWhip : GraftablePart
     protected override void OnAttach()
     {
         animator = GetComponent<Animator>();
+        Debug.Log("PlantWhip attached");
     }
     private void Update()
     {
