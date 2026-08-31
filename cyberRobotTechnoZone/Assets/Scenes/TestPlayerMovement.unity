@@ -171,6 +171,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7917312121319778840, guid: 8482782e14318b84590be9ef9c6d1906, type: 3}
+      propertyPath: AttachSound
+      value: 
+      objectReference: {fileID: 8300000, guid: c1ba7ca40a8cbc94a9ce0b7e95e08429, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -708,6 +712,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1777623142702323229, guid: 76275e6fa5e0d8f419bb6a963338d2bb, type: 3}
+      propertyPath: AttachSound
+      value: 
+      objectReference: {fileID: 8300000, guid: c1ba7ca40a8cbc94a9ce0b7e95e08429, type: 3}
     - target: {fileID: 8693129478094176439, guid: 76275e6fa5e0d8f419bb6a963338d2bb, type: 3}
       propertyPath: m_Name
       value: PlantWhip
