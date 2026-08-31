@@ -9,6 +9,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private int maxHealth = 3;
     float invincibilityDuration = 0.5f; // Duration of invincibility in seconds
     float lastDmgTime = 0.0f;
+
+    [SerializeField] AudioClip HurtSound; // The sound of the player getting hurt
     public void Heal(int amount)
     {
         health += amount;
@@ -26,6 +28,7 @@ public class PlayerManager : MonoBehaviour
         }
         lastDmgTime = Time.time;
         health -= damage;
+        AudioSource.PlayClipAtPoint(HurtSound, transform.position, 1000f);
         if (health <= 0) { Die(); }
         if (playerHeadObj != null && headsprite[health] != null)
         {
