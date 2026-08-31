@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR;
@@ -21,6 +22,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float cyoteTime; // the time after the player leaves the ground, but still is able to jump
     private float currentCyoteTime; // the timer itself
     public bool canJump { get; private set; }
+
+    [SerializeField] AudioClip footstepsGrassSound; // the footsteps sound when the player is walking on grass
+    [SerializeField] float footstepInterval = 0.5f; // the time between each footstep sound 
+    private bool isPlayingFootstepSound = false; // a boolean to check if the footstep sound is already playing
+    [SerializeField] AudioClip hitGroundSound; // the sound of the player hitting the ground
 
     void Start()
     {
@@ -70,6 +76,8 @@ public class PlayerMovement : MonoBehaviour
             Vector2 velocity = Vector2.zero;
             rb.linearVelocity = Vector2.SmoothDamp(rb.linearVelocity, new Vector2(speed, rb.linearVelocityY), ref velocity, 0.1f);
             facingRight = true;
+
+            
         }
 
         // checks if D is pressed and if so, the player walks left and is set to be facing left
@@ -93,8 +101,21 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-    }
+        if (grounded == true && (Keyboard.current.aKey.isPressed || Keyboard.current.dKey.isPressed))
+        {
+            if (!isPlayingFootstepSound)
+            {
+                InvokeRepeating(nameof(PlayFootstepsound), 0f, footstepInterval);
+                isPlayingFootstepSound = true;
+            }
+        }
+        else
+        {
+            CancelInvoke(nameof(PlayFootstepsound));
+            isPlayingFootstepSound = false;
 
+        }
+    }
     // when the player �s colliding with something with the layer "Ground" and the normal of the contactpoint is pointing upwards (if the player is on top of the collider) -
     // grounded is set to true
     private void OnCollisionStay2D(Collision2D collision)
@@ -113,6 +134,10 @@ public class PlayerMovement : MonoBehaviour
         {
             groundContactCount++;
         }
+        if (groundContactCount == 1)
+        {
+            AudioSource.PlayClipAtPoint(hitGroundSound, transform.position, 10f);
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -125,6 +150,13 @@ public class PlayerMovement : MonoBehaviour
                 currentCyoteTime = cyoteTime;
             }
         }
+    }
+
+
+    void PlayFootstepsound()
+    {
+        AudioSource.PlayClipAtPoint(footstepsGrassSound, transform.position, 5f);
+
     }
 
 }
