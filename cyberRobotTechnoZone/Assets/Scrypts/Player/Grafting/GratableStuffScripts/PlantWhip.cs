@@ -2,31 +2,14 @@ using UnityEngine;
 
 public class PlantWhip : GraftablePart
 {
-    Animator animator;
-    [SerializeField] AudioClip attackSound; // the sound of the whip attack 
-    [SerializeField] AudioClip attackHitSound; // the sound of the whip hitting an enemy
-    protected override void OnAttach()
-    {
-        animator = GetComponent<Animator>();
-        Debug.Log("PlantWhip attached");
-    }
-    private void Update()
-    {
-        if (held && Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            // Perform whip attack
-            animator.SetTrigger("Attack");
-            AudioSource.PlayClipAtPoint(attackSound, transform.position, 1f);
-        }
-    }
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        base.OnTriggerEnter2D(collision);
-
-        if (held && collision.gameObject.CompareTag("Enemy"))
+        if (!held && collision.transform.gameObject.CompareTag("Player"))
         {
-            collision.GetComponent<Enemy>().TakeDamage(1);// Perform damage to the enemy
-            AudioSource.PlayClipAtPoint(attackHitSound, transform.position, 1f);
+            held = true;
+            transform.position = collision.transform.position;
+            collision.gameObject.GetComponent<LeafAttack>().held = true; // Set the static variable to true when the whip is picked up
+            Destroy(this.gameObject);
         }
     }
 }
