@@ -226,7 +226,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   facingRight: 1
+<<<<<<< HEAD
   animator: {fileID: 1773653329305554706}
+=======
+  animator: {fileID: 0}
+>>>>>>> dbb5be937d895e456f9f1cc82ed3de03fd64610f
   speed: 10
   jumpHeight: 15
   maxJumpAngle: 45
@@ -235,7 +239,7 @@ MonoBehaviour:
   footstepsGrassSounds:
   - {fileID: 8300000, guid: 39fd8bb0151500b47ab9ae1e7a047796, type: 3}
   - {fileID: 8300000, guid: c9cfb02d16b419147ba56184a1e7380a, type: 3}
-  footstepInterval: 0.5
+  footstepInterval: 0.3
   hitGroundSound: {fileID: 8300000, guid: eafed692d25133f41b63cb619c2ed922, type: 3}
   minAirTimeForLandSound: 0.3
   minFallSpeedForLandSound: 5
@@ -259,6 +263,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc1f8d629de86914a8737b6726a748ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerManager
+<<<<<<< HEAD
+=======
+  headsprite:
+  - {fileID: -753234655499395814, guid: ff35cf7e5a43da44ba15d8f39af868ab, type: 3}
+  - {fileID: 934189473262556368, guid: ff35cf7e5a43da44ba15d8f39af868ab, type: 3}
+  - {fileID: -8150973756955344552, guid: ff35cf7e5a43da44ba15d8f39af868ab, type: 3}
+  playerHeadObj: {fileID: 0}
+>>>>>>> dbb5be937d895e456f9f1cc82ed3de03fd64610f
   menuManager: {fileID: 0}
   deathAnimator: {fileID: 0}
   health: 3
