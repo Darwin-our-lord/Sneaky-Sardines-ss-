@@ -9,9 +9,11 @@ public class spinspin : GraftablePart
     public static bool spinspinifikation = false;
     private Rigidbody2D parentRb;
     private PlayerMovement player;
+    [SerializeField] AudioClip AttachSound; // The sound of the player attaching the spinspin
 
     protected override void OnAttach()
     {
+        AudioSource.PlayClipAtPoint(AttachSound, transform.position, 10f);
         spinspinifikation = true;
         parentRb = GetComponentInParent<Rigidbody2D>();
         player = GetComponentInParent<PlayerMovement>();

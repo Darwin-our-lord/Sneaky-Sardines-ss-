@@ -5,10 +5,12 @@ public class AcornShield : GraftablePart
 {
     PlayerMovement playerMovement;
     Rigidbody2D playerRb;
+    [SerializeField] AudioClip AttachSound; // The sound of the player attaching the shield
     protected override void OnAttach()
     {
         playerMovement = transform.parent.GetComponent<PlayerMovement>();
         playerRb = transform.parent.GetComponent<Rigidbody2D>();
+        AudioSource.PlayClipAtPoint(AttachSound, transform.position, 10f);
     }
 
     private void FixedUpdate()
