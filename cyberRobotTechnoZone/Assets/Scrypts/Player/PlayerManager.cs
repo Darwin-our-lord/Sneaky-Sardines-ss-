@@ -1,10 +1,12 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] List<Sprite> headsprite;
     [SerializeField] GameObject playerHeadObj;
+    [SerializeField] MenuManager menuManager;
     [SerializeField] int health = 3;
     [SerializeField] private int maxHealth = 3;
     float invincibilityDuration = 0.5f; // Duration of invincibility in seconds
@@ -38,8 +40,8 @@ public class PlayerManager : MonoBehaviour
 
     public void Die()
     {
-        // Handle player death (e.g., reload scene, show game over screen)
         Debug.Log("Player has died.");
+        menuManager.LoseGame();
     }
 
 }

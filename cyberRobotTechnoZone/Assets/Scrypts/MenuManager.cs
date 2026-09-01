@@ -35,6 +35,13 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    public void LoseGame()
+    {
+        loseUI.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+
     //button functions
     public void StartButton()
     {
