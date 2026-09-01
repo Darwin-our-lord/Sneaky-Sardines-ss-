@@ -16,6 +16,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     void Update()
     {
+        Debug.Log($"{spinspin.spinspinifikation}");
         float[] angles = { -outer2, -iner2, 0f, iner2, outer2 };
         bool anyHit = false;
         for (int i = 0; i < angles.Length; i++)

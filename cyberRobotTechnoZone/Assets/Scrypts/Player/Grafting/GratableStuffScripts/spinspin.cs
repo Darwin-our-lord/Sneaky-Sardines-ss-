@@ -15,6 +15,7 @@ public class spinspin : GraftablePart
     {
         AudioSource.PlayClipAtPoint(AttachSound, transform.position, 10f);
         spinspinifikation = true;
+        Debug.Log($"spinspin{spinspinifikation}");
         parentRb = GetComponentInParent<Rigidbody2D>();
         player = GetComponentInParent<PlayerMovement>();
 
