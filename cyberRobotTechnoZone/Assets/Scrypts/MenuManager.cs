@@ -14,10 +14,34 @@ public class MenuManager : MonoBehaviour
     public GameObject AudioSettingsUI;
 
     [Header("During Game")]
-    public GameObject storeUI;
+    public GameObject pauseUI;
     public GameObject loseUI;
 
-    private bool inStore = false;
+    public void Update()
+    {
+        if(pauseUI == null) return;
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (pauseUI.activeSelf)
+            {
+                pauseUI.SetActive(false);
+                Time.timeScale = 1f;
+            }
+            else
+            {
+                pauseUI.SetActive(true);
+                Time.timeScale = 0f;
+            }
+        }
+    }
+
+    public void LoseGame()
+    {
+        loseUI.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+
     //button functions
     public void StartButton()
     {
@@ -27,11 +51,6 @@ public class MenuManager : MonoBehaviour
     public void QuitButton()
     {
         Application.Quit();
-    }
-    public void CreditsButton()
-    {
-        SceneManager.LoadScene(2);
-        Time.timeScale = 1f;
     }
     public void MainMenuButton()
     {

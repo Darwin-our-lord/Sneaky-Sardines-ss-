@@ -231,9 +231,11 @@ MonoBehaviour:
   maxJumpAngle: 45
   jumpCooldown: 1
   cyoteTime: 0
-  footstepsGrassSound: {fileID: 8300000, guid: c8ee2f5a20b65864fb1cdf2b34e98f7e, type: 3}
+  footstepsGrassSounds:
+  - {fileID: 8300000, guid: 39fd8bb0151500b47ab9ae1e7a047796, type: 3}
+  - {fileID: 8300000, guid: c9cfb02d16b419147ba56184a1e7380a, type: 3}
   footstepInterval: 0.5
-  hitGroundSound: {fileID: 8300000, guid: b6109e573e00d354b810ae03bbd54e98, type: 3}
+  hitGroundSound: {fileID: 8300000, guid: eafed692d25133f41b63cb619c2ed922, type: 3}
   minAirTimeForLandSound: 0.3
   minFallSpeedForLandSound: 5
   groundDragRate: 3
