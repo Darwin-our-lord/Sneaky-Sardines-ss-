@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b30e060eb0c9b74bb326ea3075ef11d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AcornShield
+  AttachSound: {fileID: 8300000, guid: c1ba7ca40a8cbc94a9ce0b7e95e08429, type: 3}
 --- !u!61 &1622003739983285929
 BoxCollider2D:
   m_ObjectHideFlags: 0
