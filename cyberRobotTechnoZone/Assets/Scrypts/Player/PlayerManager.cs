@@ -1,12 +1,15 @@
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] List<Sprite> headsprite;
     [SerializeField] GameObject playerHeadObj;
     [SerializeField] MenuManager menuManager;
+    [SerializeField] Animator deathAnimator;
     [SerializeField] int health = 3;
     [SerializeField] private int maxHealth = 3;
     float invincibilityDuration = 0.5f; // Duration of invincibility in seconds
@@ -31,17 +34,19 @@ public class PlayerManager : MonoBehaviour
         lastDmgTime = Time.time;
         health -= damage;
         AudioSource.PlayClipAtPoint(HurtSound, transform.position, 1000f);
-        if (health <= 0) { Die(); }
+        if (health <= 0) { StartCoroutine(Die()); }
         if (playerHeadObj != null && headsprite[health] != null)
         {
             playerHeadObj.GetComponent<SpriteRenderer>().sprite = headsprite[health];
         }
     }
 
-    public void Die()
+    IEnumerator Die()
     {
-        Debug.Log("Player has died.");
-        menuManager.LoseGame();
+        deathAnimator.SetTrigger("Death");
+        yield return new WaitForSeconds(3f);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 }
