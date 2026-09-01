@@ -228,10 +228,13 @@ MonoBehaviour:
   facingRight: 1
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   animator: {fileID: 1773653329305554706}
 =======
   animator: {fileID: 0}
 >>>>>>> dbb5be937d895e456f9f1cc82ed3de03fd64610f
+=======
+>>>>>>> parent of 3379dd0 (ændret footstepSpeed)
 =======
 >>>>>>> parent of 3379dd0 (ændret footstepSpeed)
   speed: 10
@@ -273,9 +276,12 @@ MonoBehaviour:
   - {fileID: -8150973756955344552, guid: ff35cf7e5a43da44ba15d8f39af868ab, type: 3}
   playerHeadObj: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> dbb5be937d895e456f9f1cc82ed3de03fd64610f
   menuManager: {fileID: 0}
   deathAnimator: {fileID: 0}
+=======
+>>>>>>> parent of 3379dd0 (ændret footstepSpeed)
 =======
 >>>>>>> parent of 3379dd0 (ændret footstepSpeed)
   health: 3
