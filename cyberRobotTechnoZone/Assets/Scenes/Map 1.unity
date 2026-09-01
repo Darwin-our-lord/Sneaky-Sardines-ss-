@@ -2468,22 +2468,66 @@ PrefabInstance:
       propertyPath: deathAnimator
       value: 
       objectReference: {fileID: 1586057553}
-    - target: {fileID: 3064154245701605104, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
-      propertyPath: speed
-      value: 10
+    - target: {fileID: 2250725159735767416, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
+      propertyPath: headSpritesUp.Array.size
+      value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2250725159735767416, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
+      propertyPath: headSpritesDown.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250725159735767416, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
+      propertyPath: 'headSpritesUp.Array.data[0]'
+      value: 
+      objectReference: {fileID: -8375783484584904613, guid: ff35cf7e5a43da44ba15d8f39af868ab, type: 3}
+    - target: {fileID: 2250725159735767416, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
+      propertyPath: 'headSpritesUp.Array.data[1]'
+      value: 
+      objectReference: {fileID: 3207047485099333103, guid: ff35cf7e5a43da44ba15d8f39af868ab, type: 3}
+    - target: {fileID: 2250725159735767416, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
+      propertyPath: 'headSpritesUp.Array.data[2]'
+      value: 
+      objectReference: {fileID: -4456346534097468860, guid: ff35cf7e5a43da44ba15d8f39af868ab, type: 3}
+    - target: {fileID: 2250725159735767416, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
+      propertyPath: headSpritesNormal.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250725159735767416, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
+      propertyPath: 'headSpritesDown.Array.data[0]'
+      value: 
+      objectReference: {fileID: 7351806422296759921, guid: ff35cf7e5a43da44ba15d8f39af868ab, type: 3}
+    - target: {fileID: 2250725159735767416, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
+      propertyPath: 'headSpritesDown.Array.data[1]'
+      value: 
+      objectReference: {fileID: -2716408574132603058, guid: ff35cf7e5a43da44ba15d8f39af868ab, type: 3}
+    - target: {fileID: 2250725159735767416, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
+      propertyPath: 'headSpritesDown.Array.data[2]'
+      value: 
+      objectReference: {fileID: -8051206056291877547, guid: ff35cf7e5a43da44ba15d8f39af868ab, type: 3}
+    - target: {fileID: 2250725159735767416, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
+      propertyPath: 'headSpritesNormal.Array.data[0]'
+      value: 
+      objectReference: {fileID: 5743405220790375416, guid: ff35cf7e5a43da44ba15d8f39af868ab, type: 3}
+    - target: {fileID: 2250725159735767416, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
+      propertyPath: 'headSpritesNormal.Array.data[1]'
+      value: 
+      objectReference: {fileID: -6507414087772730978, guid: ff35cf7e5a43da44ba15d8f39af868ab, type: 3}
+    - target: {fileID: 2250725159735767416, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
+      propertyPath: 'headSpritesNormal.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1643609821552909693, guid: ff35cf7e5a43da44ba15d8f39af868ab, type: 3}
     - target: {fileID: 3064154245701605104, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 1511049169}
-    - target: {fileID: 3064154245701605104, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
-      propertyPath: jumpHeight
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6559161343494124792, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
-      propertyPath: orthographic size
-      value: 15.23
-      objectReference: {fileID: 0}
+    - target: {fileID: 3621125814618318985, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
+      propertyPath: monoChrome
+      value: 
+      objectReference: {fileID: 589515858}
+    - target: {fileID: 3621125814618318985, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
+      propertyPath: reverseColor
+      value: 
+      objectReference: {fileID: 589515857}
     - target: {fileID: 6567026507785251704, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
       propertyPath: m_RenderPostProcessing
       value: 1
@@ -2531,30 +2575,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7577532006569488154, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 57130503}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
---- !u!1 &57130502 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7577532006569488154, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
-  m_PrefabInstance: {fileID: 57130501}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &57130503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 57130502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a2959cfbae7eef498ea5c773100bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CameraController
-  monoChrome: {fileID: 589515858}
-  reverseColor: {fileID: 589515857}
 --- !u!1 &57762134
 GameObject:
   m_ObjectHideFlags: 0
@@ -25061,7 +25083,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &794448110
 RectTransform:
   m_ObjectHideFlags: 0
@@ -55124,7 +55146,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1907371846
 RectTransform:
   m_ObjectHideFlags: 0
@@ -57890,7 +57912,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2002575719
 RectTransform:
   m_ObjectHideFlags: 0
