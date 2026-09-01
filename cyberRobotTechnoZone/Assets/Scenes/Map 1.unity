@@ -2469,6 +2469,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3064154245701605104, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1511049169}
+    - target: {fileID: 3064154245701605104, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
       propertyPath: jumpHeight
       value: 15
       objectReference: {fileID: 0}
@@ -46082,6 +46086,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!95 &1511049169 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1773653329305554706, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
+  m_PrefabInstance: {fileID: 57130501}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1511994594
 PrefabInstance:
   m_ObjectHideFlags: 0

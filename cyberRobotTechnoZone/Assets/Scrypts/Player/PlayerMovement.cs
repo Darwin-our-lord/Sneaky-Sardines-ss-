@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb; // the rigidbody
 
+    [SerializeField] Animator animator; // lock flipping during the attack animation yesyes >:3
+
     [SerializeField] float speed; // the speed of wich the player moves
     [SerializeField] float jumpHeight; // the height of wich the player jumps
     [SerializeField] float maxJumpAngle = 45f; // the maximum angle of the slope wich the player can jump on
@@ -51,10 +53,21 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float gravityTransitionSharpness = 6f;
     private float currentGravityMultiplier = 1f;
 
+    [SerializeField] float verticalVelocityAnimDelay = 0.1f; // how far behind (in seconds) the VerticalVelocity fed to the Animator is
+    private readonly Queue<float> verticalVelocityHistory = new Queue<float>(); // sliding window of past VerticalVelocity samples
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); // fetchng the rigidbody
         baseGravityScale = rb.gravityScale;
+
+        if (animator == null)
+        {
+            animator = GetComponent<Animator>();
+        }
+
+        // make sure the starting scale matches facingRight so we don't start mirrored by accident
+        ApplyFacingDirection();
     }
 
 
@@ -99,6 +112,11 @@ public class PlayerMovement : MonoBehaviour
             groundContactCount = 0;
             canJump = false;
 
+            if (animator != null)
+            {
+                animator.SetTrigger("Jump");
+            }
+
         }
 
 
@@ -124,13 +142,20 @@ public class PlayerMovement : MonoBehaviour
         currentGravityMultiplier = Mathf.Lerp(currentGravityMultiplier, stateMultiplier, 1f - Mathf.Exp(-gravityTransitionSharpness * Time.fixedDeltaTime));
         rb.gravityScale = baseGravityScale * currentGravityMultiplier;
 
+        // while the Whip forward attack animation is playing, we don't want the player to flip mid-swing,
+        // so we skip updating facingRight (but movement itself still works normally)
+        bool isAttacking = animator != null && animator.GetCurrentAnimatorStateInfo(0).IsName("Whip forward");
+
         // checks if D is pressed and if so, the player walks right and is set to be facing right
         if (Keyboard.current.dKey.isPressed)
         {
             Vector2 velocity = Vector2.zero;
             rb.linearVelocity = Vector2.SmoothDamp(rb.linearVelocity, new Vector2(speed, rb.linearVelocityY), ref velocity, 0.1f);
-            facingRight = true;
 
+            if (!isAttacking)
+            {
+                facingRight = true;
+            }
 
         }
 
@@ -140,7 +165,22 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector2 velocity = Vector2.zero;
             rb.linearVelocity = Vector2.SmoothDamp(rb.linearVelocity, new Vector2(-speed, rb.linearVelocityY), ref velocity, 0.1f);
-            facingRight = false;
+
+            if (!isAttacking)
+            {
+                facingRight = false;
+            }
+        }
+
+        // apply the visual flip based on the current facing direction
+        ApplyFacingDirection();
+
+        // feed the Animator the values its transitions rely on
+        if (animator != null)
+        {
+            animator.SetFloat("Speed", Mathf.Abs(rb.linearVelocityX));
+            animator.SetBool("Grounded", grounded);
+            animator.SetFloat("VerticalVelocity", GetDelayedVerticalVelocity());
         }
 
         if (!Keyboard.current.aKey.isPressed && !Keyboard.current.dKey.isPressed && Mathf.FloatToHalf(rb.linearVelocityX) != 0)
@@ -173,6 +213,37 @@ public class PlayerMovement : MonoBehaviour
 
         }
     }
+
+    // keeps a sliding window of the last verticalVelocityAnimDelay seconds of rb.linearVelocityY,
+    // and returns the oldest sample in that window - i.e. the velocity from ~verticalVelocityAnimDelay seconds ago
+    private float GetDelayedVerticalVelocity()
+    {
+        verticalVelocityHistory.Enqueue(rb.linearVelocityY);
+
+        int delayFrames = Mathf.Max(1, Mathf.RoundToInt(verticalVelocityAnimDelay / Time.fixedDeltaTime));
+
+        if (verticalVelocityHistory.Count > delayFrames)
+        {
+            return verticalVelocityHistory.Dequeue();
+        }
+
+        // not enough history yet (e.g. right at Start) - just use the current value
+        return rb.linearVelocityY;
+    }
+
+    // flips the player's scale on the X axis so all animations (authored facing right) face the correct direction
+    private void ApplyFacingDirection()
+    {
+        Vector3 scale = transform.localScale;
+        float flippedX = Mathf.Abs(scale.x) * (facingRight ? 1f : -1f);
+
+        if (!Mathf.Approximately(scale.x, flippedX))
+        {
+            scale.x = flippedX;
+            transform.localScale = scale;
+        }
+    }
+
     // when the player �s colliding with something with the layer "Ground" and the normal of the contactpoint is pointing upwards (if the player is on top of the collider) -
     // grounded is set to true
     private void OnCollisionStay2D(Collision2D collision)
