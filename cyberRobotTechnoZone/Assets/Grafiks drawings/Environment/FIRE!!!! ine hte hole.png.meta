@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: bd1bd56d973d81b4496cc2f158bb90de
+guid: 78aa7ba7a25eab445a240e7c6aa4c143
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2594574073591264013
-    second: Beehive_0
+      213: -1872790372042742808
+    second: FIRE!!!! ine hte hole_0
+  - first:
+      213: -3365618411446415872
+    second: FIRE!!!! ine hte hole_1
+  - first:
+      213: -660101766002517722
+    second: FIRE!!!! ine hte hole_2
+  - first:
+      213: 1950192618030340176
+    second: FIRE!!!! ine hte hole_3
+  - first:
+      213: 2738027629853305886
+    second: FIRE!!!! ine hte hole_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 300
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -96,27 +108,84 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Beehive_0
+      name: FIRE!!!! ine hte hole_0
       rect:
         serializedVersion: 2
-        x: 272
-        y: 249
-        width: 669
-        height: 927
+        x: 164
+        y: 1880
+        width: 886
+        height: 1252
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3fc872070a83efbd0800000000000000
-      internalID: -2594574073591264013
+      spriteID: 8e3ee9f34138206e0800000000000000
+      internalID: -1872790372042742808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FIRE!!!! ine hte hole_2
+      rect:
+        serializedVersion: 2
+        x: 1439
+        y: 1537
+        width: 801
+        height: 1228
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 629dfc1f0f8d6d6f0800000000000000
+      internalID: -660101766002517722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FIRE!!!! ine hte hole_3
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 108
+        width: 981
+        height: 1389
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05899418ad9701b10800000000000000
+      internalID: 1950192618030340176
       vertices: []
       indices: 
       edges: []
@@ -125,7 +194,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: af1592232c3752741922440f4932b4c4
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +204,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Beehive_0: -2594574073591264013
+      FIRE!!!! ine hte hole_0: -1872790372042742808
+      FIRE!!!! ine hte hole_1: -3365618411446415872
+      FIRE!!!! ine hte hole_2: -660101766002517722
+      FIRE!!!! ine hte hole_3: 1950192618030340176
+      FIRE!!!! ine hte hole_4: 2738027629853305886
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
