@@ -107,8 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b130ded5e04da1d41bff6dfb255e3451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlantWhip
-  attackSound: {fileID: 8300000, guid: b20511d84aa12b440b70449b0d9348cc, type: 3}
-  attackHitSound: {fileID: 8300000, guid: c81bd29f91f21e645816f923c987b2e7, type: 3}
+  AttachSound: {fileID: 8300000, guid: c1ba7ca40a8cbc94a9ce0b7e95e08429, type: 3}
 --- !u!61 &7302502736328938750
 BoxCollider2D:
   m_ObjectHideFlags: 0
