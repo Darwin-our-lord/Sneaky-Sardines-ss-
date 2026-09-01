@@ -11,7 +11,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public float detectionTime = 1f; // seconds required to trigger
     private float timer = 0f;
     private bool targetDetected = false;
-    bool trorfal = false;
+    bool trOrFal = false;
 
 
     void Update()
@@ -48,16 +48,16 @@ public class NewMonoBehaviourScript : MonoBehaviour
                         if (hit.collider.CompareTag("Player"))
                         {
                             Debug.Log("Detected: " + hit.collider.name);
-                            trorfal = true;
+                            trOrFal = true;
                             spinspin.fanfan = true;
                             player.GetComponent<Rigidbody2D>().gravityScale = -1;
                             break;
                         }
                     }
                 }
-                else if (trorfal == true)
+                else if (trOrFal == true)
                 {
-                    trorfal = false;
+                    trOrFal = false;
                     spinspin.fanfan = false;
                     player.GetComponent<Rigidbody2D>().gravityScale = 1;
                 }
