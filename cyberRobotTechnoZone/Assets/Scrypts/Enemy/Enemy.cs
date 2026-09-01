@@ -63,7 +63,7 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("died");
+        Destroy(gameObject);
     }
 
 }
