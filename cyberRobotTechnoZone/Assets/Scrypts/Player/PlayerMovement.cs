@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     private float currentCyoteTime; // the timer itself
     public bool canJump { get; private set; }
 
-    [SerializeField] AudioClip footstepsGrassSound; // the footsteps sound when the player is walking on grass
+    [SerializeField] List<AudioClip> footstepsGrassSounds; // the footsteps sound when the player is walking on grass
     [SerializeField] float footstepInterval = 0.5f; // the time between each footstep sound 
     private bool isPlayingFootstepSound = false; // a boolean to check if the footstep sound is already playing
     [SerializeField] AudioClip hitGroundSound; // the sound of the player hitting the ground
@@ -196,7 +196,7 @@ public class PlayerMovement : MonoBehaviour
             // AudioSource.PlayClipAtPoint(hitGroundSound, transform.position, 10f);
             if (airTimeTimer >= minAirTimeForLandSound && Mathf.Abs(fallSpeedAtLastCheck) >= minFallSpeedForLandSound)
             {
-                AudioSource.PlayClipAtPoint(hitGroundSound, transform.position, 130f);
+                AudioSource.PlayClipAtPoint(hitGroundSound, transform.position, 600f);
             }
             airTimeTimer = 0f;
             fallSpeedAtLastCheck = 0f;
@@ -218,7 +218,7 @@ public class PlayerMovement : MonoBehaviour
 
     void PlayFootstepsound()
     {
-        AudioSource.PlayClipAtPoint(footstepsGrassSound, transform.position, 40f);
+        AudioSource.PlayClipAtPoint(footstepsGrassSounds[Random.Range(0, footstepsGrassSounds.Count)], transform.position, 40f);
 
     }
 
