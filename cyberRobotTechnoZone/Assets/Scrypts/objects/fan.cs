@@ -17,7 +17,7 @@ public class fan : MonoBehaviour
 
     private void Start()
     {
-        spinspin.spinspinifikation = false;     
+        player = GameObject.Find("Player 1"); 
      rb = player.GetComponent<Rigidbody2D>();
         trOrFal = false;
         spinspin.fanfan = false;
