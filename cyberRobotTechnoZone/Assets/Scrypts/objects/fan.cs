@@ -17,10 +17,10 @@ public class fan : MonoBehaviour
 
     private void Start()
     {
-        spinspin.spinspinifikation = false; 
+        spinspin.spinspinifikation = false;     
      rb = player.GetComponent<Rigidbody2D>();
         trOrFal = false;
-        spinspin.fanfan = true;
+        spinspin.fanfan = false;
     }
     void FixedUpdate()
     {
@@ -67,7 +67,7 @@ public class fan : MonoBehaviour
                 else if (trOrFal == true)
                 {
                     trOrFal = false;
-                    //spinspin.fanfan = false;
+                    spinspin.fanfan = false;
                 //    player.GetComponent<Rigidbody2D>().gravityScale = 1;
                 }
             }
