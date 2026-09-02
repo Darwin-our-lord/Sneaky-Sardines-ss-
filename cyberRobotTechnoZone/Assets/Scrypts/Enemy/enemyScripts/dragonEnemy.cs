@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class dragonEnemy : Enemy
@@ -5,7 +6,7 @@ public class dragonEnemy : Enemy
     public GameObject Player;
     public Transform spawnPoint;
     public GameObject fireballPrefab;
-    bool attackActive = true;
+    bool attackActive = false;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -55,11 +56,11 @@ public class dragonEnemy : Enemy
         if (attackActive == true)
         {
             Vector3 targetPosition = Player.transform.position;
-
+            Debug.Log(targetPosition);
             GameObject theball = Instantiate(fireballPrefab, spawnPoint.position, Quaternion.Euler(0, 0, 0));
             Fireball fire = theball.GetComponent<Fireball>();
             fire.target = targetPosition;
-            attackActive = false;
+            StartCoroutine(AttackDelay());
         }
     }
 
@@ -81,5 +82,10 @@ public class dragonEnemy : Enemy
             }
         }
 
+    }
+    IEnumerator AttackDelay()
+    {
+        yield return new WaitForSeconds(2);
+        attackActive = false;
     }
 }

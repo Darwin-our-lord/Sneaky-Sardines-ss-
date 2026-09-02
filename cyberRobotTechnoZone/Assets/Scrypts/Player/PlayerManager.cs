@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour
 {
     [SerializeField] MenuManager menuManager;
     [SerializeField] Animator deathAnimator;
+    [SerializeField] Animator animator;
     [SerializeField] int health = 3;
     [SerializeField] private int maxHealth = 3;
 
@@ -32,6 +33,13 @@ public class PlayerManager : MonoBehaviour
             health = maxHealth;
         }
     }
+    void Start()
+    {
+        if (animator == null)
+        {
+            animator = GetComponent<Animator>();
+        }
+    }
     public void TakeDamage(int damage)
     {
         invincibilityDuration -= Time.time - lastDmgTime;
@@ -42,6 +50,10 @@ public class PlayerManager : MonoBehaviour
         lastDmgTime = Time.time;
         health -= damage;
         AudioSource.PlayClipAtPoint(HurtSound, transform.position, 1000f);
+        if (animator != null)
+            {
+                animator.SetTrigger("Hurt");
+            }
         if (health <= 0) { StartCoroutine(Die()); }
 
 
