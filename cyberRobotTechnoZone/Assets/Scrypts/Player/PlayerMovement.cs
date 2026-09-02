@@ -25,11 +25,17 @@ public class PlayerMovement : MonoBehaviour
     private float currentCyoteTime; // the timer itself
     public bool canJump { get; private set; }
 
+    private AudioSource audioSource; // the audio source for the player
+
     [SerializeField] List<AudioClip> footstepsGrassSounds; // the footsteps sound when the player is walking on grass
     [SerializeField] float footstepInterval = 0.5f; // the time between each footstep sound 
     private bool isPlayingFootstepSound = false; // a boolean to check if the footstep sound is already playing
     [SerializeField] AudioClip hitGroundSound; // the sound of the player hitting the ground
 
+    [SerializeField] AudioClip hitWater; // the sound of the player hitting water
+    [SerializeField] AudioClip swimmingWaterSound; // the sound of the player swimming in water
+
+    private bool inWater = false; // a boolean to check if the player is in water or not
 
     [SerializeField] float minAirTimeForLandSound = 0.3f;
     [SerializeField] float minFallSpeedForLandSound = 5f;
@@ -56,8 +62,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float verticalVelocityAnimDelay = 0.1f; // how far behind (in seconds) the VerticalVelocity fed to the Animator is
     private readonly Queue<float> verticalVelocityHistory = new Queue<float>(); // sliding window of past VerticalVelocity samples
 
+    private Vector2 groundNormal = Vector2.up;
+
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>(); // fetchng the rigidbody
         baseGravityScale = rb.gravityScale;
 
@@ -127,13 +136,20 @@ public class PlayerMovement : MonoBehaviour
         wasJumpKeyHeld = jumpKeyHeld;
 
         float stateMultiplier;
-        if (rb.linearVelocityY < 0f)
+        if (!grounded)
         {
-            stateMultiplier = fallGravityMultiplier;
-        }
-        else if (rb.linearVelocityY > 0f && !jumpKeyHeld)
-        {
-            stateMultiplier = lowJumpGravityMultiplier;
+            if (rb.linearVelocityY < 0f)
+            {
+                stateMultiplier = fallGravityMultiplier;
+            }
+            else if (rb.linearVelocityY > 0f && !jumpKeyHeld)
+            {
+                stateMultiplier = lowJumpGravityMultiplier;
+            }
+            else
+            {
+                stateMultiplier = 1f;
+            }
         }
         else
         {
@@ -146,11 +162,14 @@ public class PlayerMovement : MonoBehaviour
         // so we skip updating facingRight (but movement itself still works normally)
         bool isAttacking = animator != null && animator.GetCurrentAnimatorStateInfo(0).IsName("Whip forward");
 
+        Vector2 slopeRight = grounded ? new Vector2(groundNormal.y, -groundNormal.x) : Vector2.right;
+
         // checks if D is pressed and if so, the player walks right and is set to be facing right
         if (Keyboard.current.dKey.isPressed)
         {
+            Vector2 targetVelocity = grounded ? slopeRight * speed : new Vector2(speed, rb.linearVelocityY);
             Vector2 velocity = Vector2.zero;
-            rb.linearVelocity = Vector2.SmoothDamp(rb.linearVelocity, new Vector2(speed, rb.linearVelocityY), ref velocity, 0.1f);
+            rb.linearVelocity = Vector2.SmoothDamp(rb.linearVelocity, targetVelocity, ref velocity, 0.1f);
 
             if (!isAttacking)
             {
@@ -163,8 +182,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (Keyboard.current.aKey.isPressed)
         {
+            Vector2 targetVelocity = grounded ? -slopeRight * speed : new Vector2(-speed, rb.linearVelocityY);
             Vector2 velocity = Vector2.zero;
-            rb.linearVelocity = Vector2.SmoothDamp(rb.linearVelocity, new Vector2(-speed, rb.linearVelocityY), ref velocity, 0.1f);
+            rb.linearVelocity = Vector2.SmoothDamp(rb.linearVelocity, targetVelocity, ref velocity, 0.1f);
 
             if (!isAttacking)
             {
@@ -198,19 +218,35 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocityX = Mathf.Lerp(rb.linearVelocityX, 0f, 1f - Mathf.Exp(-currentDragRate * Time.fixedDeltaTime));
         }
 
-        if (grounded == true && (Keyboard.current.aKey.isPressed || Keyboard.current.dKey.isPressed))
+        if ((Keyboard.current.aKey.isPressed || Keyboard.current.dKey.isPressed))
         {
-            if (!isPlayingFootstepSound)
+            if (grounded == true)
             {
-                InvokeRepeating(nameof(PlayFootstepsound), 0f, footstepInterval);
-                isPlayingFootstepSound = true;
+                if (!isPlayingFootstepSound)
+                {
+                    InvokeRepeating(nameof(PlayFootstepsound), 0f, footstepInterval);
+                    isPlayingFootstepSound = true;
+                }
+            }
+            else
+            {
+                CancelInvoke(nameof(PlayFootstepsound));
+                isPlayingFootstepSound = false;
+            }
+
+            if (inWater)
+            {
+                audioSource.UnPause();
             }
         }
         else
         {
             CancelInvoke(nameof(PlayFootstepsound));
             isPlayingFootstepSound = false;
-
+            if (inWater)
+            {
+                audioSource.Pause();
+            }
         }
     }
 
@@ -248,10 +284,14 @@ public class PlayerMovement : MonoBehaviour
     // grounded is set to true
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 3 && Vector2.Angle(collision.GetContact(0).normal, Vector2.up) <= maxJumpAngle && rb.linearVelocityY <= 0)
+        if (collision.gameObject.layer == 3 && Vector2.Angle(collision.GetContact(0).normal, Vector2.up) <= maxJumpAngle)
         {
+            groundNormal = collision.GetContact(0).normal;
 
-            canJump = true;
+            if (rb.linearVelocityY <= 0)
+            {
+                canJump = true;
+            }
 
         }
     }
@@ -262,12 +302,13 @@ public class PlayerMovement : MonoBehaviour
         {
             groundContactCount++;
         }
+
         if (groundContactCount == 1)
         {
             // AudioSource.PlayClipAtPoint(hitGroundSound, transform.position, 10f);
             if (airTimeTimer >= minAirTimeForLandSound && Mathf.Abs(fallSpeedAtLastCheck) >= minFallSpeedForLandSound)
             {
-                AudioSource.PlayClipAtPoint(hitGroundSound, transform.position, 600f);
+                AudioSource.PlayClipAtPoint(hitGroundSound, transform.position, 10f);
             }
             airTimeTimer = 0f;
             fallSpeedAtLastCheck = 0f;
@@ -282,15 +323,42 @@ public class PlayerMovement : MonoBehaviour
             if (!grounded)
             {
                 currentCyoteTime = cyoteTime;
+                groundNormal = Vector2.up; // fall back to normal horizontal/airborne movement
             }
+        }
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 4)
+        {
+
+            AudioSource.PlayClipAtPoint(hitWater, transform.position, 10f);
+            inWater = true;
+            InvokeRepeating(nameof(PlaySwimmingSound), 0, swimmingWaterSound.length);
         }
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 4)
+        {
+            CancelInvoke(nameof(PlaySwimmingSound));
+            audioSource.Stop();
+            inWater = false;
+        }
+    }
 
     void PlayFootstepsound()
     {
-        AudioSource.PlayClipAtPoint(footstepsGrassSounds[Random.Range(0, footstepsGrassSounds.Count)], transform.position, 40f);
+        AudioSource.PlayClipAtPoint(footstepsGrassSounds[Random.Range(0, footstepsGrassSounds.Count)], transform.position, 10f);
 
     }
+    void PlaySwimmingSound()
+    {
+        audioSource.Play();
 
+
+    }
 }
