@@ -51,7 +51,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
                             Debug.Log("Detected: " + hit.collider.name);
                             trOrFal = true;
                             spinspin.fanfan = true;
-                            player.GetComponent<Rigidbody2D>().gravityScale = -1;
+                            player.GetComponent<Rigidbody2D>().linearVelocityY = 4f;
                             break;
                         }
                     }
@@ -60,7 +60,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
                 {
                     trOrFal = false;
                     spinspin.fanfan = false;
-                    player.GetComponent<Rigidbody2D>().gravityScale = 1;
+                   // player.GetComponent<Rigidbody2D>().gravityScale = 1;
                 }
             }
         }
