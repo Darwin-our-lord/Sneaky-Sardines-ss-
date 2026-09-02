@@ -59,13 +59,8 @@ public class dragonEnemy : Enemy
         Debug.Log("catchauw");
         if (attackActive == true)
         {
-            animator.SetTrigger("FireballAttack");
-            Vector3 targetPosition = Player.transform.position;
-            Debug.Log(targetPosition);
-            GameObject theball = Instantiate(fireballPrefab, spawnPoint.position, Quaternion.Euler(0, 0, 0));
-            Fireball fire = theball.GetComponent<Fireball>();
-            fire.target = targetPosition;
-            StartCoroutine(AttackDelay());
+            animator.SetTrigger("ShootFireAttack");
+            StartCoroutine(FireballDelay());
         }
     }
     void ClawAttack()
@@ -73,7 +68,7 @@ public class dragonEnemy : Enemy
         Debug.LogWarning("ClawAttack");
         animator.SetTrigger("ClawAttack");
 
-        StartCoroutine(AttackDelay());
+        StartCoroutine(AttackDelay(2));
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -112,9 +107,19 @@ public class dragonEnemy : Enemy
         }
 
     }
-    IEnumerator AttackDelay()
+    IEnumerator FireballDelay()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.55f);
+        Vector3 targetPosition = Player.transform.position;
+        Debug.Log(targetPosition);
+        GameObject theball = Instantiate(fireballPrefab, spawnPoint.position, Quaternion.Euler(0, 0, 0));
+        Fireball fire = theball.GetComponent<Fireball>();
+        fire.target = targetPosition;
+        StartCoroutine(AttackDelay(1));
+    }
+    IEnumerator AttackDelay(int i)
+    {
+        yield return new WaitForSeconds(i);
         attackActive = false;
         playerTakenDmg = false;
     }

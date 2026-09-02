@@ -10,7 +10,7 @@ public class Fireball : MonoBehaviour
     public Vector3 offset;
     private void Awake()
     {
-        offset = new Vector3(0, 2, 0);
+        //offset = new Vector3(0, 2, 0);
     }
     void FixedUpdate()
     {

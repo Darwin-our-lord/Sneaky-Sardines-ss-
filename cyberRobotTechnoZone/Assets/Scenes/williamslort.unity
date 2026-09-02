@@ -31174,6 +31174,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52ae8b9eecb6fc24388a03cce42d7e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::walltriger
+  targetOrthographicSize: 25
+  zoomDuration: 1
 --- !u!61 &1006249530
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -63049,7 +63051,7 @@ SceneRoots:
   - {fileID: 1302301168}
   - {fileID: 1726423353}
   - {fileID: 1518534858}
-  - {fileID: 1006249531}
   - {fileID: 2319146891093541256}
   - {fileID: 1606481092}
+  - {fileID: 1006249531}
   - {fileID: 1171979222}

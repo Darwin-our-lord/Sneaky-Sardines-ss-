@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
   player: {fileID: 0}
-  detectionDistance: 10
+  detectionDistance: 15
   targetLayer:
     serializedVersion: 2
     m_Bits: 1
