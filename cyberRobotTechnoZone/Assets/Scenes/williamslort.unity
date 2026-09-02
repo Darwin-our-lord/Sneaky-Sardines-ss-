@@ -10259,7 +10259,7 @@ MonoBehaviour:
   outer2: 1
   iner2: 7
   detectionTime: 15
-  fanForce: 55
+  fanForce: 25
 --- !u!1 &304017889
 GameObject:
   m_ObjectHideFlags: 0
