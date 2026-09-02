@@ -1,25 +1,18 @@
 using UnityEngine;
 
-public class williamKederHamSelv : MonoBehaviour
+public class dragonEnemy : Enemy
 {
-    public Transform stopSted;
     public GameObject Player;
-    public GameObject zombiePrefab;
     public Transform spawnPoint;
     public GameObject fireballPrefab;
-    float speedOfDragon = 2f;
-    float dire = 1;
-    bool breathAttackActive = false;
-    bool erVedNi = false;
-    bool oneTime = true;
-    bool fireballAtttack = true;
+    bool attackActive = true;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         
     }
-    void flyattack()
+    /*void flyattack()
     {
         if (walltriger.dragerErActiv)
         {
@@ -55,28 +48,37 @@ public class williamKederHamSelv : MonoBehaviour
                 }
             }
         }
-    }
+    }*/
     void fireballAttack()
     {
         Debug.Log("catchauw");
-        if (fireballAtttack == true)
+        if (attackActive == true)
         {
             Vector3 targetPosition = Player.transform.position;
 
             GameObject theball = Instantiate(fireballPrefab, spawnPoint.position, Quaternion.Euler(0, 0, 0));
             Fireball fire = theball.GetComponent<Fireball>();
             fire.target = targetPosition;
-            fireballAtttack = false;
+            attackActive = false;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (walltriger.dragerErActiv) 
+        if (walltriger.dragerErActiv && !attackActive) 
         {
-            fireballAttack();
-            //flyattack();
+            int chosenattack = Random.Range(0, 1);
+            attackActive = true;
+            switch(chosenattack)
+            {
+                case 0:
+                    fireballAttack();
+                    break;
+                case 1:
+                    
+                    break;
+            }
         }
 
     }
