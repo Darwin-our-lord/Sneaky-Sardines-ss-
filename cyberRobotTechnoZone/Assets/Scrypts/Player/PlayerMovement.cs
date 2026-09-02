@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TreeEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR;
@@ -25,11 +26,17 @@ public class PlayerMovement : MonoBehaviour
     private float currentCyoteTime; // the timer itself
     public bool canJump { get; private set; }
 
+    private AudioSource audioSource; // the audio source for the player
+
     [SerializeField] List<AudioClip> footstepsGrassSounds; // the footsteps sound when the player is walking on grass
     [SerializeField] float footstepInterval = 0.5f; // the time between each footstep sound 
     private bool isPlayingFootstepSound = false; // a boolean to check if the footstep sound is already playing
     [SerializeField] AudioClip hitGroundSound; // the sound of the player hitting the ground
 
+    [SerializeField] AudioClip hitWater; // the sound of the player hitting water
+    [SerializeField] AudioClip swimmingWaterSound; // the sound of the player swimming in water
+
+    private bool inWater = false; // a boolean to check if the player is in water or not
 
     [SerializeField] float minAirTimeForLandSound = 0.3f;
     [SerializeField] float minFallSpeedForLandSound = 5f;
@@ -58,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>(); // fetchng the rigidbody
         baseGravityScale = rb.gravityScale;
 
@@ -198,20 +206,36 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocityX = Mathf.Lerp(rb.linearVelocityX, 0f, 1f - Mathf.Exp(-currentDragRate * Time.fixedDeltaTime));
         }
 
-        if (grounded == true && (Keyboard.current.aKey.isPressed || Keyboard.current.dKey.isPressed))
+        if ( (Keyboard.current.aKey.isPressed || Keyboard.current.dKey.isPressed))
         {
-            if (!isPlayingFootstepSound)
+            if (grounded == true)
             {
-                InvokeRepeating(nameof(PlayFootstepsound), 0f, footstepInterval);
-                isPlayingFootstepSound = true;
+                if (!isPlayingFootstepSound)
+                {
+                    InvokeRepeating(nameof(PlayFootstepsound), 0f, footstepInterval);
+                    isPlayingFootstepSound = true;
+                }
+            }
+            else
+            {
+                CancelInvoke(nameof(PlayFootstepsound));
+                isPlayingFootstepSound = false;
+            }
+
+            if (inWater)
+            {
+                audioSource.UnPause();
             }
         }
         else
         {
             CancelInvoke(nameof(PlayFootstepsound));
             isPlayingFootstepSound = false;
-
-        }
+            if (inWater)
+            {
+                audioSource.Pause();
+            }
+        }   
     }
 
     // keeps a sliding window of the last verticalVelocityAnimDelay seconds of rb.linearVelocityY,
@@ -262,12 +286,13 @@ public class PlayerMovement : MonoBehaviour
         {
             groundContactCount++;
         }
+        
         if (groundContactCount == 1)
         {
             // AudioSource.PlayClipAtPoint(hitGroundSound, transform.position, 10f);
             if (airTimeTimer >= minAirTimeForLandSound && Mathf.Abs(fallSpeedAtLastCheck) >= minFallSpeedForLandSound)
             {
-                AudioSource.PlayClipAtPoint(hitGroundSound, transform.position, 600f);
+                AudioSource.PlayClipAtPoint(hitGroundSound,transform.position, 10f);
             }
             airTimeTimer = 0f;
             fallSpeedAtLastCheck = 0f;
@@ -284,13 +309,39 @@ public class PlayerMovement : MonoBehaviour
                 currentCyoteTime = cyoteTime;
             }
         }
+        
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 4)
+        {
+            
+            AudioSource.PlayClipAtPoint(hitWater,transform.position, 10f);
+            inWater = true;
+            InvokeRepeating(nameof(PlaySwimmingSound),0,swimmingWaterSound.length);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 4)
+        {
+            CancelInvoke(nameof(PlaySwimmingSound));
+            audioSource.Stop();
+            inWater = false;
+        }
+    }
 
     void PlayFootstepsound()
     {
-        AudioSource.PlayClipAtPoint(footstepsGrassSounds[Random.Range(0, footstepsGrassSounds.Count)], transform.position, 40f);
+       AudioSource.PlayClipAtPoint(footstepsGrassSounds[Random.Range(0, footstepsGrassSounds.Count)],transform.position, 10f);
 
     }
+    void PlaySwimmingSound()
+    {
+            audioSource.Play();
 
+       
+    }
 }
