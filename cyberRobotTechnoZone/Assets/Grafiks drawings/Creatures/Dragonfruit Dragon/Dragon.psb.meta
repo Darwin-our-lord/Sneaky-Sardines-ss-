@@ -95,6 +95,28 @@ ScriptedImporter:
     spritePosition: {x: 0, y: 0}
   multiSpriteImportData: []
   layeredSpriteImportData:
+  - name: Wing
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 2138
+      y: 737
+      width: 1277
+      height: 467
+    spriteID: e0e311d8ed9d7904e80a72816c2cf024
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2138, y: 737}
+    spritePosition: {x: 1098, y: 684}
   - name: Leg 3
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -126,7 +148,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 2138
-      y: 737
+      y: 1212
       width: 499
       height: 733
     spriteID: 14cc35d10976ab64781441949c8e49a2
@@ -137,7 +159,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 2138, y: 737}
+    uvTransform: {x: 2138, y: 1212}
     spritePosition: {x: 852, y: 76}
   - name: Head
     originalName: 
@@ -169,7 +191,7 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 3547
+      x: 3423
       y: 737
       width: 535
       height: 272
@@ -181,7 +203,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 3547, y: 737}
+    uvTransform: {x: 3423, y: 737}
     spritePosition: {x: 184, y: 1500}
   - name: Body
     originalName: 
@@ -214,7 +236,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 2645
-      y: 737
+      y: 1212
       width: 533
       height: 621
     spriteID: c88e857d6675f534eaf74fc964a1b403
@@ -225,7 +247,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 2645, y: 737}
+    uvTransform: {x: 2645, y: 1212}
     spritePosition: {x: 1284, y: 91}
   - name: leg 2
     originalName: 
@@ -236,7 +258,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 3186
-      y: 737
+      y: 1212
       width: 353
       height: 733
     spriteID: 8bbf3b3bab28f64429e5e63d4bfdc284
@@ -247,7 +269,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 3186, y: 737}
+    uvTransform: {x: 3186, y: 1212}
     spritePosition: {x: 593, y: 91}
   spriteImportData: []
   rigSpriteImportData: []
@@ -296,6 +318,16 @@ ScriptedImporter:
   resliceFromLayer: 0
   pSDLayerImportSetting: []
   psdLayers:
+  - name: Wing
+    spriteName: Wing
+    isGroup: 0
+    parentIndex: -1
+    spriteID: e0e311d8ed9d7904e80a72816c2cf024
+    layerID: 28
+    mosaicPosition: {x: 2138, y: 737}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: Leg 3
     spriteName: Leg 3
     isGroup: 0
@@ -312,7 +344,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 14cc35d10976ab64781441949c8e49a2
     layerID: 23
-    mosaicPosition: {x: 2138, y: 737}
+    mosaicPosition: {x: 2138, y: 1212}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -332,7 +364,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: deda7520a89b7fc428ef053dfce9a5d2
     layerID: 19
-    mosaicPosition: {x: 3547, y: 737}
+    mosaicPosition: {x: 3423, y: 737}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -352,7 +384,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: c88e857d6675f534eaf74fc964a1b403
     layerID: 22
-    mosaicPosition: {x: 2645, y: 737}
+    mosaicPosition: {x: 2645, y: 1212}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -362,7 +394,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 8bbf3b3bab28f64429e5e63d4bfdc284
     layerID: 25
-    mosaicPosition: {x: 3186, y: 737}
+    mosaicPosition: {x: 3186, y: 1212}
     flatten: 0
     isImported: 1
     isVisible: 1
