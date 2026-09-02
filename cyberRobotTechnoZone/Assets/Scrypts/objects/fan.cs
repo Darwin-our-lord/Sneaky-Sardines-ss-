@@ -11,13 +11,16 @@ public class fan : MonoBehaviour
     public float detectionTime = 1f; // seconds required to trigger
     private float timer = 0f;
     private bool targetDetected = false;
-    public float fanForce = 10;
+    public float fanForce = 1;
     bool trOrFal = false;
     Rigidbody2D rb;
 
     private void Start()
     {
-     rb = player.GetComponent<Rigidbody2D>();   
+        spinspin.spinspinifikation = false;     
+     rb = player.GetComponent<Rigidbody2D>();
+        trOrFal = false;
+        spinspin.fanfan = false;
     }
     void FixedUpdate()
     {

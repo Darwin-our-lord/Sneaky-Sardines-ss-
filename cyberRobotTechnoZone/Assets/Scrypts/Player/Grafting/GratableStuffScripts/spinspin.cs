@@ -15,11 +15,12 @@ public class spinspin : GraftablePart
     {
         AudioSource.PlayClipAtPoint(AttachSound, transform.position, 10f);
         spinspinifikation = true;
+        bool fanfan = false;
         Debug.Log($"spinspin{spinspinifikation}");
         parentRb = GetComponentInParent<Rigidbody2D>();
         player = GetComponentInParent<PlayerMovement>();
 
-        transform.localPosition += new Vector3(0.5f, 0.5f, 0f);
+        transform.localPosition += new Vector3(0.5f, 2.5f, 0f);
 
         if (transform.position.y > lastYPosition)
         {

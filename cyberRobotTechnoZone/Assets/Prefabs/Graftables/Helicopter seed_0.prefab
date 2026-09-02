@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3224903885418994574}
   - component: {fileID: 408701711618118771}
   - component: {fileID: 3581717257789660173}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Helicopter seed_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
