@@ -10256,9 +10256,9 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 1
-  outer2: 15
+  outer2: 1
   iner2: 7
-  detectionTime: 1
+  detectionTime: 15
   fanForce: 55
 --- !u!1 &304017889
 GameObject:
