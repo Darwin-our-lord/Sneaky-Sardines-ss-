@@ -2526,11 +2526,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8979418964111250410, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 153.7
+      value: 384
       objectReference: {fileID: 0}
     - target: {fileID: 8979418964111250410, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.33
+      value: -28.73
       objectReference: {fileID: 0}
     - target: {fileID: 8979418964111250410, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10134,6 +10134,7 @@ GameObject:
   - component: {fileID: 302885936}
   - component: {fileID: 302885935}
   - component: {fileID: 302885934}
+  - component: {fileID: 302885937}
   m_Layer: 0
   m_Name: FIRE!!!! ine hte hole_0
   m_TagString: Untagged
@@ -10238,6 +10239,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &302885937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302885933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af2613d9419729348bfa0d0519f294ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
+  player: {fileID: 1759766757}
+  detectionDistance: 5
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  outer2: 15
+  iner2: 7
+  detectionTime: 1
 --- !u!1 &304017889
 GameObject:
   m_ObjectHideFlags: 0
@@ -24772,6 +24793,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!1001 &777295470
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4864724700850797378, guid: 35c94e8b31fdb5547b2dbd21a32fcfe9, type: 3}
+      propertyPath: m_Name
+      value: Helicopter seed_0 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193223666759712482, guid: 35c94e8b31fdb5547b2dbd21a32fcfe9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 384.45718
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193223666759712482, guid: 35c94e8b31fdb5547b2dbd21a32fcfe9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -32.231785
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193223666759712482, guid: 35c94e8b31fdb5547b2dbd21a32fcfe9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193223666759712482, guid: 35c94e8b31fdb5547b2dbd21a32fcfe9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193223666759712482, guid: 35c94e8b31fdb5547b2dbd21a32fcfe9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193223666759712482, guid: 35c94e8b31fdb5547b2dbd21a32fcfe9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193223666759712482, guid: 35c94e8b31fdb5547b2dbd21a32fcfe9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193223666759712482, guid: 35c94e8b31fdb5547b2dbd21a32fcfe9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193223666759712482, guid: 35c94e8b31fdb5547b2dbd21a32fcfe9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193223666759712482, guid: 35c94e8b31fdb5547b2dbd21a32fcfe9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 35c94e8b31fdb5547b2dbd21a32fcfe9, type: 3}
 --- !u!1 &783564874
 GameObject:
   m_ObjectHideFlags: 0
@@ -51303,6 +51381,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1033966068}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1759766757 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1060149338844552580, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
+  m_PrefabInstance: {fileID: 57130501}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1762730168
 GameObject:
   m_ObjectHideFlags: 0
@@ -62763,3 +62846,4 @@ SceneRoots:
   - {fileID: 1726423353}
   - {fileID: 1518534858}
   - {fileID: 302885936}
+  - {fileID: 777295470}

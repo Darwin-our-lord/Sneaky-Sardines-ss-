@@ -10,7 +10,10 @@ public class spinspin : GraftablePart
     private Rigidbody2D parentRb;
     private PlayerMovement player;
     [SerializeField] AudioClip AttachSound; // The sound of the player attaching the spinspin
-
+    private void Start()
+    {
+        spinspin.spinspinifikation = false;
+    }
     protected override void OnAttach()
     {
         AudioSource.PlayClipAtPoint(AttachSound, transform.position, 10f);
