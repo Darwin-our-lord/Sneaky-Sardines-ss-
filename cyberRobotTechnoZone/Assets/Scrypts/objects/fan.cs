@@ -1,7 +1,7 @@
 using UnityEditor.Sprites;
 using UnityEngine;
 
-public class fan : MonoBehaviour
+public class NewMonoBehaviourScript : MonoBehaviour
 {
     public GameObject player;
     public float detectionDistance = 5f;
@@ -11,18 +11,10 @@ public class fan : MonoBehaviour
     public float detectionTime = 1f; // seconds required to trigger
     private float timer = 0f;
     private bool targetDetected = false;
-    public float fanForce = 1;
     bool trOrFal = false;
-    Rigidbody2D rb;
 
-    private void Start()
-    {
-        player = GameObject.Find("Player 1"); 
-     rb = player.GetComponent<Rigidbody2D>();
-        trOrFal = false;
-        spinspin.fanfan = false;
-    }
-    void FixedUpdate()
+
+    void Update()
     {
         Debug.Log($"{spinspin.spinspinifikation}");
         float[] angles = { -outer2, -iner2, 0f, iner2, outer2 };
@@ -59,7 +51,7 @@ public class fan : MonoBehaviour
                             Debug.Log("Detected: " + hit.collider.name);
                             trOrFal = true;
                             spinspin.fanfan = true;
-                            rb.AddForceY(fanForce);
+                            player.GetComponent<Rigidbody2D>().linearVelocityY = 4f;
                             break;
                         }
                     }
@@ -68,7 +60,7 @@ public class fan : MonoBehaviour
                 {
                     trOrFal = false;
                     spinspin.fanfan = false;
-                //    player.GetComponent<Rigidbody2D>().gravityScale = 1;
+                   // player.GetComponent<Rigidbody2D>().gravityScale = 1;
                 }
             }
         }
