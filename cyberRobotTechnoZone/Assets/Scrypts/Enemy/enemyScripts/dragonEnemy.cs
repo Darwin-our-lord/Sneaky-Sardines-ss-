@@ -111,8 +111,10 @@ public class dragonEnemy : Enemy
     {
         yield return new WaitForSeconds(0.55f);
         Vector3 targetPosition = Player.transform.position;
+        Vector2 direction = targetPosition - spawnPoint.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         Debug.Log(targetPosition);
-        GameObject theball = Instantiate(fireballPrefab, spawnPoint.position, Quaternion.Euler(0, 0, 0));
+        GameObject theball = Instantiate(fireballPrefab, spawnPoint.position, Quaternion.Euler(0, 0, angle+100));
         Fireball fire = theball.GetComponent<Fireball>();
         fire.target = targetPosition;
         StartCoroutine(AttackDelay(1));
