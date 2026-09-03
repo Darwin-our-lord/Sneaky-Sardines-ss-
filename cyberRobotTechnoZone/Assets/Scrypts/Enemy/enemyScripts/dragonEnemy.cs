@@ -1,17 +1,21 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 public class dragonEnemy : Enemy
 {
     public GameObject Player;
     public Transform spawnPoint;
     public GameObject fireballPrefab;
+    Animator animator;
     bool attackActive = false;
     
+    bool playerTakenDmg = false; //used for claw attack to make sure player only takes damage once per attack
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
     /*void flyattack()
     {
@@ -55,15 +59,28 @@ public class dragonEnemy : Enemy
         Debug.Log("catchauw");
         if (attackActive == true)
         {
-            Vector3 targetPosition = Player.transform.position;
-            Debug.Log(targetPosition);
-            GameObject theball = Instantiate(fireballPrefab, spawnPoint.position, Quaternion.Euler(0, 0, 0));
-            Fireball fire = theball.GetComponent<Fireball>();
-            fire.target = targetPosition;
-            StartCoroutine(AttackDelay());
+            animator.SetTrigger("ShootFireAttack");
+            StartCoroutine(FireballDelay());
         }
     }
+    void ClawAttack()
+    {
+        Debug.LogWarning("ClawAttack");
+        animator.SetTrigger("ClawAttack");
 
+        StartCoroutine(AttackDelay(2));
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(playerTakenDmg) return; 
+
+        if (attackActive == true && collision.gameObject == Player) 
+        { 
+            Player.GetComponent<PlayerManager>().TakeDamage(1);
+            playerTakenDmg = true;
+            Debug.LogWarning("Player hit by dragon claw attack");
+        }
+    }
     // Update is called once per frame
     void Update()
     {
@@ -71,6 +88,13 @@ public class dragonEnemy : Enemy
         {
             int chosenattack = Random.Range(0, 1);
             attackActive = true;
+
+            if(Player.transform.position.x - transform.position.x <= 45f && Player.transform.position.y - transform.position.y < 0)
+            {
+                ClawAttack();
+                return;
+            }
+
             switch(chosenattack)
             {
                 case 0:
@@ -83,9 +107,20 @@ public class dragonEnemy : Enemy
         }
 
     }
-    IEnumerator AttackDelay()
+    IEnumerator FireballDelay()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.55f);
+        Vector3 targetPosition = Player.transform.position;
+        Debug.Log(targetPosition);
+        GameObject theball = Instantiate(fireballPrefab, spawnPoint.position, Quaternion.Euler(0, 0, 0));
+        Fireball fire = theball.GetComponent<Fireball>();
+        fire.target = targetPosition;
+        StartCoroutine(AttackDelay(1));
+    }
+    IEnumerator AttackDelay(int i)
+    {
+        yield return new WaitForSeconds(i);
         attackActive = false;
+        playerTakenDmg = false;
     }
 }
