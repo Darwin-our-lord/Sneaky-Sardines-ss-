@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.12109, y: -3.65871, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -110,7 +110,7 @@ MonoBehaviour:
   target: {x: 0, y: 0, z: 0}
   speed: 1
   fireprefab: {fileID: 1245345409244120978, guid: c9fdd7c3ee955674bb4b5668256323c4, type: 3}
-  offset: {x: 0, y: -5, z: 0}
+  offset: {x: 0, y: -4, z: 0}
 --- !u!58 &7331623764931263532
 CircleCollider2D:
   m_ObjectHideFlags: 0

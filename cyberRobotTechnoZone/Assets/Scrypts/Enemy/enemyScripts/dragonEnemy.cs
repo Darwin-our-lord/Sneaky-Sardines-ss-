@@ -125,4 +125,12 @@ public class dragonEnemy : Enemy
         attackActive = false;
         playerTakenDmg = false;
     }
+    public override void TakeDamage(int damage)
+    {
+        Debug.Log("haha");
+    }
+    public override void Die()
+    {
+        animator.SetTrigger("die");
+    }
 }

@@ -52,7 +52,7 @@ public class Enemy : MonoBehaviour
     
     }
 
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         health -= damage;
         if (health <= 0)
@@ -61,7 +61,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Die()
+    public virtual void Die()
     {
         Destroy(gameObject);
     }
