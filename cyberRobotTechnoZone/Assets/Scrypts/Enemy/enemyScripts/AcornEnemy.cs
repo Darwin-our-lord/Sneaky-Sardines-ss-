@@ -35,5 +35,6 @@ public class AcornEnemy : Enemy
     public void TurnAround()
     {
         dir *= -1; //turn around
+        GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX; //flip sprite
     }
 }
