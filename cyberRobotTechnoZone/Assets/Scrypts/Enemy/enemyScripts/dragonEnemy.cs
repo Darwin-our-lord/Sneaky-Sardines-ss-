@@ -131,6 +131,6 @@ public class dragonEnemy : Enemy
     }
     public override void Die()
     {
-        animator.SetTrigger("die");
+        animator.SetTrigger("die"); Debug.LogWarning("dragon dead");
     }
 }

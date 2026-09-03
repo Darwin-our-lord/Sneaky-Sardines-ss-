@@ -6,5 +6,6 @@ public class DragonHead : Enemy
     {
         dragonEnemy dragon = GetComponentInParent<dragonEnemy>();
         dragon.Die();
+        Debug.LogWarning("dragonhead dead");
     }
 }

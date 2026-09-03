@@ -1,12 +1,13 @@
+using System.Collections;
 using UnityEngine;
 
 public class fireErHot : MonoBehaviour
 {
     bool awwww = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
-        
+        StartCoroutine(TimerDeath());
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,9 +16,9 @@ public class fireErHot : MonoBehaviour
             collision.GetComponent<PlayerManager>().TakeDamage(1);
         }
     }
-    // Update is called once per frame
-    void Update()
+    IEnumerator TimerDeath()
     {
-
+        yield return new WaitForSeconds(5);
+        Destroy(gameObject);
     }
 }
