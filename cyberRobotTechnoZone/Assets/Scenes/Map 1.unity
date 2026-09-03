@@ -498,6 +498,7 @@ GameObject:
   - component: {fileID: 10694764}
   - component: {fileID: 10694763}
   - component: {fileID: 10694762}
+  - component: {fileID: 10694765}
   m_Layer: 0
   m_Name: Triangle (11)
   m_TagString: Untagged
@@ -605,7 +606,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.5803922, g: 0.5058824, b: 0.427451, a: 1}
+  m_Color: {r: 0.4792453, g: 0.36195228, b: 0.26313275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -630,6 +631,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1033966068}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.518}
+--- !u!114 &10694765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10694761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11420eb1ce36f5e409123d0f83222f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Spike
 --- !u!1 &12008610
 GameObject:
   m_ObjectHideFlags: 0
@@ -1444,6 +1457,7 @@ GameObject:
   - component: {fileID: 32932297}
   - component: {fileID: 32932296}
   - component: {fileID: 32932295}
+  - component: {fileID: 32932298}
   m_Layer: 0
   m_Name: Triangle (8)
   m_TagString: Untagged
@@ -1551,7 +1565,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.5803922, g: 0.5058824, b: 0.427451, a: 1}
+  m_Color: {r: 0.4792453, g: 0.36195228, b: 0.26313275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1576,6 +1590,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1033966068}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 5.194}
+--- !u!114 &32932298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32932294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11420eb1ce36f5e409123d0f83222f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Spike
 --- !u!1 &33485943
 GameObject:
   m_ObjectHideFlags: 0
@@ -2161,6 +2187,7 @@ GameObject:
   - component: {fileID: 48624010}
   - component: {fileID: 48624009}
   - component: {fileID: 48624008}
+  - component: {fileID: 48624011}
   m_Layer: 0
   m_Name: Triangle (4)
   m_TagString: Untagged
@@ -2268,7 +2295,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.4792453, g: 0.36195228, b: 0.26313275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2293,6 +2320,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1033966068}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -144.324}
+--- !u!114 &48624011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48624007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11420eb1ce36f5e409123d0f83222f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Spike
 --- !u!1 &55547868
 GameObject:
   m_ObjectHideFlags: 0
@@ -17553,6 +17592,7 @@ GameObject:
   - component: {fileID: 499805340}
   - component: {fileID: 499805339}
   - component: {fileID: 499805338}
+  - component: {fileID: 499805341}
   m_Layer: 0
   m_Name: Triangle (5)
   m_TagString: Untagged
@@ -17660,7 +17700,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.4792453, g: 0.36195228, b: 0.26313275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -17685,6 +17725,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1033966068}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 25.542}
+--- !u!114 &499805341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499805337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11420eb1ce36f5e409123d0f83222f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Spike
 --- !u!1 &501788562
 GameObject:
   m_ObjectHideFlags: 0
@@ -28724,6 +28776,7 @@ GameObject:
   - component: {fileID: 890981335}
   - component: {fileID: 890981334}
   - component: {fileID: 890981333}
+  - component: {fileID: 890981336}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Untagged
@@ -28831,7 +28884,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.5803922, g: 0.5058824, b: 0.427451, a: 1}
+  m_Color: {r: 0.4792453, g: 0.36195228, b: 0.26313275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -28856,6 +28909,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1033966068}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -20.239}
+--- !u!114 &890981336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890981332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11420eb1ce36f5e409123d0f83222f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Spike
 --- !u!1 &902139209
 GameObject:
   m_ObjectHideFlags: 0
@@ -37171,6 +37236,7 @@ GameObject:
   - component: {fileID: 1135171449}
   - component: {fileID: 1135171448}
   - component: {fileID: 1135171447}
+  - component: {fileID: 1135171450}
   m_Layer: 0
   m_Name: Triangle (9)
   m_TagString: Untagged
@@ -37278,7 +37344,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.5803922, g: 0.5058824, b: 0.427451, a: 1}
+  m_Color: {r: 0.4792453, g: 0.36195228, b: 0.26313275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -37303,6 +37369,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1033966068}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 13.578}
+--- !u!114 &1135171450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135171446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11420eb1ce36f5e409123d0f83222f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Spike
 --- !u!1 &1152255079
 GameObject:
   m_ObjectHideFlags: 0
@@ -39799,6 +39877,7 @@ GameObject:
   - component: {fileID: 1224831881}
   - component: {fileID: 1224831880}
   - component: {fileID: 1224831879}
+  - component: {fileID: 1224831882}
   m_Layer: 0
   m_Name: Triangle (10)
   m_TagString: Untagged
@@ -39906,7 +39985,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.5803922, g: 0.5058824, b: 0.427451, a: 1}
+  m_Color: {r: 0.4792453, g: 0.36195228, b: 0.26313275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -39931,6 +40010,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1033966068}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -20.239}
+--- !u!114 &1224831882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224831878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11420eb1ce36f5e409123d0f83222f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Spike
 --- !u!1 &1225467157
 GameObject:
   m_ObjectHideFlags: 0
@@ -39942,6 +40033,7 @@ GameObject:
   - component: {fileID: 1225467160}
   - component: {fileID: 1225467159}
   - component: {fileID: 1225467158}
+  - component: {fileID: 1225467161}
   m_Layer: 0
   m_Name: Triangle (6)
   m_TagString: Untagged
@@ -40049,7 +40141,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.5803922, g: 0.5058824, b: 0.427451, a: 1}
+  m_Color: {r: 0.4792453, g: 0.36195228, b: 0.26313275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -40074,6 +40166,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1033966068}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -8.923}
+--- !u!114 &1225467161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225467157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11420eb1ce36f5e409123d0f83222f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Spike
 --- !u!1 &1230829001
 GameObject:
   m_ObjectHideFlags: 0
@@ -56215,6 +56319,7 @@ GameObject:
   - component: {fileID: 1818545488}
   - component: {fileID: 1818545487}
   - component: {fileID: 1818545486}
+  - component: {fileID: 1818545489}
   m_Layer: 0
   m_Name: Triangle (7)
   m_TagString: Untagged
@@ -56322,7 +56427,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.5803922, g: 0.5058824, b: 0.427451, a: 1}
+  m_Color: {r: 0.4792453, g: 0.36195228, b: 0.26313275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -56347,6 +56452,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1033966068}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -8.923}
+--- !u!114 &1818545489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818545485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11420eb1ce36f5e409123d0f83222f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Spike
 --- !u!1 &1820943967
 GameObject:
   m_ObjectHideFlags: 0
@@ -56634,6 +56751,7 @@ GameObject:
   - component: {fileID: 1835194239}
   - component: {fileID: 1835194238}
   - component: {fileID: 1835194237}
+  - component: {fileID: 1835194240}
   m_Layer: 0
   m_Name: Triangle (3)
   m_TagString: Untagged
@@ -56741,7 +56859,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.5803922, g: 0.5058824, b: 0.427451, a: 1}
+  m_Color: {r: 0.4792453, g: 0.36195228, b: 0.26313275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -56766,6 +56884,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1033966068}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 18.174}
+--- !u!114 &1835194240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835194236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11420eb1ce36f5e409123d0f83222f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Spike
 --- !u!1 &1841998416
 GameObject:
   m_ObjectHideFlags: 0
@@ -58927,6 +59057,7 @@ GameObject:
   - component: {fileID: 1910137592}
   - component: {fileID: 1910137591}
   - component: {fileID: 1910137590}
+  - component: {fileID: 1910137593}
   m_Layer: 0
   m_Name: Triangle (1)
   m_TagString: Untagged
@@ -59034,7 +59165,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.5803922, g: 0.5058824, b: 0.427451, a: 1}
+  m_Color: {r: 0.4792453, g: 0.36195228, b: 0.26313275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -59059,6 +59190,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1033966068}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -20.239}
+--- !u!114 &1910137593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910137589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11420eb1ce36f5e409123d0f83222f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Spike
 --- !u!1 &1910739862
 GameObject:
   m_ObjectHideFlags: 0
@@ -59070,6 +59213,7 @@ GameObject:
   - component: {fileID: 1910739865}
   - component: {fileID: 1910739864}
   - component: {fileID: 1910739863}
+  - component: {fileID: 1910739866}
   m_Layer: 0
   m_Name: Triangle (12)
   m_TagString: Untagged
@@ -59177,7 +59321,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.5803922, g: 0.5058824, b: 0.427451, a: 1}
+  m_Color: {r: 0.4792453, g: 0.36195228, b: 0.26313275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -59202,6 +59346,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1033966068}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 19.34}
+--- !u!114 &1910739866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910739862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11420eb1ce36f5e409123d0f83222f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Spike
 --- !u!1 &1912010896
 GameObject:
   m_ObjectHideFlags: 0
@@ -61083,6 +61239,7 @@ GameObject:
   - component: {fileID: 1977456851}
   - component: {fileID: 1977456850}
   - component: {fileID: 1977456849}
+  - component: {fileID: 1977456852}
   m_Layer: 0
   m_Name: Triangle (14)
   m_TagString: Untagged
@@ -61190,7 +61347,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.5803922, g: 0.5058824, b: 0.427451, a: 1}
+  m_Color: {r: 0.4792453, g: 0.36195228, b: 0.26313275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -61215,6 +61372,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1033966068}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -52.868}
+--- !u!114 &1977456852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977456848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11420eb1ce36f5e409123d0f83222f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Spike
 --- !u!1 &1978339418
 GameObject:
   m_ObjectHideFlags: 0
@@ -64291,6 +64460,7 @@ GameObject:
   - component: {fileID: 2082767015}
   - component: {fileID: 2082767014}
   - component: {fileID: 2082767013}
+  - component: {fileID: 2082767016}
   m_Layer: 0
   m_Name: Triangle (2)
   m_TagString: Untagged
@@ -64398,7 +64568,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.5803922, g: 0.5058824, b: 0.427451, a: 1}
+  m_Color: {r: 0.4792453, g: 0.36195228, b: 0.26313275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -64423,6 +64593,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1033966068}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 25.542}
+--- !u!114 &2082767016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082767012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11420eb1ce36f5e409123d0f83222f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Spike
 --- !u!1001 &2088180646
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64630,6 +64812,7 @@ GameObject:
   - component: {fileID: 2093380605}
   - component: {fileID: 2093380604}
   - component: {fileID: 2093380603}
+  - component: {fileID: 2093380606}
   m_Layer: 0
   m_Name: Triangle (13)
   m_TagString: Untagged
@@ -64737,7 +64920,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.5803922, g: 0.5058824, b: 0.427451, a: 1}
+  m_Color: {r: 0.4792453, g: 0.36195228, b: 0.26313275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -64762,6 +64945,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1033966068}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -8.923}
+--- !u!114 &2093380606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093380602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11420eb1ce36f5e409123d0f83222f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Spike
 --- !u!1 &2101423196
 GameObject:
   m_ObjectHideFlags: 0
