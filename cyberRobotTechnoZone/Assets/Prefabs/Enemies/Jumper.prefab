@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8ad1294b590a7541a2b6b0001fca90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::jumperEnemy
-  health: 5
+  health: 3
   speed: 0.1
   jumpRange: 6
   jumpMinRange: 4

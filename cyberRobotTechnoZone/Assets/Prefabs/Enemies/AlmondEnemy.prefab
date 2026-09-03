@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae3efb37b7bcbc458186501c3fccd80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AlmondEnemy
-  health: 5
+  health: 1
   speed: 0.05
   edgeBuffer: 0.8
   groundLayer:
