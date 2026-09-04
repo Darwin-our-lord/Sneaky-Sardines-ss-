@@ -264,6 +264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerManager
   menuManager: {fileID: 0}
   deathAnimator: {fileID: 0}
+  animator: {fileID: 0}
   health: 3
   maxHealth: 3
   HurtSound: {fileID: 8300000, guid: 94637a445de8f6945b95dcf7df1cad4e, type: 3}
@@ -503,7 +504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2733457833421409139
 Transform:
   m_ObjectHideFlags: 0
