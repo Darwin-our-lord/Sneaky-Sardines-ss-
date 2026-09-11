@@ -29112,7 +29112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 903041895}
   - component: {fileID: 903041896}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Log_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60565,7 +60565,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1928786497}
   - component: {fileID: 1928786498}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Log_0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
