@@ -1,10 +1,34 @@
 fileFormatVersion: 2
-guid: 99fb61e40a6b2dc4bbcb818de4ee3d56
+guid: 1c2eb0dea5c279242a10d8854386312a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4199862406524583684
-    second: ground pieces 2.0_0
+      213: 2559143878184065962
+    second: ground pieces 2.1_0
+  - first:
+      213: 8378050905737907595
+    second: ground pieces 2.1_1
+  - first:
+      213: 1221990148764270541
+    second: ground pieces 2.1_2
+  - first:
+      213: -7144489889702047873
+    second: ground pieces 2.1_3
+  - first:
+      213: 86576726722468577
+    second: ground pieces 2.1_4
+  - first:
+      213: 2076307805673122064
+    second: ground pieces 2.1_5
+  - first:
+      213: 5751874543362657519
+    second: ground pieces 2.1_6
+  - first:
+      213: 895519631224882940
+    second: ground pieces 2.1_7
+  - first:
+      213: 2730370329999237955
+    second: ground pieces 2.1_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +61,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +75,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 300
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -96,150 +120,203 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ground pieces 2.0_0
+      name: ground pieces 2.1_0
       rect:
         serializedVersion: 2
-        x: 93
-        y: 2185
-        width: 1846
-        height: 541
+        x: 119
+        y: 2424
+        width: 15
+        height: 12
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 40f3a6e5b98e84a30800000000000000
-      internalID: 4199862406524583684
+      spriteID: aabd64c5cc7e38320800000000000000
+      internalID: 2559143878184065962
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground pieces 2.0_1
+      name: ground pieces 2.1_1
       rect:
         serializedVersion: 2
-        x: 140
-        y: 1611
-        width: 3261
-        height: 535
+        x: 120
+        y: 2186
+        width: 1824
+        height: 546
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 9ee568574238b964da819aa595cbbaf5
-      internalID: -1088648695
+      spriteID: b8dc5a2f8e0d44470800000000000000
+      internalID: 8378050905737907595
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground pieces 2.0_2
+      name: ground pieces 2.1_2
       rect:
         serializedVersion: 2
-        x: 3484
-        y: 1520
-        width: 1358
-        height: 1014
+        x: 2588
+        y: 2369
+        width: 306
+        height: 267
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5e9f6c03b74fdcd4b857eb34b5a6d168
-      internalID: -944239970
+      spriteID: dcffe10e09165f010800000000000000
+      internalID: 1221990148764270541
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground pieces 2.0_3
+      name: ground pieces 2.1_3
       rect:
         serializedVersion: 2
-        x: 2580
-        y: 2364
-        width: 328
-        height: 266
+        x: 3496
+        y: 1519
+        width: 1337
+        height: 993
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: bf84bed0d58ab3b40a637c39db595660
-      internalID: -126471121
+      spriteID: f7f80f66c4ca9dc90800000000000000
+      internalID: -7144489889702047873
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground pieces 2.0_4
+      name: ground pieces 2.1_4
       rect:
         serializedVersion: 2
-        x: 2200
-        y: 176
-        width: 2670
-        height: 1080
+        x: 152
+        y: 1606
+        width: 3239
+        height: 715
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: e5ca0fab7227a364298bb3fb2281f745
-      internalID: -862677039
+      spriteID: 1eadb120315933100800000000000000
+      internalID: 86576726722468577
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground pieces 2.0_5
+      name: ground pieces 2.1_5
       rect:
         serializedVersion: 2
-        x: 169
-        y: 144
-        width: 1816
-        height: 1084
+        x: 3377
+        y: 1852
+        width: 15
+        height: 12
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 8b79e0b693b77b641b393c2cc0df35f5
-      internalID: -2107341280
+      spriteID: 0196481d2f680dc10800000000000000
+      internalID: 2076307805673122064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ground pieces 2.1_6
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 1774
+        width: 58
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fec4eb52c63c2df40800000000000000
+      internalID: 5751874543362657519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ground pieces 2.1_7
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 206
+        width: 1655
+        height: 885
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf64c842c568d6c00800000000000000
+      internalID: 895519631224882940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ground pieces 2.1_8
+      rect:
+        serializedVersion: 2
+        x: 2201
+        y: 188
+        width: 2597
+        height: 1065
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 343eed8595934e520800000000000000
+      internalID: 2730370329999237955
       vertices: []
       indices: 
       edges: []
@@ -248,7 +325,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 0d7d7e7fdfd91b94fa50f5dea5383b78
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -258,12 +335,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ground pieces 2.0_0: 4199862406524583684
-      ground pieces 2.0_1: -1088648695
-      ground pieces 2.0_2: -944239970
-      ground pieces 2.0_3: -126471121
-      ground pieces 2.0_4: -862677039
-      ground pieces 2.0_5: -2107341280
+      ground pieces 2.1_0: 2559143878184065962
+      ground pieces 2.1_1: 8378050905737907595
+      ground pieces 2.1_2: 1221990148764270541
+      ground pieces 2.1_3: -7144489889702047873
+      ground pieces 2.1_4: 86576726722468577
+      ground pieces 2.1_5: 2076307805673122064
+      ground pieces 2.1_6: 5751874543362657519
+      ground pieces 2.1_7: 895519631224882940
+      ground pieces 2.1_8: 2730370329999237955
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
