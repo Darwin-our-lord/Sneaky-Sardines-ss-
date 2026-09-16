@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 478399980455050743}
   - component: {fileID: 954647942283360388}
   - component: {fileID: -6390471873595727091}
+  - component: {fileID: 4387325176437446449}
   m_Layer: 0
   m_Name: Fire
   m_TagString: Untagged
@@ -137,7 +138,7 @@ MonoBehaviour:
   outer2: 15
   iner2: 7
   detectionTime: 1
-  fanForce: 1
+  fanForce: 55
 --- !u!82 &-6390471873595727091
 AudioSource:
   m_ObjectHideFlags: 0
@@ -235,3 +236,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4387325176437446449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8360224629534879500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ad41a0f98d059a48b8dfb4b6b218dfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::fireErHot
