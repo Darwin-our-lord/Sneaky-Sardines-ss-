@@ -12,9 +12,14 @@ public class LaunchPad : MonoBehaviour
         player = GameObject.Find("Player 1");
         rb = player.GetComponent<Rigidbody2D>();
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    void ManFlyver()
     {
         rb.AddForceY(fortniteLaunchPadForce);
+       // Animation.DestroyObject;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        ManFlyver();
 
     }
     // Update is called once per frame
