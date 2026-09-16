@@ -19,7 +19,7 @@ public class LeafAttack : MonoBehaviour
     }
     void Update()
     {
-        if (held && Input.GetKeyDown(KeyCode.Mouse0))
+        if (held && Input.GetKeyDown(KeyCode.X)|| held && Input.GetKeyDown(KeyCode.J))
         {
             // Perform whip attack
             animator.SetTrigger("Attack");
