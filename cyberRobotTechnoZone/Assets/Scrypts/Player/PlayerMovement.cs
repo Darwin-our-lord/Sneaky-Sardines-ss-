@@ -5,27 +5,75 @@ using UnityEngine.XR;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public bool facingRight = true; //used to determine which way the player is facing
+    public bool facingRight = true;
 
-    private Rigidbody2D rb; // the rigidbody
+    private Rigidbody2D rb;
+    private Collider2D col; // for the ground raycasts n the friction fix below
 
     [SerializeField] Animator animator; // lock flipping during the attack animation yesyes >:3
 
-    [SerializeField] float speed; // the speed of wich the player moves
-    [SerializeField] float jumpHeight; // the height of wich the player jumps
+    [SerializeField] float maxMoveSpeed = 10f;
+    [SerializeField] float groundAcceleration = 120f;
+    [SerializeField] float groundDeceleration = 140f;
+    [SerializeField] float airAcceleration = 90f;
+    [SerializeField] float airDeceleration = 60f;
+
+    [SerializeField] float jumpHeight; // the height of wich the player jumps (ok its actually a velocity but renaming it means re-wiring the inspector so. jumpHeight it stays)
     [SerializeField] float maxJumpAngle = 45f; // the maximum angle of the slope wich the player can jump on
 
-    private int groundContactCount;
-    private bool grounded => groundContactCount > 0;
-
-    [SerializeField] float jumpCooldown = 1f; // the time between jumps - this fixes issues with double jumping on a single frame
-    private float currentCooldownTime; // the timer itself
+    [SerializeField] LayerMask groundLayer; // set this to ur ground layer or nothing's ever grounded lol
+    [SerializeField] float groundCheckDistance = 0.1f; // how far below the feet we check for ground
+    private bool grounded;
+    private Vector2 groundNormal = Vector2.up;
 
     [SerializeField] float cyoteTime; // the time after the player leaves the ground, but still is able to jump
     private float currentCyoteTime; // the timer itself
     public bool canJump { get; private set; }
 
+    [SerializeField] float jumpBufferTime = 0.1f; // press jump juuust before landing and it still counts
+    private float jumpBufferTimer = 0f;
+
     private AudioSource audioSource; // the audio source for the player
+
+    private InputActionMap actionMap;
+    private InputAction moveAction;
+    private InputAction jumpAction;
+
+    void Awake()
+    {
+        actionMap = new InputActionMap("Player");
+
+        moveAction = actionMap.AddAction("Move");
+        moveAction.AddCompositeBinding("2DVector")
+            .With("Up", "<Keyboard>/w")
+            .With("Up", "<Keyboard>/upArrow")
+            .With("Down", "<Keyboard>/s")
+            .With("Down", "<Keyboard>/downArrow")
+            .With("Left", "<Keyboard>/a")
+            .With("Left", "<Keyboard>/leftArrow")
+            .With("Right", "<Keyboard>/d")
+            .With("Right", "<Keyboard>/rightArrow");
+
+        jumpAction = actionMap.AddAction("Jump");
+        jumpAction.AddBinding("<Keyboard>/space");
+        jumpAction.AddBinding("<Keyboard>/w");
+        jumpAction.AddBinding("<Keyboard>/upArrow");
+    }
+
+    void OnEnable()
+    {
+        actionMap?.Enable();
+    }
+
+    void OnDisable()
+    {
+        actionMap?.Disable();
+    }
+
+    void OnDestroy()
+    {
+        actionMap?.Dispose();
+    }
 
     [SerializeField] List<AudioClip> footstepsGrassSounds; // the footsteps sound when the player is walking on grass
     [SerializeField] float footstepInterval = 0.5f; // the time between each footstep sound 
@@ -37,65 +85,71 @@ public class PlayerMovement : MonoBehaviour
 
     private bool inWater = false; // a boolean to check if the player is in water or not
 
-    [SerializeField] float minAirTimeForLandSound = 0.3f;
-    [SerializeField] float minFallSpeedForLandSound = 5f;
+    [SerializeField] float minAirTimeForLandSound = 0.3f; // gotta be falling this long for the thud sound
+    [SerializeField] float minFallSpeedForLandSound = 5f; // and falling this fast, else no thud
     private float airTimeTimer = 0f;
     private float fallSpeedAtLastCheck = 0f;
 
-    [SerializeField] float groundDragRate = 3f;
-
-
-    [SerializeField] float airDragRate = 0.2f;
-
-    [SerializeField] float dragTransitionSharpness = 4f;
-    private float currentDragRate = 0f;
-
     private float baseGravityScale;
-    [SerializeField] float fallGravityMultiplier = 2f;
-    [SerializeField] float lowJumpGravityMultiplier = 4f;
-    [SerializeField] float jumpCutMultiplier = 0.5f;
+    [SerializeField] float fallGravityMultiplier = 2f; // falling is snappier than rising
+    [SerializeField] float lowJumpGravityMultiplier = 4f; // tap jump = short hop
+    [SerializeField] float jumpCutMultiplier = 0.5f; // instant lil knock-down when you let go early
     private bool wasJumpKeyHeld;
 
-    [SerializeField] float gravityTransitionSharpness = 6f;
+    [SerializeField] float gravityTransitionSharpness = 6f; // how quick gravity eases between the above, so it's not jerky
     private float currentGravityMultiplier = 1f;
 
     [SerializeField] float verticalVelocityAnimDelay = 0.1f; // how far behind (in seconds) the VerticalVelocity fed to the Animator is
     private readonly Queue<float> verticalVelocityHistory = new Queue<float>(); // sliding window of past VerticalVelocity samples
 
-    private Vector2 groundNormal = Vector2.up;
-
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>(); // fetchng the rigidbody
+        col = GetComponent<Collider2D>();
         baseGravityScale = rb.gravityScale;
+
+        if (col != null)
+        {
+            PhysicsMaterial2D noFriction = new PhysicsMaterial2D("PlayerNoFriction") { friction = 0f, bounciness = 0f };
+            col.sharedMaterial = noFriction;
+        }
 
         if (animator == null)
         {
             animator = GetComponent<Animator>();
         }
 
-        // make sure the starting scale matches facingRight so we don't start mirrored by accident
         ApplyFacingDirection();
     }
 
 
     void FixedUpdate()
     {
-        // making the cooldown timer go down, and stops when it's under 0 so it doesnt run forever
-        if (currentCooldownTime >= 0)
-        {
-            currentCooldownTime -= 0.1f;
+        bool justJumped = false; // used further down so jumping doesnt get instantly cancelled by ground movement, see below
 
+        bool wasGrounded = grounded;
+        // ignore ground hits while still going up, else clipping a ledge corner mid-jump gets you stuck
+        grounded = CheckGrounded(out Vector2 hitNormal) && rb.linearVelocityY <= 0.1f;
+        if (grounded)
+        {
+            groundNormal = hitNormal;
         }
 
-        if (grounded == false)
+        bool justLanded = grounded && !wasGrounded;
+
+        if (grounded)
+        {
+            currentCyoteTime = cyoteTime;
+            canJump = true;
+        }
+        else
         {
             // making the cyote timer go down, and when it reaches zero, the player can no longer jump in the air
-            if (currentCyoteTime >= 0)
+            if (currentCyoteTime > 0f)
             {
-                currentCyoteTime -= 0.1f;
-
+                currentCyoteTime -= Time.fixedDeltaTime;
+                canJump = true;
             }
             else
             {
@@ -109,23 +163,41 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        if (justLanded)
+        {
+            if (airTimeTimer >= minAirTimeForLandSound && Mathf.Abs(fallSpeedAtLastCheck) >= minFallSpeedForLandSound)
+            {
+                AudioSource.PlayClipAtPoint(hitGroundSound, transform.position, 10f);
+            }
+            airTimeTimer = 0f;
+            fallSpeedAtLastCheck = 0f;
+        }
 
-        // checks if W or Space is pressend while the player is on the ground and the cooldown has passed - if so, the player jumps 
-        bool jumpKeyHeld = Keyboard.current.wKey.isPressed || Keyboard.current.spaceKey.isPressed;
-        if (jumpKeyHeld && canJump == true && currentCooldownTime <= 0)
+        bool jumpKeyHeld = jumpAction.IsPressed();
+        bool jumpKeyPressedThisFrame = jumpKeyHeld && !wasJumpKeyHeld;
+
+        if (jumpKeyPressedThisFrame)
+        {
+            jumpBufferTimer = jumpBufferTime;
+        }
+        else if (jumpBufferTimer > 0f)
+        {
+            jumpBufferTimer -= Time.fixedDeltaTime;
+        }
+
+        if (jumpBufferTimer > 0f && canJump)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocityX, jumpHeight);
 
-            currentCooldownTime = jumpCooldown;
-
-            groundContactCount = 0;
             canJump = false;
+            currentCyoteTime = 0f;
+            jumpBufferTimer = 0f;
+            justJumped = true;
 
             if (animator != null)
             {
                 animator.SetTrigger("Jump");
             }
-
         }
 
 
@@ -157,39 +229,41 @@ public class PlayerMovement : MonoBehaviour
         }
         currentGravityMultiplier = Mathf.Lerp(currentGravityMultiplier, stateMultiplier, 1f - Mathf.Exp(-gravityTransitionSharpness * Time.fixedDeltaTime));
         rb.gravityScale = baseGravityScale * currentGravityMultiplier;
-
-        // while the Whip forward attack animation is playing, we don't want the player to flip mid-swing,
-        // so we skip updating facingRight (but movement itself still works normally)
         bool isAttacking = animator != null && animator.GetCurrentAnimatorStateInfo(0).IsName("Whip forward");
 
         Vector2 slopeRight = grounded ? new Vector2(groundNormal.y, -groundNormal.x) : Vector2.right;
 
-        // checks if D is pressed and if so, the player walks right and is set to be facing right
-        if (Keyboard.current.dKey.isPressed)
+        float inputDir = moveAction.ReadValue<Vector2>().x; // -1 left, 1 right, 0 chillin
+
+        if (!isAttacking && inputDir != 0f)
         {
-            Vector2 targetVelocity = grounded ? slopeRight * speed : new Vector2(speed, rb.linearVelocityY);
-            Vector2 velocity = Vector2.zero;
-            rb.linearVelocity = Vector2.SmoothDamp(rb.linearVelocity, targetVelocity, ref velocity, 0.1f);
-
-            if (!isAttacking)
-            {
-                facingRight = true;
-            }
-
+            facingRight = inputDir > 0f;
         }
 
-        // checks if D is pressed and if so, the player walks left and is set to be facing left
+        bool treatAsGrounded = grounded && !justJumped;
 
-        if (Keyboard.current.aKey.isPressed)
+        float targetSpeed = inputDir * maxMoveSpeed;
+        float accelRate;
+        if (treatAsGrounded)
         {
-            Vector2 targetVelocity = grounded ? -slopeRight * speed : new Vector2(-speed, rb.linearVelocityY);
-            Vector2 velocity = Vector2.zero;
-            rb.linearVelocity = Vector2.SmoothDamp(rb.linearVelocity, targetVelocity, ref velocity, 0.1f);
+            accelRate = inputDir != 0f ? groundAcceleration : groundDeceleration;
+        }
+        else
+        {
+            accelRate = inputDir != 0f ? airAcceleration : airDeceleration;
+        }
 
-            if (!isAttacking)
-            {
-                facingRight = false;
-            }
+        if (treatAsGrounded)
+        {
+            // walk along the slope instead of straight sideways, so hills dont feel weird
+            float currentTangentSpeed = Vector2.Dot(rb.linearVelocity, slopeRight);
+            float newTangentSpeed = Mathf.MoveTowards(currentTangentSpeed, targetSpeed, accelRate * Time.fixedDeltaTime);
+            rb.linearVelocity = slopeRight * newTangentSpeed;
+        }
+        else
+        {
+            float newVelocityX = Mathf.MoveTowards(rb.linearVelocityX, targetSpeed, accelRate * Time.fixedDeltaTime);
+            rb.linearVelocity = new Vector2(newVelocityX, rb.linearVelocityY);
         }
 
         // apply the visual flip based on the current facing direction
@@ -203,22 +277,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("VerticalVelocity", GetDelayedVerticalVelocity());
         }
 
-        if (!Keyboard.current.aKey.isPressed && !Keyboard.current.dKey.isPressed && Mathf.FloatToHalf(rb.linearVelocityX) != 0)
-        {
-            // if (grounded == true)
-            // {
-            //     rb.linearVelocityX *= 0.8f;
-            // }
-            // else
-            // {
-            //     rb.linearVelocityX *= 0.999f;
-            // }
-            float targetDragRate = grounded ? groundDragRate : airDragRate;
-            currentDragRate = Mathf.Lerp(currentDragRate, targetDragRate, 1f - Mathf.Exp(-dragTransitionSharpness * Time.fixedDeltaTime));
-            rb.linearVelocityX = Mathf.Lerp(rb.linearVelocityX, 0f, 1f - Mathf.Exp(-currentDragRate * Time.fixedDeltaTime));
-        }
-
-        if ((Keyboard.current.aKey.isPressed || Keyboard.current.dKey.isPressed))
+        if (inputDir != 0f)
         {
             if (grounded == true)
             {
@@ -250,8 +309,41 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    // keeps a sliding window of the last verticalVelocityAnimDelay seconds of rb.linearVelocityY,
-    // and returns the oldest sample in that window - i.e. the velocity from ~verticalVelocityAnimDelay seconds ago
+    // 3 lil rays under the feet instead of collision events, closest hit wins for the slope normal
+    private bool CheckGrounded(out Vector2 normal)
+    {
+        normal = Vector2.up;
+        if (col == null) return false;
+
+        Bounds bounds = col.bounds;
+        float inset = 0.05f;
+        Vector2[] origins = new Vector2[]
+        {
+            new Vector2(bounds.min.x + inset, bounds.min.y + 0.02f),
+            new Vector2(bounds.center.x, bounds.min.y + 0.02f),
+            new Vector2(bounds.max.x - inset, bounds.min.y + 0.02f)
+        };
+
+        bool foundGround = false;
+        float closestDistance = float.MaxValue;
+
+        foreach (Vector2 origin in origins)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.down, groundCheckDistance, groundLayer);
+            if (hit.collider != null && Vector2.Angle(hit.normal, Vector2.up) <= maxJumpAngle)
+            {
+                foundGround = true;
+                if (hit.distance < closestDistance)
+                {
+                    closestDistance = hit.distance;
+                    normal = hit.normal;
+                }
+            }
+        }
+
+        return foundGround;
+    }
+
     private float GetDelayedVerticalVelocity()
     {
         verticalVelocityHistory.Enqueue(rb.linearVelocityY);
@@ -280,55 +372,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    // when the player �s colliding with something with the layer "Ground" and the normal of the contactpoint is pointing upwards (if the player is on top of the collider) -
-    // grounded is set to true
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == 3 && Vector2.Angle(collision.GetContact(0).normal, Vector2.up) <= maxJumpAngle)
-        {
-            groundNormal = collision.GetContact(0).normal;
-
-            if (rb.linearVelocityY <= 0)
-            {
-                canJump = true;
-            }
-
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == 3)
-        {
-            groundContactCount++;
-        }
-
-        if (groundContactCount == 1)
-        {
-            // AudioSource.PlayClipAtPoint(hitGroundSound, transform.position, 10f);
-            if (airTimeTimer >= minAirTimeForLandSound && Mathf.Abs(fallSpeedAtLastCheck) >= minFallSpeedForLandSound)
-            {
-                AudioSource.PlayClipAtPoint(hitGroundSound, transform.position, 10f);
-            }
-            airTimeTimer = 0f;
-            fallSpeedAtLastCheck = 0f;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == 3)
-        {
-            groundContactCount = Mathf.Max(0, groundContactCount - 1);
-            if (!grounded)
-            {
-                currentCyoteTime = cyoteTime;
-                groundNormal = Vector2.up; // fall back to normal horizontal/airborne movement
-            }
-        }
-
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 4)
@@ -352,7 +395,7 @@ public class PlayerMovement : MonoBehaviour
 
     void PlayFootstepsound()
     {
-        AudioSource.PlayClipAtPoint(footstepsGrassSounds[Random.Range(0, footstepsGrassSounds.Count)], transform.position, 10f);
+        AudioSource.PlayClipAtPoint(footstepsGrassSounds[Random.Range(0, footstepsGrassSounds.Count)], transform.position, 6f);
 
     }
     void PlaySwimmingSound()
