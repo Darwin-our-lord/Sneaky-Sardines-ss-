@@ -2608,6 +2608,26 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1511049169}
+    - target: {fileID: 3064154245701605104, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
+      propertyPath: jumpHeight
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3064154245701605104, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
+      propertyPath: maxMoveSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3064154245701605104, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
+      propertyPath: groundAcceleration
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3064154245701605104, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
+      propertyPath: groundDeceleration
+      value: 225
+      objectReference: {fileID: 0}
+    - target: {fileID: 3064154245701605104, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
+      propertyPath: gravityTransitionSharpness
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 3202483565218767343, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -2627,6 +2647,10 @@ PrefabInstance:
     - target: {fileID: 4566052600788630348, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103201512152068879, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
+      propertyPath: m_GravityScale
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5156535730772457025, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
       propertyPath: m_Layer
