@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1453817174671647750}
   - component: {fileID: 7444262383529886942}
+  - component: {fileID: 5245050603654510317}
   - component: {fileID: 4196517189692215091}
   - component: {fileID: 8977891677363644241}
   - component: {fileID: 2248616103655271965}
@@ -97,6 +98,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!114 &5245050603654510317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4366928182399090211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e410955afe8fef4fb5d0fce75195d85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  health: 1
 --- !u!114 &4196517189692215091
 MonoBehaviour:
   m_ObjectHideFlags: 0
