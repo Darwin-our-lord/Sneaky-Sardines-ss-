@@ -12,20 +12,25 @@ public class MenuManager : MonoBehaviour
     public GameObject VisualEffectsSettingsUI;
     public GameObject OtherVisualSettingsUI;
     public GameObject AudioSettingsUI;
+    public AchievementScreenManager achievementScreenManager;
 
     [Header("During Game")]
     public GameObject pauseUI;
     public GameObject loseUI;
-
+  
     public void Update()
     {
         if(pauseUI == null) return;
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (pauseUI.activeSelf)
+            if (pauseUI.activeSelf && !achievementScreenManager.isShowingAchievementScreen)
             {
                 pauseUI.SetActive(false);
                 Time.timeScale = 1f;
+            }
+            else if (pauseUI.activeSelf)
+            {
+                pauseUI.SetActive(false);
             }
             else
             {
