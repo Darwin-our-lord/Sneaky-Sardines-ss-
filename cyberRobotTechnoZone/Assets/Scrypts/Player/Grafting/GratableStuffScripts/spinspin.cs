@@ -53,17 +53,17 @@ public class spinspin : GraftablePart
             if (player.canJump)
             {
                 lastYPosition = transform.position.y;
-                parentRb.gravityScale = 1f;
+                parentRb.gravityScale = 3f;
             }
             else
             {
                 if (transform.position.y < lastYPosition && !isGlideSuppressed)
                 {
-                    parentRb.gravityScale = 0.2f;
+                    parentRb.gravityScale = 1f;
                 }
                 else
                 {
-                    parentRb.gravityScale = 1f;
+                    parentRb.gravityScale = 3f;
                 }
 
                 lastYPosition = transform.position.y;

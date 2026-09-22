@@ -74,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
     {
         actionMap?.Dispose();
     }
-
+    [Header("SOUND")]
     [SerializeField] List<AudioClip> footstepsGrassSounds; // the footsteps sound when the player is walking on grass
     [SerializeField] float footstepInterval = 0.5f; // the time between each footstep sound 
     private bool isPlayingFootstepSound = false; // a boolean to check if the footstep sound is already playing
@@ -82,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] AudioClip hitWater; // the sound of the player hitting water
     [SerializeField] AudioClip swimmingWaterSound; // the sound of the player swimming in water
+
 
     private bool inWater = false; // a boolean to check if the player is in water or not
 
@@ -101,6 +102,10 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] float verticalVelocityAnimDelay = 0.1f; // how far behind (in seconds) the VerticalVelocity fed to the Animator is
     private readonly Queue<float> verticalVelocityHistory = new Queue<float>(); // sliding window of past VerticalVelocity samples
+
+
+    //float jumpHoldTimer = 5; //for how long can the player hold
+    //float jumpHeldTime = 0;
 
     void Start()
     {
@@ -207,7 +212,25 @@ public class PlayerMovement : MonoBehaviour
         }
         wasJumpKeyHeld = jumpKeyHeld;
 
-        float stateMultiplier;
+        /*if (jumpKeyHeld)
+        {
+            jumpHeldTime += Time.deltaTime;
+        }
+        else
+        {
+            jumpHeldTime += jumpHoldTimer;
+        }
+
+        if (jumpHeldTime > jumpHoldTimer)
+        {
+            //nothing dw
+        }
+        else
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocityX, jumpHeight);
+        }*/
+
+        /*float stateMultiplier;
         if (!grounded)
         {
             if (rb.linearVelocityY < 0f)
@@ -228,7 +251,8 @@ public class PlayerMovement : MonoBehaviour
             stateMultiplier = 1f;
         }
         currentGravityMultiplier = Mathf.Lerp(currentGravityMultiplier, stateMultiplier, 1f - Mathf.Exp(-gravityTransitionSharpness * Time.fixedDeltaTime));
-        rb.gravityScale = baseGravityScale * currentGravityMultiplier;
+        rb.gravityScale = baseGravityScale * currentGravityMultiplier;*/
+
         bool isAttacking = animator != null && animator.GetCurrentAnimatorStateInfo(0).IsName("Whip forward");
 
         Vector2 slopeRight = grounded ? new Vector2(groundNormal.y, -groundNormal.x) : Vector2.right;
