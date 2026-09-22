@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] LayerMask groundLayer; // set this to ur ground layer or nothing's ever grounded lol
     [SerializeField] float groundCheckDistance = 0.1f; // how far below the feet we check for ground
-    private bool grounded;
+    public bool grounded;
     private Vector2 groundNormal = Vector2.up;
 
     [SerializeField] float cyoteTime; // the time after the player leaves the ground, but still is able to jump
