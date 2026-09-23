@@ -1,2 +1,15 @@
 fileFormatVersion: 2
 guid: e9869f582d130364aafed5efe2ed0a2e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - checkpointSpinspin: {fileID: 4864724700850797378, guid: 35c94e8b31fdb5547b2dbd21a32fcfe9, type: 3}
+  - checkpointVineWhip: {fileID: 8693129478094176439, guid: 76275e6fa5e0d8f419bb6a963338d2bb, type: 3}
+  - checkpointAcornShield: {fileID: 3525840275932651978, guid: 8482782e14318b84590be9ef9c6d1906, type: 3}
+  - checkpointWallJump: {fileID: 4864724700850797378, guid: 5f8de06458152424094715580ded4ebe, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

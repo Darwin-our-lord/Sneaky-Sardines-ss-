@@ -14,6 +14,7 @@ public class spinspin : GraftablePart
     private void Awake()
     {
         spinspin.spinspinifikation = false;
+
     }
     protected override void OnAttach()
     {

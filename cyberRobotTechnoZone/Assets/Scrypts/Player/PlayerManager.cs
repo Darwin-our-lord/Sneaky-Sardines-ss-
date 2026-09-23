@@ -36,6 +36,11 @@ public class PlayerManager : MonoBehaviour
             health = maxHealth;
         }
     }
+    private void Awake()//(william) checkpoint
+    {
+        if (chechPoint.chackpoint == new Vector3(0, 0, 0)) { Debug.Log("hvis dette viser og ikke i starten er checkpoints fucked"); } else { transform.position = chechPoint.chackpoint; }
+
+    }
     void Start()
     {
         if (animator == null)
