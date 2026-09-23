@@ -18,6 +18,8 @@ public class WallJumpPart : GraftablePart
 
     private float jumpForce = 20;
 
+    [SerializeField] AudioClip AttachSound; // The sound of the player attaching the spinspin
+    [SerializeField] AchievementScreenManager achievementScreenManager; // Reference to the AchievementScreenManager script on canvas
     void SetInputs()
     {
         actionMap = new InputActionMap("Player");
@@ -37,6 +39,9 @@ public class WallJumpPart : GraftablePart
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         WallJumpPart part = player.AddComponent<WallJumpPart>();
         part.held = true;
+
+        AudioSource.PlayClipAtPoint(AttachSound, transform.position, 10f);
+        achievementScreenManager.UnlockNewAbility("WallJump");
 
         Destroy(this);
     }
