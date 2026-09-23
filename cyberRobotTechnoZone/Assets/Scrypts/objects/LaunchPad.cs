@@ -4,6 +4,7 @@ public class LaunchPad : MonoBehaviour
 {
     public GameObject player;
     public float fortniteLaunchPadForce = 0f;
+    private PlayerMovement playerMovement;
     Rigidbody2D rb;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -15,7 +16,8 @@ public class LaunchPad : MonoBehaviour
     void ManFlyver()
     {
         rb.AddForceY(fortniteLaunchPadForce);
-       // Animation.DestroyObject;
+        playerMovement.grounded = false;
+        // Animation.DestroyObject;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
