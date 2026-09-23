@@ -4184,6 +4184,10 @@ PrefabInstance:
       value: launchpad (2)
       objectReference: {fileID: 0}
     - target: {fileID: 8161652021301421098, guid: 39304411d67d4e640a941668bbe4421e, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 57130502}
+    - target: {fileID: 8161652021301421098, guid: 39304411d67d4e640a941668bbe4421e, type: 3}
       propertyPath: fortniteLaunchPadForce
       value: 5000
       objectReference: {fileID: 0}
@@ -11063,6 +11067,7 @@ MonoBehaviour:
   VisualEffectsSettingsUI: {fileID: 0}
   OtherVisualSettingsUI: {fileID: 0}
   AudioSettingsUI: {fileID: 0}
+  achievementScreenManager: {fileID: 0}
   pauseUI: {fileID: 87591851}
   loseUI: {fileID: 975693434}
 --- !u!1 &249197876
@@ -14295,6 +14300,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: launchpad (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8161652021301421098, guid: 39304411d67d4e640a941668bbe4421e, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 57130502}
     - target: {fileID: 8161652021301421098, guid: 39304411d67d4e640a941668bbe4421e, type: 3}
       propertyPath: fortniteLaunchPadForce
       value: 4000
@@ -22943,6 +22952,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: launchpad (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8161652021301421098, guid: 39304411d67d4e640a941668bbe4421e, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 57130502}
     - target: {fileID: 8161652021301421098, guid: 39304411d67d4e640a941668bbe4421e, type: 3}
       propertyPath: fortniteLaunchPadForce
       value: 1e+10
@@ -55271,6 +55284,10 @@ PrefabInstance:
       value: launchpad (7)
       objectReference: {fileID: 0}
     - target: {fileID: 8161652021301421098, guid: 39304411d67d4e640a941668bbe4421e, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 57130502}
+    - target: {fileID: 8161652021301421098, guid: 39304411d67d4e640a941668bbe4421e, type: 3}
       propertyPath: fortniteLaunchPadForce
       value: 5000
       objectReference: {fileID: 0}
@@ -60802,8 +60819,12 @@ PrefabInstance:
       value: launchpad (3)
       objectReference: {fileID: 0}
     - target: {fileID: 8161652021301421098, guid: 39304411d67d4e640a941668bbe4421e, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 57130502}
+    - target: {fileID: 8161652021301421098, guid: 39304411d67d4e640a941668bbe4421e, type: 3}
       propertyPath: fortniteLaunchPadForce
-      value: 4000
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -75710,6 +75731,10 @@ PrefabInstance:
       value: launchpad (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8161652021301421098, guid: 39304411d67d4e640a941668bbe4421e, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 57130502}
+    - target: {fileID: 8161652021301421098, guid: 39304411d67d4e640a941668bbe4421e, type: 3}
       propertyPath: fortniteLaunchPadForce
       value: 3500
       objectReference: {fileID: 0}
@@ -81313,6 +81338,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: launchpad (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8161652021301421098, guid: 39304411d67d4e640a941668bbe4421e, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 57130502}
     - target: {fileID: 8161652021301421098, guid: 39304411d67d4e640a941668bbe4421e, type: 3}
       propertyPath: fortniteLaunchPadForce
       value: 3000
