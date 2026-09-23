@@ -10,7 +10,7 @@ public class spinspin : GraftablePart
     private Rigidbody2D parentRb;
     private PlayerMovement player;
     [SerializeField] AudioClip AttachSound; // The sound of the player attaching the spinspin
-    private void Start()
+    private void Awake()
     {
         spinspin.spinspinifikation = false;
     }

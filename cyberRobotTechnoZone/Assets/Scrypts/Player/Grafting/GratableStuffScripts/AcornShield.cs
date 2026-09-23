@@ -3,11 +3,17 @@ using UnityEngine;
 
 public class AcornShield : GraftablePart
 {
+    public static bool AcornShieldw = false;
     PlayerMovement playerMovement;
     Rigidbody2D playerRb;
     [SerializeField] AudioClip AttachSound; // The sound of the player attaching the shield
+    private void Start()
+    {
+        AcornShieldw = false;
+    }
     protected override void OnAttach()
     {
+        AcornShieldw =true;
         playerMovement = transform.parent.GetComponent<PlayerMovement>();
         playerRb = transform.parent.GetComponent<Rigidbody2D>();
         AudioSource.PlayClipAtPoint(AttachSound, transform.position, 10f);

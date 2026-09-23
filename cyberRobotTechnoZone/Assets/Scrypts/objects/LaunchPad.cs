@@ -22,7 +22,6 @@ public class LaunchPad : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         ManFlyver();
-
     }
     // Update is called once per frame
     void Update()

@@ -16,6 +16,9 @@ public class PlayerManager : MonoBehaviour
     float invincibilityDuration = 0.5f; // Duration of invincibility in seconds
     float lastDmgTime = 0.0f;
 
+    public static int check = 0;
+
+
     [SerializeField] AudioClip HurtSound; // The sound of the player getting hurt
 
     [Header("Head Sprites")]
