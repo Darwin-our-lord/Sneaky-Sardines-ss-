@@ -10,6 +10,7 @@ public class spinspin : GraftablePart
     private Rigidbody2D parentRb;
     private PlayerMovement player;
     [SerializeField] AudioClip AttachSound; // The sound of the player attaching the spinspin
+    [SerializeField] AchievementScreenManager achievementScreenManager; // Reference to the AchievementScreenManager script on canvas
     private void Awake()
     {
         spinspin.spinspinifikation = false;
@@ -22,7 +23,7 @@ public class spinspin : GraftablePart
         Debug.Log($"spinspin{spinspinifikation}");
         parentRb = GetComponentInParent<Rigidbody2D>();
         player = GetComponentInParent<PlayerMovement>();
-
+        achievementScreenManager.UnlockNewAbility("SpinSpin");
         transform.localPosition += new Vector3(0.5f, 2.5f, 0f);
 
         if (transform.position.y > lastYPosition)

@@ -7,6 +7,7 @@ public class AcornShield : GraftablePart
     PlayerMovement playerMovement;
     Rigidbody2D playerRb;
     [SerializeField] AudioClip AttachSound; // The sound of the player attaching the shield
+    [SerializeField] AchievementScreenManager achievementScreenManager; // Reference to the AchievementScreenManager script on canvas
     private void Start()
     {
         AcornShieldw = false;
@@ -17,6 +18,8 @@ public class AcornShield : GraftablePart
         playerMovement = transform.parent.GetComponent<PlayerMovement>();
         playerRb = transform.parent.GetComponent<Rigidbody2D>();
         AudioSource.PlayClipAtPoint(AttachSound, transform.position, 10f);
+        achievementScreenManager.UnlockNewAbility("AcornShield");
+
     }
 
     private void FixedUpdate()

@@ -4,6 +4,7 @@ public class PlantWhip : GraftablePart
 {
     public static bool Whippywhippy = false;
     [SerializeField] AudioClip AttachSound; // The sound of the player attaching the whip
+    [SerializeField] AchievementScreenManager achievementScreenManager; // Reference to the AchievementScreenManager script on canvas
     private void Start()
     {
         Whippywhippy = false;
@@ -12,6 +13,7 @@ public class PlantWhip : GraftablePart
     {
         if (!held && collision.transform.gameObject.CompareTag("Player"))
         {
+            achievementScreenManager.UnlockNewAbility("LeafAttack");
             Whippywhippy = true;
             held = true;
             transform.position = collision.transform.position;
