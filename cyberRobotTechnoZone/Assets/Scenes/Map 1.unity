@@ -3300,11 +3300,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8979418964111250410, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -377.1
+      value: -159.4
       objectReference: {fileID: 0}
     - target: {fileID: 8979418964111250410, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 235.4
+      value: 6.4
       objectReference: {fileID: 0}
     - target: {fileID: 8979418964111250410, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14723,7 +14723,7 @@ PrefabInstance:
       objectReference: {fileID: 57130502}
     - target: {fileID: 8161652021301421098, guid: 39304411d67d4e640a941668bbe4421e, type: 3}
       propertyPath: fortniteLaunchPadForce
-      value: 4000
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -59171,7 +59171,7 @@ PrefabInstance:
       objectReference: {fileID: 57130502}
     - target: {fileID: 8161652021301421098, guid: 39304411d67d4e640a941668bbe4421e, type: 3}
       propertyPath: fortniteLaunchPadForce
-      value: 5000
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -86477,7 +86477,7 @@ PrefabInstance:
       objectReference: {fileID: 57130502}
     - target: {fileID: 8161652021301421098, guid: 39304411d67d4e640a941668bbe4421e, type: 3}
       propertyPath: fortniteLaunchPadForce
-      value: 3000
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
