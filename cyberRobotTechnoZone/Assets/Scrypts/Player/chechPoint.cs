@@ -7,7 +7,6 @@ public class chechPoint : MonoBehaviour
     public GameObject acornshieldw;
     public GameObject walljumpw;
 
-
     public static bool HasSpispin = false;
     public static bool HasVineWhip = false;
     public static bool AcornShild = false;
@@ -21,6 +20,7 @@ public class chechPoint : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
+
         GameObject[] objects = FindObjectsByType<GameObject>();
 
         foreach (GameObject obj in objects)
@@ -39,7 +39,7 @@ public class chechPoint : MonoBehaviour
             }
             else if (obj.name.Contains("qeaigr,awugr"))
             {
-                if (walljump) { Destroy(obj); }
+                if (walljump) { Destroy(obj); } 
             }
         }
 
@@ -51,6 +51,8 @@ public class chechPoint : MonoBehaviour
         if (HasVineWhip) { Instantiate(checkpointVineWhip, transform.position, Quaternion.Euler(0, 0, 0)); }
         if (AcornShild) { Instantiate(checkpointAcornShield, transform.position, Quaternion.Euler(0, 0, 0)); }
         if (walljump) { Instantiate(checkpointWallJump, transform.position, Quaternion.Euler(0, 0, 0)); }
+        if (chechPoint.chackpoint == new Vector3(0, 0, 0)) { Debug.Log("hvis dette viser og ikke i starten er checkpoints fucked"); } else { transform.position = chechPoint.chackpoint; }
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -60,7 +62,7 @@ public class chechPoint : MonoBehaviour
             if (!HasVineWhip) { HasVineWhip = PlantWhip.Whippywhippy; }
             if (!AcornShild) { AcornShild = AcornShield.AcornShieldw; }
             if (!walljump) { }
-            chackpoint = transform.position;
+            if (checkpointTP.check.Contains(collision.gameObject)) { chackpoint = transform.position; }
             Debug.Log($"spin{HasSpispin}");
         }
     }
