@@ -14,12 +14,17 @@ public class PlayerManager : MonoBehaviour
 
 
     float invincibilityDuration = 0.5f; // Duration of invincibility in seconds
-    float lastDmgTime = 0.0f;
+    float lastDmgTime = -999f;
 
     public static int check = 0;
 
 
     [SerializeField] AudioClip HurtSound; // The sound of the player getting hurt
+
+    [Header("Damage Spawn")]
+    [SerializeField] GameObject damagePrefab;
+    [SerializeField] Vector3 damageSpawnOffset = Vector3.zero;
+    [SerializeField] float damagePrefabLifetime = 2f;  // 0 = never destroy
 
     [Header("Head Sprites")]
     [SerializeField] List<Sprite> headSpritesNormal;
@@ -50,32 +55,41 @@ public class PlayerManager : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-        invincibilityDuration -= Time.time - lastDmgTime;
-        if (invincibilityDuration > 0f) 
+        if (Time.time - lastDmgTime < invincibilityDuration)
         {
             return; // Ignore damage while invincible
         }
         lastDmgTime = Time.time;
         health -= damage;
+
+        if (damagePrefab != null)
+        {
+            GameObject spawned = Instantiate(damagePrefab, transform.position + damageSpawnOffset, Quaternion.identity);
+            if (damagePrefabLifetime > 0f)
+            {
+                Destroy(spawned, damagePrefabLifetime);
+            }
+        }
+
         AudioSource.PlayClipAtPoint(HurtSound, transform.position, 1000f);
         if (animator != null)
-            {
-                animator.SetTrigger("Hurt");
-            }
-        if (health <= 0) { StartCoroutine(Die()); }
+        {
+            animator.SetTrigger("Hurt");
+        }
+        if (health <= 0) { StartCoroutine(Die()); return; }
 
 
         if (normalPlayerHeadObj != null && headSpritesNormal[health - 1] != null)
         {
-            normalPlayerHeadObj.GetComponent<SpriteRenderer>().sprite = headSpritesNormal[health-1];
+            normalPlayerHeadObj.GetComponent<SpriteRenderer>().sprite = headSpritesNormal[health - 1];
         }
         if (upPlayerHeadObj != null && headSpritesUp[health - 1] != null)
         {
-            upPlayerHeadObj.GetComponent<SpriteRenderer>().sprite = headSpritesUp[health-1];
+            upPlayerHeadObj.GetComponent<SpriteRenderer>().sprite = headSpritesUp[health - 1];
         }
         if (downPlayerHeadObj != null && headSpritesDown[health - 1] != null)
         {
-            downPlayerHeadObj.GetComponent<SpriteRenderer>().sprite = headSpritesDown[health-1];
+            downPlayerHeadObj.GetComponent<SpriteRenderer>().sprite = headSpritesDown[health - 1];
         }
     }
 

@@ -3151,6 +3151,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 244927071}
     - target: {fileID: 2250725159735767416, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
+      propertyPath: damagePrefab
+      value: 
+      objectReference: {fileID: 7040977354574087367, guid: 22db4fbb88aff5a43959af2188ed209d, type: 3}
+    - target: {fileID: 2250725159735767416, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
       propertyPath: deathAnimator
       value: 
       objectReference: {fileID: 1586057553}
