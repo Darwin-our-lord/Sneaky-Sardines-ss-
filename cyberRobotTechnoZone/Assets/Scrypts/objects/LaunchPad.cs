@@ -6,9 +6,11 @@ public class LaunchPad : MonoBehaviour
     public float fortniteLaunchPadForce = 0f;
     private PlayerMovement playerMovement;
     private Animator playerAnimator;
+    [SerializeField] Animator animator;
     Rigidbody2D rb;
 
     private bool canLaunch = true;
+    
 
     void Start()
     {
@@ -28,8 +30,9 @@ public class LaunchPad : MonoBehaviour
         playerMovement.grounded = false;
         playerMovement.enabled = false;
 
+        animator.SetTrigger("Bounce");
         playerAnimator.SetFloat("VerticalVelocity", 100f);
-        playerAnimator.Play("Jump", 0, 0f);
+        playerAnimator.SetTrigger("Jump");
 
         Invoke(nameof(ResetScript), 0.2f);
         Invoke(nameof(ResetCooldown), 0.5f);
