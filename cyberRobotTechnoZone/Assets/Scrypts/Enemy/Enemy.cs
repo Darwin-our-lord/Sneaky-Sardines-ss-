@@ -7,6 +7,11 @@ public class Enemy : MonoBehaviour
     bool takingKnockback = false;
     Rigidbody2D rb;
 
+    [Header("Damage Spawn")]
+    [SerializeField] GameObject damagePrefab;
+    [SerializeField] Vector3 damageSpawnOffset = Vector3.zero;
+    [SerializeField] float damagePrefabLifetime = 2f;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -14,7 +19,7 @@ public class Enemy : MonoBehaviour
     public void TakeKnockBack(float knockbackForce, Vector3 knockbackDirection)
     {
         takingKnockback = true; // to stop any logic that shouldn't run during knockback
-        
+
         // start animation please
 
         if (rb != null)
@@ -46,17 +51,30 @@ public class Enemy : MonoBehaviour
         takingKnockback = false;
     }
 
-    protected virtual void OnKnockback() 
-    { 
-    
+    protected virtual void OnKnockback()
+    {
+
     }
 
     public virtual void TakeDamage(int damage)
     {
         health -= damage;
+        SpawnDamagePrefab();
         if (health <= 0)
         {
             Die();
+        }
+    }
+
+    protected void SpawnDamagePrefab()
+    {
+        if (damagePrefab != null)
+        {
+            GameObject spawned = Instantiate(damagePrefab, transform.position + damageSpawnOffset, Quaternion.identity);
+            if (damagePrefabLifetime > 0f)
+            {
+                Destroy(spawned, damagePrefabLifetime);
+            }
         }
     }
 
