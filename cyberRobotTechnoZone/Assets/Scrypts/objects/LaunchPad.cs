@@ -10,7 +10,12 @@ public class LaunchPad : MonoBehaviour
     Rigidbody2D rb;
 
     private bool canLaunch = true;
-    
+
+    [Header("Bounce Spawn")]
+    [SerializeField] GameObject bouncePrefab;
+    [SerializeField] Vector3 bounceSpawnOffset = Vector3.zero;
+    [SerializeField] float bouncePrefabLifetime = 2f;
+
 
     void Start()
     {
@@ -34,8 +39,22 @@ public class LaunchPad : MonoBehaviour
         playerAnimator.SetFloat("VerticalVelocity", 100f);
         playerAnimator.SetTrigger("Jump");
 
+        SpawnBouncePrefab();
+
         Invoke(nameof(ResetScript), 0.2f);
         Invoke(nameof(ResetCooldown), 0.5f);
+    }
+
+    void SpawnBouncePrefab()
+    {
+        if (bouncePrefab != null)
+        {
+            GameObject spawned = Instantiate(bouncePrefab, transform.position + bounceSpawnOffset, Quaternion.identity);
+            if (bouncePrefabLifetime > 0f)
+            {
+                Destroy(spawned, bouncePrefabLifetime);
+            }
+        }
     }
 
     void ResetScript()
