@@ -2579,6 +2579,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1060149338844552580, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1737269359}
+    - targetCorrespondingSourceObject: {fileID: 1060149338844552580, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1737269367}
   m_SourcePrefab: {fileID: 100100000, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
 --- !u!1 &57762134
 GameObject:
@@ -18090,7 +18093,6 @@ GameObject:
   m_Component:
   - component: {fileID: 529890249}
   - component: {fileID: 529890248}
-  - component: {fileID: 529890247}
   - component: {fileID: 529890246}
   m_Layer: 2
   m_Name: Square (1)
@@ -18145,22 +18147,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &529890247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 529890245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9869f582d130364aafed5efe2ed0a2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::chechPoint
-  checkpointSpinspin: {fileID: 4864724700850797378, guid: 35c94e8b31fdb5547b2dbd21a32fcfe9, type: 3}
-  checkpointVineWhip: {fileID: 8693129478094176439, guid: 76275e6fa5e0d8f419bb6a963338d2bb, type: 3}
-  checkpointAcornShield: {fileID: 3525840275932651978, guid: 8482782e14318b84590be9ef9c6d1906, type: 3}
-  checkpointWallJump: {fileID: 0}
 --- !u!212 &529890248
 SpriteRenderer:
   serializedVersion: 3
@@ -18230,7 +18216,7 @@ Transform:
   m_GameObject: {fileID: 529890245}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 321.6, y: 61.2, z: 0}
+  m_LocalPosition: {x: 365.2, y: 60, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -50861,10 +50847,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9869f582d130364aafed5efe2ed0a2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::chechPoint
+  spinspinw: {fileID: 4864724700850797378, guid: 35c94e8b31fdb5547b2dbd21a32fcfe9, type: 3}
+  vinewhipw: {fileID: 8693129478094176439, guid: 76275e6fa5e0d8f419bb6a963338d2bb, type: 3}
+  acornshieldw: {fileID: 3525840275932651978, guid: 8482782e14318b84590be9ef9c6d1906, type: 3}
+  walljumpw: {fileID: 0}
   checkpointSpinspin: {fileID: 4864724700850797378, guid: 35c94e8b31fdb5547b2dbd21a32fcfe9, type: 3}
   checkpointVineWhip: {fileID: 8693129478094176439, guid: 76275e6fa5e0d8f419bb6a963338d2bb, type: 3}
   checkpointAcornShield: {fileID: 3525840275932651978, guid: 8482782e14318b84590be9ef9c6d1906, type: 3}
   checkpointWallJump: {fileID: 4864724700850797378, guid: 5f8de06458152424094715580ded4ebe, type: 3}
+--- !u!114 &1737269367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737269351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a24577de924d184478ca352819a315be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::checkpointTP
 --- !u!1 &1737616245
 GameObject:
   m_ObjectHideFlags: 0
@@ -56245,6 +56247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::spinspin
   AttachSound: {fileID: 0}
+  achievementScreenManager: {fileID: 0}
 --- !u!61 &1912010900
 BoxCollider2D:
   m_ObjectHideFlags: 0
