@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7361770424675413520}
   m_Layer: 5
   m_Name: WallJump
-  m_TagString: Untagged
+  m_TagString: AbilityScreen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5898,7 +5898,7 @@ GameObject:
   - component: {fileID: 5147360161758741437}
   m_Layer: 5
   m_Name: AcornShield
-  m_TagString: Untagged
+  m_TagString: AbilityScreen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5975,7 +5975,7 @@ GameObject:
   - component: {fileID: 2991503742807173948}
   m_Layer: 5
   m_Name: SpinSpin
-  m_TagString: Untagged
+  m_TagString: AbilityScreen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6052,7 +6052,7 @@ GameObject:
   - component: {fileID: 77168670711187586}
   m_Layer: 5
   m_Name: LeafAttack
-  m_TagString: Untagged
+  m_TagString: AbilityScreen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

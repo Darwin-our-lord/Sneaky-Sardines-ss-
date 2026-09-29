@@ -8,11 +8,14 @@ public class PlantWhip : GraftablePart
     private void Start()
     {
         Whippywhippy = false;
+        achievementScreenManager = FindAnyObjectByType<AchievementScreenManager>();
     }
+    
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         if (!held && collision.transform.gameObject.CompareTag("Player"))
         {
+            achievementScreenManager = FindAnyObjectByType<AchievementScreenManager>();
             achievementScreenManager.UnlockNewAbility("LeafAttack");
             Whippywhippy = true;
             held = true;

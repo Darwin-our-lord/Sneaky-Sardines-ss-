@@ -11,6 +11,7 @@ public class AcornShield : GraftablePart
     private void Start()
     {
         AcornShieldw = false;
+        achievementScreenManager = FindAnyObjectByType<AchievementScreenManager>();
     }
     protected override void OnAttach()
     {
@@ -18,6 +19,8 @@ public class AcornShield : GraftablePart
         playerMovement = transform.parent.GetComponent<PlayerMovement>();
         playerRb = transform.parent.GetComponent<Rigidbody2D>();
         AudioSource.PlayClipAtPoint(AttachSound, transform.position, 10f);
+        Debug.Log(achievementScreenManager);
+        achievementScreenManager = FindAnyObjectByType<AchievementScreenManager>();
         achievementScreenManager.UnlockNewAbility("AcornShield");
 
     }
