@@ -106090,6 +106090,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 49992930560893486, guid: 812931083de9a5d439f4c88f59005497, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 281735229729168653, guid: 812931083de9a5d439f4c88f59005497, type: 3}
       propertyPath: m_TagString
       value: Enemy
