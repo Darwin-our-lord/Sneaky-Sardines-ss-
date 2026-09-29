@@ -21,6 +21,7 @@ public class AchievementScreenManager : MonoBehaviour
     private Transform[] children;
     private RectTransform[] UIchildren;
 
+    private bool isShowing = false;
     private void Awake()
     {
         
@@ -57,13 +58,16 @@ public class AchievementScreenManager : MonoBehaviour
         achievementScreen.SetActive(true);
         isShowingAchievementScreen = true;
         Time.timeScale = 0f;
+        isShowing = true;
     }
 
     public void HideAchievementScreen()
     {
         achievementScreen.SetActive(false);
+        particleSystem.Stop();
         isShowingAchievementScreen = false;
         Time.timeScale = 1f;
+        isShowing = false;
     }
 
     private void ShowNewAchivement()
@@ -75,7 +79,10 @@ public class AchievementScreenManager : MonoBehaviour
     {
         currentAbility.GetComponent<Image>().color = Color.white;
         particleSystem.transform.position = currentAbility.transform.position;
-        particleSystem.Emit(20);
+        if (isShowing == true)
+        {
+            particleSystem.Emit(20);
+        }
     }
     public void UnlockNewAbility(string abilityName)
     {
