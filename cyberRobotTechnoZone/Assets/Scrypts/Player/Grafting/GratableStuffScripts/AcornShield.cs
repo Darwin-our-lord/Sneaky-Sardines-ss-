@@ -1,13 +1,29 @@
-using UnityEditor.Rendering;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class AcornShield : GraftablePart
 {
     public static bool AcornShieldw = false;
     PlayerMovement playerMovement;
     Rigidbody2D playerRb;
+
     [SerializeField] AudioClip AttachSound; // The sound of the player attaching the shield
     [SerializeField] AchievementScreenManager achievementScreenManager; // Reference to the AchievementScreenManager script on canvas
+
+    private InputActionMap actionMap;
+    private InputAction blockAction;
+    [SerializeField] float blockDelay = 1;
+    bool canBlock = true;
+
+    void Awake()
+    {
+        actionMap = new InputActionMap("Player");
+
+        blockAction = actionMap.AddAction("Block");
+        blockAction.AddBinding("<Keyboard>/k");
+    }
+
     private void Start()
     {
         AcornShieldw = false;
@@ -15,7 +31,7 @@ public class AcornShield : GraftablePart
     }
     protected override void OnAttach()
     {
-        AcornShieldw =true;
+        AcornShieldw = true;
         playerMovement = transform.parent.GetComponent<PlayerMovement>();
         playerRb = transform.parent.GetComponent<Rigidbody2D>();
         AudioSource.PlayClipAtPoint(AttachSound, transform.position, 10f);
@@ -29,19 +45,22 @@ public class AcornShield : GraftablePart
     {
         if (held)
         {
-            if (playerRb.linearVelocity.x < 0.1f && playerRb.linearVelocity.x > -0.1f)
+            if (blockAction.IsPressed() && canBlock)
             {
-                transform.position = new Vector3(transform.parent.position.x, transform.parent.position.y + 2.5f, transform.parent.position.z);
-                transform.rotation = Quaternion.Euler(0, 0, 0);
-            }
-            else
-            {
-                float facingDirection = playerMovement.facingRight ? 1f : -1f; //determine the direction the player is facing (1 for right, -1 for left)
+                canBlock = false;
 
-                transform.position = new Vector3(transform.parent.position.x + facingDirection * 0.8f, transform.parent.position.y, transform.parent.position.z);
-                transform.rotation = Quaternion.Euler(0, 0, facingDirection * -90f);
+                //block
+
+                StartCoroutine(WaitAndAllowBlock());
             }
+
+
         }
+    }
+    IEnumerator WaitAndAllowBlock()
+    {
+        yield return new WaitForSeconds(blockDelay);
+        canBlock = true;
     }
 
     protected override void OnTriggerEnter2D(Collider2D collision)
@@ -59,7 +78,7 @@ public class AcornShield : GraftablePart
                 knockbackDirection = playerMovement.facingRight ? Vector3.right : Vector3.left;
             }
 
-            
+
             if (collision.GetComponent<Enemy>() == null)
             {
                 Destroy(collision.gameObject);
