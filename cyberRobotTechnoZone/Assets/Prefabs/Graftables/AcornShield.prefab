@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 0.3, z: 1}
+  m_LocalScale: {x: 2.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AcornShield
   AttachSound: {fileID: 8300000, guid: c1ba7ca40a8cbc94a9ce0b7e95e08429, type: 3}
+  achievementScreenManager: {fileID: 0}
 --- !u!61 &1622003739983285929
 BoxCollider2D:
   m_ObjectHideFlags: 0
