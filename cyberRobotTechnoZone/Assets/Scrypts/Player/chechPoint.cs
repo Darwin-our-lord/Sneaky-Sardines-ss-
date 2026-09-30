@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class chechPoint : MonoBehaviour
@@ -17,6 +18,7 @@ public class chechPoint : MonoBehaviour
     [SerializeField] GameObject checkpointAcornShield;
     [SerializeField] GameObject checkpointWallJump;
     public  Vector3 chackpoint = new Vector3(0, 0, 0);
+    [SerializeField] public List<GameObject> check = new List<GameObject>();
 
     // Start is called once be  fore the first execution of Update after the MonoBehaviour is created
     private void Awake()
@@ -84,7 +86,7 @@ public class chechPoint : MonoBehaviour
             if (!HasVineWhip) { HasVineWhip = PlantWhip.Whippywhippy; }
             if (!AcornShild) { AcornShild = AcornShield.AcornShieldw; }
             if (!walljump) { }
-            if (checkpointTP.check.Contains(collision.gameObject)) { chackpoint = player.transform.position; }
+            if (check.Contains(collision.gameObject)){ chackpoint = player.transform.position; }
             Debug.Log($"spin{HasSpispin}");
         }
     }
