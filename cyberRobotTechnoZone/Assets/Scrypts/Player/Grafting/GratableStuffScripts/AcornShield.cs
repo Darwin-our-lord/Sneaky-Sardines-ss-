@@ -11,10 +11,14 @@ public class AcornShield : GraftablePart
     [SerializeField] AudioClip AttachSound; // The sound of the player attaching the shield
     [SerializeField] AchievementScreenManager achievementScreenManager; // Reference to the AchievementScreenManager script on canvas
 
+    PlayerManager playerManager;
+
     private InputActionMap actionMap;
     private InputAction blockAction;
     [SerializeField] float blockDelay = 1;
+    [SerializeField] float blockDuration = 0.3f;
     bool canBlock = true;
+    bool blocking = false;
 
     void Awake()
     {
@@ -45,17 +49,28 @@ public class AcornShield : GraftablePart
     {
         if (held)
         {
+            if (playerManager == null) playerManager = FindAnyObjectByType<PlayerManager>();
             if (blockAction.IsPressed() && canBlock)
             {
                 canBlock = false;
 
-                //block
+                blocking = true;
+                playerManager.shieldInvincibilty = true;
+                GetComponent<SpriteRenderer>().enabled = true;
 
+                StartCoroutine(WaitAndStopBlock());
                 StartCoroutine(WaitAndAllowBlock());
             }
 
 
         }
+    }
+    IEnumerator WaitAndStopBlock()
+    {
+        yield return new WaitForSeconds(blockDuration);
+        blocking = false;
+        playerManager.shieldInvincibilty = false;
+        GetComponent<SpriteRenderer>().enabled = false;
     }
     IEnumerator WaitAndAllowBlock()
     {
@@ -65,6 +80,8 @@ public class AcornShield : GraftablePart
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!blocking) return;
+        
         base.OnTriggerEnter2D(collision);
         if (held && collision.gameObject.CompareTag("Enemy"))
         {

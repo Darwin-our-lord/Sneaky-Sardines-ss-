@@ -14,6 +14,8 @@ public class PlayerManager : MonoBehaviour
 
 
     float invincibilityDuration = 0.5f; // Duration of invincibility in seconds
+    [Header("")]
+    public bool shieldInvincibilty = false;
     float lastDmgTime = -999f;
 
     public static int check = 0;
@@ -55,6 +57,7 @@ public class PlayerManager : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
+        if (shieldInvincibilty) return;
         if (Time.time - lastDmgTime < invincibilityDuration)
         {
             return; // Ignore damage while invincible
