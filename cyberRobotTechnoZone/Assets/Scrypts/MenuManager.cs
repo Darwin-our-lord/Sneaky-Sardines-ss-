@@ -17,12 +17,14 @@ public class MenuManager : MonoBehaviour
     [Header("During Game")]
     public GameObject pauseUI;
     public GameObject loseUI;
+
   
     public void Update()
     {
         if(pauseUI == null) return;
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            achievementScreenManager = FindAnyObjectByType<AchievementScreenManager>();
             if (pauseUI.activeSelf && !achievementScreenManager.isShowingAchievementScreen)
             {
                 pauseUI.SetActive(false);

@@ -30,8 +30,12 @@ public class LeafAttack : MonoBehaviour
     {
         if (held && collision.gameObject.CompareTag("Enemy"))
         {
-            collision.GetComponent<Enemy>().TakeDamage(1);// Perform damage to the enemy
-            AudioSource.PlayClipAtPoint(attackHitSound, transform.position, 1f);
+            if (collision.GetComponent<Enemy>() != null)
+            {
+                collision.GetComponent<Enemy>().TakeDamage(1);// Perform damage to the enemy
+                AudioSource.PlayClipAtPoint(attackHitSound, transform.position, 1f);
+            }
+            
         }
     }
 }

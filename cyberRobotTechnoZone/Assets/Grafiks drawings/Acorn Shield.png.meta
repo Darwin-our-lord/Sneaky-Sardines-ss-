@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ae5552c7c1a104547b51b1a6cacb5e27
+guid: bf1f47490317c7540b0e3f68190708a0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6395822462532799094
-    second: Cool ass cave_0
+      213: -3063101876743657375
+    second: Acorn Shield_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,40 +96,27 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cool ass cave_0
+      name: Acorn Shield_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 769
-        height: 255
+        x: 62
+        y: 39
+        width: 508
+        height: 906
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 67a4bb5a4a682c850800000000000000
-      internalID: 6395822462532799094
+      spriteID: 168acd5721dad75d0800000000000000
+      internalID: -3063101876743657375
       vertices: []
       indices: 
       edges: []
@@ -138,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: fb666f13e9d0bd247b5d4386c7c168c2
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Cool ass cave_0: 6395822462532799094
+      Acorn Shield_0: -3063101876743657375
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

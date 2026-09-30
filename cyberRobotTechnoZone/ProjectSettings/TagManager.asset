@@ -8,6 +8,8 @@ TagManager:
   - Floor
   - Wall
   - checkpoint
+  - AbilityScreen
+  - PauseUI
   layers:
   - Default
   - TransparentFX
