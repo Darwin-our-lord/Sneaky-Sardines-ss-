@@ -10,11 +10,14 @@ public class GraftablePart : MonoBehaviour
         if (!held && collision.transform.gameObject.CompareTag("Player"))
         {
             if (HeldOBJ == null) Debug.LogError(this.gameObject.name + " - is missing its held obj guys, yall should really get around to fixing that");
+
             GameObject gh = Instantiate(HeldOBJ);
             gh.transform.position = collision.transform.position;
             gh.GetComponent<GraftablePart>().held = true;
             gh.transform.SetParent(collision.transform);
             gh.GetComponent<GraftablePart>().OnAttach();
+
+            Destroy(gameObject);
         }
     }
 
