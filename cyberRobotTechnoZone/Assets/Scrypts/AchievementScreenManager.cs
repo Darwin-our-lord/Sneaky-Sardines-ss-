@@ -23,6 +23,8 @@ public class AchievementScreenManager : MonoBehaviour
     private Transform[] children;
     private RectTransform[] UIchildren;
 
+    private chechPoint checkPointScript;
+
     private bool isShowing = false;
     private void Awake()
     {
@@ -40,6 +42,7 @@ public class AchievementScreenManager : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         particleSystem.Stop();
+        checkPointScript = FindAnyObjectByType<chechPoint>();
     }
 
     void Update()
@@ -103,38 +106,37 @@ public class AchievementScreenManager : MonoBehaviour
             case "AcornShield":
                     currentAbility = abilities.Find((gameObject => gameObject.name == abilityName));
 
-                    if (!chechPoint.AcornShild)
+                    if (!checkPointScript.AcornShild)
                     {
                         currentAbility.transform.Find("Unlocked").gameObject.SetActive(false);
+                        GetComponent<Canvas>().worldCamera = FindAnyObjectByType<Camera>();
+                        animator.SetTrigger("NewAbility");
                     }
 
-                    GetComponent<Canvas>().worldCamera = FindAnyObjectByType<Camera>();
-                    animator.SetTrigger("NewAbility");
                     break;
             case "LeafAttack":
                 {
                     currentAbility = abilities.Find((gameObject => gameObject.name == abilityName));
 
-                    if (!chechPoint.HasVineWhip)
+                    if (!checkPointScript.HasVineWhip)
                     {
                         currentAbility.transform.Find("Unlocked").gameObject.SetActive(false);
+                        GetComponent<Canvas>().worldCamera = FindAnyObjectByType<Camera>();
+                        animator.SetTrigger("NewAbility");
                     }
-
-                    GetComponent<Canvas>().worldCamera = FindAnyObjectByType<Camera>();
-                    animator.SetTrigger("NewAbility");
                     break;
+                   
                 }
             case "WallJump":
                 {
                     currentAbility = abilities.Find((gameObject => gameObject.name == abilityName));
 
-                    if (!chechPoint.walljump)
+                    if (!checkPointScript.walljump)
                     {
                         currentAbility.transform.Find("Unlocked").gameObject.SetActive(false);
+                        GetComponent<Canvas>().worldCamera = FindAnyObjectByType<Camera>();
+                        animator.SetTrigger("NewAbility");
                     }
-
-                    GetComponent<Canvas>().worldCamera = FindAnyObjectByType<Camera>();
-                    animator.SetTrigger("NewAbility");
                     break;
                 }
             case "SpinSpin":
@@ -142,13 +144,12 @@ public class AchievementScreenManager : MonoBehaviour
 
                     currentAbility = abilities.Find((gameObject => gameObject.name == abilityName));
 
-                    if (!chechPoint.HasSpispin)
+                    if (!checkPointScript.HasSpispin)
                     {
                         currentAbility.transform.Find("Unlocked").gameObject.SetActive(false);
+                        GetComponent<Canvas>().worldCamera = FindAnyObjectByType<Camera>();
+                        animator.SetTrigger("NewAbility");
                     }
-
-                    GetComponent<Canvas>().worldCamera = FindAnyObjectByType<Camera>();
-                    animator.SetTrigger("NewAbility");
                     break;
                 }
             default:
