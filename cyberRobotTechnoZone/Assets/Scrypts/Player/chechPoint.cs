@@ -8,29 +8,26 @@ public class chechPoint : MonoBehaviour
     public GameObject acornshieldw;
     public GameObject walljumpw;
     static chechPoint instance;
-    public GameObject player;
-    public  bool HasSpispin = false;
-    public  bool HasVineWhip = false;
-    public  bool AcornShild = false;
-    public  bool walljump = false;
+    // er her bare glem dem
+    public bool mHasSpispin = false;
+    public bool mHasVineWhip = false;
+    public bool mHasAcornShild = false;
+    public bool mHasWalljump = false;
+    // HUSK IGEN
+    public static bool HasSpispin = false;
+    public static bool HasVineWhip = false;
+    public static bool HasAcornShild = false;
+    public static bool HasWalljump = false;
+
     [SerializeField] GameObject checkpointSpinspin;
     [SerializeField] GameObject checkpointVineWhip;
     [SerializeField] GameObject checkpointAcornShield;
     [SerializeField] GameObject checkpointWallJump;
-    public  Vector3 chackpoint = new Vector3(0, 0, 0);
-    [SerializeField] public List<GameObject> check = new List<GameObject>();
+    public static Vector3 chackpoint = new Vector3(0, 0, 0);
 
     // Start is called once be  fore the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
-        if (instance != null && instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        instance = this;
-        DontDestroyOnLoad(gameObject);
-    
 
     GameObject[] objects = FindObjectsByType<GameObject>();
 
@@ -47,46 +44,37 @@ public class chechPoint : MonoBehaviour
             }
             else if (obj.name.Contains("AcornSh"))
             {
-                if (AcornShild) { Destroy(obj); }
+                if (HasAcornShild) { Destroy(obj); }
             }
             else if (obj.name.Contains("qeaigr,awugr"))
             {
-                if (walljump) { Destroy(obj); } 
+                if (HasWalljump) { Destroy(obj); } 
             }
         }
 
     }
     private void Update()
     {
-        if (transform.parent== null)
-        {
-        transform.position = player.transform.position;
-        transform.parent = player.transform;
-            if (transform.parent != null)
-            {
-                if (HasSpispin) { Instantiate(checkpointSpinspin, transform.position, Quaternion.Euler(0, 0, 0)); }
-                if (HasVineWhip) { Instantiate(checkpointVineWhip, transform.position, Quaternion.Euler(0, 0, 0)); }
-                if (AcornShild) { Instantiate(checkpointAcornShield, transform.position, Quaternion.Euler(0, 0, 0)); }
-                if (walljump) { Instantiate(checkpointWallJump, transform.position, Quaternion.Euler(0, 0, 0)); }
-                if (chackpoint == new Vector3(0, 0, 0)) { Debug.Log("hvis dette viser og ikke i starten er checkpoints fucked"); } else { transform.position = chackpoint; }
-            }
-        }
 
     }
     private void Start()
     {
 
-
+        if (HasSpispin) { Instantiate(checkpointSpinspin, transform.position, Quaternion.Euler(0, 0, 0)); }
+        if (HasVineWhip) { Instantiate(checkpointVineWhip, transform.position, Quaternion.Euler(0, 0, 0)); }
+        if (HasAcornShild) { Instantiate(checkpointAcornShield, transform.position, Quaternion.Euler(0, 0, 0)); }
+        if (HasWalljump) { Instantiate(checkpointWallJump, transform.position, Quaternion.Euler(0, 0, 0)); }
+        if (chackpoint == new Vector3(0, 0, 0)) { Debug.Log("hvis dette viser og ikke i starten er checkpoints fucked"); } else { transform.position = chackpoint; }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("checkpoint"))
         {
-            if (!HasSpispin) { HasSpispin = spinspin.spinspinifikation; }
-            if (!HasVineWhip) { HasVineWhip = PlantWhip.Whippywhippy; }
-            if (!AcornShild) { AcornShild = AcornShield.AcornShieldw; }
-            if (!walljump) { }
-            if (check.Contains(collision.gameObject)){ chackpoint = player.transform.position; }
+            if (!HasSpispin) { HasSpispin = spinspin.spinspinifikation; mHasSpispin = HasSpispin; }
+            if (!HasVineWhip) { HasVineWhip = PlantWhip.Whippywhippy; mHasVineWhip = HasVineWhip; }
+            if (!HasAcornShild) { HasAcornShild = AcornShield.AcornShieldw; mHasAcornShild = HasAcornShild;  }
+            if (!HasWalljump) { }
+            if (checkpointTP.check.Contains(collision.gameObject)){ chackpoint = transform.position; }
             Debug.Log($"spin{HasSpispin}");
         }
     }
