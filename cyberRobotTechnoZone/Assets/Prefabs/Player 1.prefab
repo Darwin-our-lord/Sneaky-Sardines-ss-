@@ -162,6 +162,8 @@ GameObject:
   - component: {fileID: 4254172320481829288}
   - component: {fileID: 1773653329305554706}
   - component: {fileID: 7005825142641460353}
+  - component: {fileID: 5223275184962788224}
+  - component: {fileID: -8779069369103663283}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -228,11 +230,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   facingRight: 1
   animator: {fileID: 1773653329305554706}
-  speed: 10
+  maxMoveSpeed: 10
+  groundAcceleration: 120
+  groundDeceleration: 140
+  airAcceleration: 90
+  airDeceleration: 60
   jumpHeight: 15
   maxJumpAngle: 45
-  jumpCooldown: 1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  groundCheckDistance: 0.1
+  grounded: 0
   cyoteTime: 0
+  jumpBufferTime: 0.1
   footstepsGrassSounds:
   - {fileID: 8300000, guid: 39fd8bb0151500b47ab9ae1e7a047796, type: 3}
   - {fileID: 8300000, guid: c9cfb02d16b419147ba56184a1e7380a, type: 3}
@@ -242,9 +253,6 @@ MonoBehaviour:
   swimmingWaterSound: {fileID: 8300000, guid: da0cca6602be45846ada88753a4d6566, type: 3}
   minAirTimeForLandSound: 0.3
   minFallSpeedForLandSound: 5
-  groundDragRate: 3
-  airDragRate: 0.2
-  dragTransitionSharpness: 4
   fallGravityMultiplier: 2
   lowJumpGravityMultiplier: 4
   jumpCutMultiplier: 0.5
@@ -268,6 +276,9 @@ MonoBehaviour:
   health: 3
   maxHealth: 3
   HurtSound: {fileID: 8300000, guid: 94637a445de8f6945b95dcf7df1cad4e, type: 3}
+  damagePrefab: {fileID: 0}
+  damageSpawnOffset: {x: 0, y: 0, z: 0}
+  damagePrefabLifetime: 2
   headSpritesNormal:
   - {fileID: 5743405220790375416, guid: ff35cf7e5a43da44ba15d8f39af868ab, type: 3}
   - {fileID: -6507414087772730978, guid: ff35cf7e5a43da44ba15d8f39af868ab, type: 3}
@@ -456,6 +467,38 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5223275184962788224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060149338844552580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9869f582d130364aafed5efe2ed0a2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::chechPoint
+  spinspinw: {fileID: 4864724700850797378, guid: 35c94e8b31fdb5547b2dbd21a32fcfe9, type: 3}
+  vinewhipw: {fileID: 8693129478094176439, guid: 76275e6fa5e0d8f419bb6a963338d2bb, type: 3}
+  acornshieldw: {fileID: 3525840275932651978, guid: 8482782e14318b84590be9ef9c6d1906, type: 3}
+  walljumpw: {fileID: 4864724700850797378, guid: 5f8de06458152424094715580ded4ebe, type: 3}
+  checkpointSpinspin: {fileID: 4864724700850797378, guid: 35c94e8b31fdb5547b2dbd21a32fcfe9, type: 3}
+  checkpointVineWhip: {fileID: 8693129478094176439, guid: 76275e6fa5e0d8f419bb6a963338d2bb, type: 3}
+  checkpointAcornShield: {fileID: 3525840275932651978, guid: 8482782e14318b84590be9ef9c6d1906, type: 3}
+  checkpointWallJump: {fileID: 4864724700850797378, guid: 5f8de06458152424094715580ded4ebe, type: 3}
+--- !u!114 &-8779069369103663283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060149338844552580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a24577de924d184478ca352819a315be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::checkpointTP
 --- !u!1 &1392172357189832404
 GameObject:
   m_ObjectHideFlags: 0
