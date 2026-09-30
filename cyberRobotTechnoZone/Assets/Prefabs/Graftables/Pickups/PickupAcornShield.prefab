@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7917312121319778840}
   - component: {fileID: 1622003739983285929}
   m_Layer: 2
-  m_Name: AcornShield
+  m_Name: PickupAcornShield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b30e060eb0c9b74bb326ea3075ef11d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AcornShield
-  HeldOBJ: {fileID: 3525840275932651978}
+  HeldOBJ: {fileID: 3525840275932651978, guid: 8482782e14318b84590be9ef9c6d1906, type: 3}
   AttachSound: {fileID: 8300000, guid: c1ba7ca40a8cbc94a9ce0b7e95e08429, type: 3}
   achievementScreenManager: {fileID: 0}
   blockDelay: 1
