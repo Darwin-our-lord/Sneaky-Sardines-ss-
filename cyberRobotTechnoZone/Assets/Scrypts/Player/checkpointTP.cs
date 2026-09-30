@@ -37,7 +37,6 @@ public class checkpointTP : MonoBehaviour
                     interger--;
                 }
             }
-
             if (Input.GetKeyDown(KeyCode.I))
             {
                 // Go to next checkpoint
@@ -45,7 +44,6 @@ public class checkpointTP : MonoBehaviour
                 {
                     engang = true;
                     interger++;
-                    transform.position = check[interger].transform.position;
                 }
             }
             if (engang) { transform.position = check[interger].transform.position; engang = false;}
