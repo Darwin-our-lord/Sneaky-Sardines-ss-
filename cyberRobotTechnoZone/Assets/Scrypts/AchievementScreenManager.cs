@@ -42,7 +42,7 @@ public class AchievementScreenManager : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         particleSystem.Stop();
-        checkPointScript = FindAnyObjectByType<chechPoint>();
+        
     }
 
     void Update()
@@ -106,7 +106,7 @@ public class AchievementScreenManager : MonoBehaviour
             case "AcornShield":
                     currentAbility = abilities.Find((gameObject => gameObject.name == abilityName));
 
-                    if (!checkPointScript.mHasAcornShild)
+                    if (!chechPoint.HasAcornShild)
                     {
                         currentAbility.transform.Find("Unlocked").gameObject.SetActive(false);
                         GetComponent<Canvas>().worldCamera = FindAnyObjectByType<Camera>();
@@ -118,7 +118,7 @@ public class AchievementScreenManager : MonoBehaviour
                 {
                     currentAbility = abilities.Find((gameObject => gameObject.name == abilityName));
 
-                    if (!checkPointScript.mHasVineWhip)
+                    if (!chechPoint.HasVineWhip)
                     {
                         currentAbility.transform.Find("Unlocked").gameObject.SetActive(false);
                         GetComponent<Canvas>().worldCamera = FindAnyObjectByType<Camera>();
@@ -131,7 +131,7 @@ public class AchievementScreenManager : MonoBehaviour
                 {
                     currentAbility = abilities.Find((gameObject => gameObject.name == abilityName));
 
-                    if (!checkPointScript.mHasWalljump)
+                    if (!chechPoint.HasWalljump)
                     {
                         currentAbility.transform.Find("Unlocked").gameObject.SetActive(false);
                         GetComponent<Canvas>().worldCamera = FindAnyObjectByType<Camera>();
@@ -143,8 +143,7 @@ public class AchievementScreenManager : MonoBehaviour
                 {
 
                     currentAbility = abilities.Find((gameObject => gameObject.name == abilityName));
-
-                    if (!checkPointScript.mHasSpispin)
+                    if (!chechPoint.HasSpispin)
                     {
                         currentAbility.transform.Find("Unlocked").gameObject.SetActive(false);
                         GetComponent<Canvas>().worldCamera = FindAnyObjectByType<Camera>();
