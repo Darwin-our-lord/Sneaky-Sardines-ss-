@@ -40,7 +40,6 @@ public class AchievementScreenManager : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         particleSystem.Stop();
-        
     }
 
     void Update()
@@ -103,12 +102,24 @@ public class AchievementScreenManager : MonoBehaviour
         {
             case "AcornShield":
                     currentAbility = abilities.Find((gameObject => gameObject.name == abilityName));
+
+                    if (!chechPoint.AcornShild)
+                    {
+                        currentAbility.transform.Find("Unlocked").gameObject.SetActive(false);
+                    }
+
                     GetComponent<Canvas>().worldCamera = FindAnyObjectByType<Camera>();
                     animator.SetTrigger("NewAbility");
                     break;
             case "LeafAttack":
                 {
                     currentAbility = abilities.Find((gameObject => gameObject.name == abilityName));
+
+                    if (!chechPoint.HasVineWhip)
+                    {
+                        currentAbility.transform.Find("Unlocked").gameObject.SetActive(false);
+                    }
+
                     GetComponent<Canvas>().worldCamera = FindAnyObjectByType<Camera>();
                     animator.SetTrigger("NewAbility");
                     break;
@@ -116,6 +127,12 @@ public class AchievementScreenManager : MonoBehaviour
             case "WallJump":
                 {
                     currentAbility = abilities.Find((gameObject => gameObject.name == abilityName));
+
+                    if (!chechPoint.walljump)
+                    {
+                        currentAbility.transform.Find("Unlocked").gameObject.SetActive(false);
+                    }
+
                     GetComponent<Canvas>().worldCamera = FindAnyObjectByType<Camera>();
                     animator.SetTrigger("NewAbility");
                     break;
@@ -124,6 +141,12 @@ public class AchievementScreenManager : MonoBehaviour
                 {
 
                     currentAbility = abilities.Find((gameObject => gameObject.name == abilityName));
+
+                    if (!chechPoint.HasSpispin)
+                    {
+                        currentAbility.transform.Find("Unlocked").gameObject.SetActive(false);
+                    }
+
                     GetComponent<Canvas>().worldCamera = FindAnyObjectByType<Camera>();
                     animator.SetTrigger("NewAbility");
                     break;
