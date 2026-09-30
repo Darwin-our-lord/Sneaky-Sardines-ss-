@@ -15,6 +15,8 @@ public class AchievementScreenManager : MonoBehaviour
     private Animator animator;
 
     [SerializeField] private ParticleSystem particleSystem;
+    [SerializeField] private ParticleSystem particleSystemTwo;
+
     [SerializeField] private GameObject pauseUI;
 
     public static AchievementScreenManager instance;
@@ -72,16 +74,23 @@ public class AchievementScreenManager : MonoBehaviour
 
     private void ShowNewAchivement()
     {
-        currentAbility.transform.Find("Locked").gameObject.SetActive(false);
         currentAbility.transform.Find("Unlocked").gameObject.SetActive(true);
     }
     private void RevealNewAbility()
     {
-        currentAbility.GetComponent<Image>().color = Color.white;
         particleSystem.transform.position = currentAbility.transform.position;
         if (isShowing == true)
         {
-            particleSystem.Emit(20);
+            particleSystem.Emit(45);
+        }
+    }
+    private void PlayParticlesTwo()
+    {
+        particleSystemTwo.transform.position = currentAbility.transform.position;
+    
+        if (isShowing == true)
+        {
+            particleSystemTwo.Emit(10);
         }
     }
     public void UnlockNewAbility(string abilityName)
