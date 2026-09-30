@@ -14,7 +14,6 @@ public class spinspin : GraftablePart
     private void Awake()
     {
         spinspin.spinspinifikation = false;
-
     }
     protected override void OnAttach()
     {
@@ -25,6 +24,7 @@ public class spinspin : GraftablePart
         Debug.Log($"spinspin{spinspinifikation}");
         parentRb = GetComponentInParent<Rigidbody2D>();
         player = GetComponentInParent<PlayerMovement>();
+        achievementScreenManager = FindAnyObjectByType<AchievementScreenManager>();
         achievementScreenManager.UnlockNewAbility("SpinSpin");
         transform.localPosition += new Vector3(0.5f, 2.5f, 0f);
 
