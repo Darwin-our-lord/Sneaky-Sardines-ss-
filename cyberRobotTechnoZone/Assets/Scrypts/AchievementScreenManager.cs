@@ -106,7 +106,7 @@ public class AchievementScreenManager : MonoBehaviour
             case "AcornShield":
                     currentAbility = abilities.Find((gameObject => gameObject.name == abilityName));
 
-                    if (!checkPointScript.HasAcornShild)
+                    if (!checkPointScript.mHasAcornShild)
                     {
                         currentAbility.transform.Find("Unlocked").gameObject.SetActive(false);
                         GetComponent<Canvas>().worldCamera = FindAnyObjectByType<Camera>();
@@ -118,7 +118,7 @@ public class AchievementScreenManager : MonoBehaviour
                 {
                     currentAbility = abilities.Find((gameObject => gameObject.name == abilityName));
 
-                    if (!checkPointScript.HasVineWhip)
+                    if (!checkPointScript.mHasVineWhip)
                     {
                         currentAbility.transform.Find("Unlocked").gameObject.SetActive(false);
                         GetComponent<Canvas>().worldCamera = FindAnyObjectByType<Camera>();
@@ -131,7 +131,7 @@ public class AchievementScreenManager : MonoBehaviour
                 {
                     currentAbility = abilities.Find((gameObject => gameObject.name == abilityName));
 
-                    if (!checkPointScript.HasWalljump)
+                    if (!checkPointScript.mHasWalljump)
                     {
                         currentAbility.transform.Find("Unlocked").gameObject.SetActive(false);
                         GetComponent<Canvas>().worldCamera = FindAnyObjectByType<Camera>();
@@ -144,7 +144,7 @@ public class AchievementScreenManager : MonoBehaviour
 
                     currentAbility = abilities.Find((gameObject => gameObject.name == abilityName));
 
-                    if (!checkPointScript.HasSpispin)
+                    if (!checkPointScript.mHasSpispin)
                     {
                         currentAbility.transform.Find("Unlocked").gameObject.SetActive(false);
                         GetComponent<Canvas>().worldCamera = FindAnyObjectByType<Camera>();

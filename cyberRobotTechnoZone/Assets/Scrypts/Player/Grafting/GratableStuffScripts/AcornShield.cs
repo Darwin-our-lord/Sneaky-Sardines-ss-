@@ -80,9 +80,10 @@ public class AcornShield : GraftablePart
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!blocking) return;
-        
         base.OnTriggerEnter2D(collision);
+
+        if (!blocking) return;
+
         if (held && collision.gameObject.CompareTag("Enemy"))
         {
             Vector3 knockbackDirection;
