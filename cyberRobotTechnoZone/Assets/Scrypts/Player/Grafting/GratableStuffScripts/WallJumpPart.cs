@@ -16,7 +16,7 @@ public class WallJumpPart : GraftablePart
     private InputAction jumpAction;
     private bool wasJumpKeyHeld;
 
-    private float jumpForce = 20;
+    private float jumpForce = 15;
 
     [SerializeField] AudioClip AttachSound; // The sound of the player attaching the spinspin
     [SerializeField] AchievementScreenManager achievementScreenManager; // Reference to the AchievementScreenManager script on canvas
@@ -66,7 +66,7 @@ public class WallJumpPart : GraftablePart
         if (jumpKeyPressedThisFrame && !playerMovement.grounded && touchingWall)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x,0f);
-            rb.AddForce(wallNormal * jumpForce + Vector3.up * jumpForce, ForceMode2D.Impulse);
+            rb.AddForce(wallNormal * jumpForce + Vector3.up * jumpForce * 2, ForceMode2D.Impulse);
         }
         wasJumpKeyHeld = jumpKeyHeld;
     }
