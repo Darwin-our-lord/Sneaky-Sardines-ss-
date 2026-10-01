@@ -5,12 +5,10 @@ using UnityEngine.InputSystem;
 public class AcornShield : GraftablePart
 {
     public static bool AcornShieldw = false;
-    PlayerMovement playerMovement;
-    Rigidbody2D playerRb;
 
     [SerializeField] AudioClip AttachSound; // The sound of the player attaching the shield
     [SerializeField] AchievementScreenManager achievementScreenManager; // Reference to the AchievementScreenManager script on canvas
-
+    Animator playerAnim;
     PlayerManager playerManager;
 
     private InputActionMap actionMap;
@@ -26,6 +24,8 @@ public class AcornShield : GraftablePart
 
         blockAction = actionMap.AddAction("Block");
         blockAction.AddBinding("<Keyboard>/k");
+
+        actionMap.Enable();
     }
 
     private void Start()
@@ -36,8 +36,7 @@ public class AcornShield : GraftablePart
     protected override void OnAttach()
     {
         AcornShieldw = true;
-        playerMovement = transform.parent.GetComponent<PlayerMovement>();
-        playerRb = transform.parent.GetComponent<Rigidbody2D>();
+        playerAnim = GetComponentInParent<Animator>();
         AudioSource.PlayClipAtPoint(AttachSound, transform.position, 10f);
         Debug.Log(achievementScreenManager);
         achievementScreenManager = FindAnyObjectByType<AchievementScreenManager>();
@@ -49,15 +48,17 @@ public class AcornShield : GraftablePart
     {
         if (held)
         {
+            Debug.LogWarning(blockAction.IsPressed());
             if (playerManager == null) playerManager = FindAnyObjectByType<PlayerManager>();
             if (blockAction.IsPressed() && canBlock)
             {
+                Debug.Log("Blocking");  
                 canBlock = false;
 
                 blocking = true;
                 playerManager.shieldInvincibilty = true;
 
-                GetComponent<SpriteRenderer>().enabled = true; //change for proper visuals later please !!!--------------------------------!!!
+                playerAnim.SetTrigger("UseShield");
 
                 StartCoroutine(WaitAndStopBlock());
                 StartCoroutine(WaitAndAllowBlock());
@@ -71,13 +72,12 @@ public class AcornShield : GraftablePart
         yield return new WaitForSeconds(blockDuration);
         blocking = false;
         playerManager.shieldInvincibilty = false;
-
-        GetComponent<SpriteRenderer>().enabled = false;//change for proper visuals later please !!!--------------------------------!!!
     }
     IEnumerator WaitAndAllowBlock()
     {
         yield return new WaitForSeconds(blockDelay);
         canBlock = true;
+        Debug.Log("Can block again");
     }
 
     protected override void OnTriggerEnter2D(Collider2D collision)
