@@ -1,7 +1,9 @@
 using UnityEngine;
+
+// trigger collider on the boss's head, don't tag it Enemy
 public class FlowerHead : MonoBehaviour
 {
-    FlowerBoss boss; //Remember la IsTrigger on yesyes, on a collider2D :3 (On the fucking barn of the flower boss, not the head itself)
+    FlowerBoss boss;
 
     void Awake()
     {
@@ -9,6 +11,17 @@ public class FlowerHead : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Check(collision);
+    }
+
+    // catches the player flying up through the head and then falling back down
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        Check(collision);
+    }
+
+    void Check(Collider2D collision)
     {
         if (boss != null && collision.CompareTag("Player"))
         {

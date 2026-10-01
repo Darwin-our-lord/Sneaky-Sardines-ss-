@@ -68,9 +68,12 @@ public class Enemy : MonoBehaviour
 
     protected void SpawnDamagePrefab()
     {
+        SpawnDamagePrefab(transform.position);
+    }    protected void SpawnDamagePrefab(Vector3 position)
+    {
         if (damagePrefab != null)
         {
-            GameObject spawned = Instantiate(damagePrefab, transform.position + damageSpawnOffset, Quaternion.identity);
+            GameObject spawned = Instantiate(damagePrefab, position + damageSpawnOffset, Quaternion.identity);
             if (damagePrefabLifetime > 0f)
             {
                 Destroy(spawned, damagePrefabLifetime);
