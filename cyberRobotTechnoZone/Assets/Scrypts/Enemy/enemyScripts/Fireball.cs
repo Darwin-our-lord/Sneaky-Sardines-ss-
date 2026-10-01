@@ -32,6 +32,11 @@ public class Fireball : MonoBehaviour
             collision.GetComponent<PlayerManager>().TakeDamage(1);
             Destroy(gameObject);
         }
+        /*if()) //fucing ildkugle
+        {
+            
+            Destroy(gameObject);
+        }*/
         else if (collision.gameObject.layer == 3)
         {
             Instantiate(fireprefab, transform.position + offset, Quaternion.Euler(0, 0, 0));
