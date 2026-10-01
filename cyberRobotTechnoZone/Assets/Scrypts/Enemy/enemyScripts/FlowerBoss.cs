@@ -109,6 +109,7 @@ public class FlowerBoss : Enemy
     {
         if (fightStarted || dead) return;
         fightStarted = true;
+        player.GetComponentInChildren<Camera>().orthographicSize = 25f;
         StartCoroutine(FightLoop());
     }
 
@@ -283,6 +284,9 @@ public class FlowerBoss : Enemy
     {
         if (dead) return;
         dead = true;
+
+        player.GetComponentInChildren<Camera>().orthographicSize = 15.23f; //reset camera size
+
         StopAllCoroutines();
         if (player != null) player.GetComponent<PlayerMovement>().enabled = true;
         if (headSprite != null) headSprite.color = closedColor;
