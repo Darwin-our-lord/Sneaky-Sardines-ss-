@@ -48,11 +48,9 @@ public class AcornShield : GraftablePart
     {
         if (held)
         {
-            Debug.LogWarning(blockAction.IsPressed());
             if (playerManager == null) playerManager = FindAnyObjectByType<PlayerManager>();
             if (blockAction.IsPressed() && canBlock)
             {
-                Debug.Log("Blocking");  
                 canBlock = false;
 
                 blocking = true;
