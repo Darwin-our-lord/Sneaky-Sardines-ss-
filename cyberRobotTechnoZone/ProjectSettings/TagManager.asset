@@ -10,6 +10,7 @@ TagManager:
   - checkpoint
   - AbilityScreen
   - PauseUI
+  - Projectile
   layers:
   - Default
   - TransparentFX

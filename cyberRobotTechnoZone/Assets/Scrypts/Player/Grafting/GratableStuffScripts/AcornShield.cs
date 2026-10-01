@@ -56,7 +56,8 @@ public class AcornShield : GraftablePart
 
                 blocking = true;
                 playerManager.shieldInvincibilty = true;
-                GetComponent<SpriteRenderer>().enabled = true;
+
+                GetComponent<SpriteRenderer>().enabled = true; //change for proper visuals later please !!!--------------------------------!!!
 
                 StartCoroutine(WaitAndStopBlock());
                 StartCoroutine(WaitAndAllowBlock());
@@ -70,7 +71,8 @@ public class AcornShield : GraftablePart
         yield return new WaitForSeconds(blockDuration);
         blocking = false;
         playerManager.shieldInvincibilty = false;
-        GetComponent<SpriteRenderer>().enabled = false;
+
+        GetComponent<SpriteRenderer>().enabled = false;//change for proper visuals later please !!!--------------------------------!!!
     }
     IEnumerator WaitAndAllowBlock()
     {
@@ -84,18 +86,22 @@ public class AcornShield : GraftablePart
 
         if (!blocking) return;
 
+        if(held && collision.gameObject.CompareTag("Projectile"))
+        {
+            Vector3 knockbackDirection;
+            knockbackDirection = (collision.transform.position - transform.position).normalized;
+
+            if(collision.GetComponent<Fireball>() != null)
+            {
+                collision.GetComponent<Fireball>().target = collision.transform.position + knockbackDirection * 2f;
+            }
+
+        }
+
         if (held && collision.gameObject.CompareTag("Enemy"))
         {
             Vector3 knockbackDirection;
-            if (playerRb.linearVelocity.magnitude < 0.1f)
-            {
-                knockbackDirection = gameObject.transform.eulerAngles;
-            }
-            else
-            {
-                knockbackDirection = playerMovement.facingRight ? Vector3.right : Vector3.left;
-            }
-
+            knockbackDirection = (collision.transform.position - transform.position).normalized;
 
             if (collision.GetComponent<Enemy>() == null)
             {
