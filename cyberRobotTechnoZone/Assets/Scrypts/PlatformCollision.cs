@@ -15,7 +15,6 @@ public class PlatformCollision : MonoBehaviour
         moveAction = actionMap.AddAction("Down");
         moveAction.AddBinding("<Keyboard>/s");
         moveAction.AddBinding("<Keyboard>/downArrow");
-        collider = GetComponent<Collider2D>();
         actionMap.Enable();
     }
     private void Update()
@@ -23,20 +22,27 @@ public class PlatformCollision : MonoBehaviour
         if (moveAction.IsPressed() && isOnPlatform == true)
         {
             collider.isTrigger = true;
-            gameObject.layer = 0;
+            collider.gameObject.layer = 0;
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        isOnPlatform = true;
-
+        if (collision.gameObject.GetComponent<PlatformEffector2D>() != null)
+        {
+            isOnPlatform = true;
+            collider = collision.collider;
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        isOnPlatform = false;
-        gameObject.layer = 3;
+        if (collision.gameObject.GetComponent<PlatformEffector2D>() != null)
+        {
+            isOnPlatform = false;
+            collider.gameObject.layer = 3;
+
+        }
 
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -44,6 +50,6 @@ public class PlatformCollision : MonoBehaviour
         
         isOnPlatform = false;
         collider.isTrigger = false;
-        gameObject.layer = 3;
+        collider.gameObject.layer = 3;
     }
 }
