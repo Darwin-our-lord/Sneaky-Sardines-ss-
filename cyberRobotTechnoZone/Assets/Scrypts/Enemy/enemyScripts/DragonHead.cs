@@ -3,6 +3,10 @@ using UnityEngine;
 public class DragonHead : Enemy
 {
     bool isStunned = false;
+    public void Stun()
+    {
+        isStunned = true;
+    }
     public override void TakeDamage(int damage)
     {
         if (!isStunned) return;

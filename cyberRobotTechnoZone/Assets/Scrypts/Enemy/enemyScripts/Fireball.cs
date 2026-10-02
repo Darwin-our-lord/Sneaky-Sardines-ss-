@@ -29,14 +29,21 @@ public class Fireball : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            if(collision.GetComponent<PlayerManager>().shieldInvincibilty)
+            {
+                Vector3 knockbackDirection;
+                knockbackDirection = (collision.transform.position - transform.position).normalized;
+                target = collision.transform.position + knockbackDirection * 2f;
+                return;
+            }
             collision.GetComponent<PlayerManager>().TakeDamage(1);
             Destroy(gameObject);
         }
-        /*if()) //fucing ildkugle
+        if(collision.CompareTag("Dragon")) //fucing ildkugle
         {
-            
+            GameObject.Find("Dragon").GetComponent<DragonHead>().Stun();
             Destroy(gameObject);
-        }*/
+        }
         else if (collision.gameObject.layer == 3)
         {
             Instantiate(fireprefab, transform.position + offset, Quaternion.Euler(0, 0, 0));
