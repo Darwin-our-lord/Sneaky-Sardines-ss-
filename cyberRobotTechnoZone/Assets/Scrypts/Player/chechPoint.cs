@@ -74,7 +74,7 @@ public class chechPoint : MonoBehaviour
             if (!HasVineWhip) { HasVineWhip = PlantWhip.Whippywhippy; mHasVineWhip = HasVineWhip; }
             if (!HasAcornShild) { HasAcornShild = AcornShield.AcornShieldw; mHasAcornShild = HasAcornShild;  }
             if (!HasWalljump) { }
-            if (checkpointTP.check.Contains(collision.gameObject)){ chackpoint = transform.position; }
+            chackpoint = transform.position; 
             Debug.Log($"spin{HasSpispin}");
         }
     }
