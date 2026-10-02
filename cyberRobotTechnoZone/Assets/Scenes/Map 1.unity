@@ -4156,7 +4156,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1060149338844552580, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 1511049170}
   m_SourcePrefab: {fileID: 100100000, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
 --- !u!1 &57130502 stripped
 GameObject:
@@ -99822,6 +99825,18 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 1773653329305554706, guid: b098fda6c8623c0479d74e6fae3a0066, type: 3}
   m_PrefabInstance: {fileID: 57130501}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1511049170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57130502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7f588cc3362e4444a7681ded5c7ef57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlatformCollision
 --- !u!1001 &1511994594
 PrefabInstance:
   m_ObjectHideFlags: 0
